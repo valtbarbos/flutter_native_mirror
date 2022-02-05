@@ -1,0 +1,106 @@
+// See README.txt for information and build instructions.
+//
+// Note: START and END tags are used in comments to define sections used in
+// tutorials.  They are not part of the syntax for Protocol Buffers.
+//
+// To get an in-depth walkthrough of this file and the related examples, see:
+// https://developers.google.com/protocol-buffers/docs/tutorials
+
+// [START declaration]
+syntax = "proto3";
+package protos;
+
+import "google/protobuf/any.proto";
+
+import "google/protobuf/timestamp.proto";
+
+// [END declaration]
+
+// [START java_declaration]
+option java_multiple_files = false;
+option java_package = "br.com.alvertabbaros.flutter_native_mirror.protos";
+option java_outer_classname = "Protos";
+option objc_class_prefix = "Protos";
+// [END java_declaration]
+
+// [START csharp_declaration]
+// option csharp_namespace = "Google.Protobuf.Examples.AddressBook";
+// [END csharp_declaration]
+
+// [START go_declaration]
+// option go_package = "github.com/protocolbuffers/protobuf/examples/go/tutorialpb";
+// [END go_declaration]
+
+// [START messages]
+
+message Header {
+
+  string id = 1; 
+    
+  string objectClass = 2;
+  
+  string actionMethod = 3;
+
+  string callBackMethodHandler = 6;
+
+  string cancelationMethod = 7;
+
+  int32 callBackId = 8;
+
+  enum CommunicationType {
+    SETUP = 0;
+    CANCELATION = 1;
+  }
+
+  CommunicationType communicationType = 4;
+
+  google.protobuf.Timestamp last_updated = 5;
+}
+
+message Error {
+
+  string message = 1;
+
+  string code = 2;
+  
+  string details = 3;
+}
+
+message Result {
+
+  string type = 1;
+  
+  string value = 2;
+
+  google.protobuf.Any valuebytes = 3;
+}
+
+message Payload {
+
+  Result result = 1;
+
+  Error error = 2;
+}
+
+message Generic {
+
+  string data = 1;
+}
+
+message MirrorMethodCall {
+
+  string method = 1;
+
+  google.protobuf.Any arguments = 2;
+}
+
+message Message {
+
+  Header header = 1;
+  
+  Payload payload = 2;
+
+  MirrorMethodCall methodCall = 3;
+}
+
+// [END messages]
