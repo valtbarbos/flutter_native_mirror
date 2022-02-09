@@ -30,3 +30,4 @@ build/
 
 plugin.code-workspace
 ref.code-workspace
+example/pubspec.lock
