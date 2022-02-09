@@ -129,8 +129,11 @@ class CallBacksController implements ICallBacksController {
     required CallBackMethod<MirrorMethodCall, Error> call,
   }) {
     if (isAlreadyRegistered(actionMethod: call.message.header.actionMethod)) {
-      throw Exception(
-          'actionMethod: [call.message.header.actionMethod] already registered.');
+      // throw Exception(
+      //     'actionMethod: [call.message.header.actionMethod] already registered.');
+      log('SUPOSE TO: \nthrow Exception(\'actionMethod: [call.message.header.actionMethod] already registered.\');',
+          level: 2000);
+      return;
     }
 
     _nextCallbackId++;
