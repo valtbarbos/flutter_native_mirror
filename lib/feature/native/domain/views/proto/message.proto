@@ -68,7 +68,9 @@ message Error {
 
 message Result {
 
-  string type = 1;
+  bool shouldBeEmpty = 4;
+
+  bool type = 1;
   
   string value = 2;
 

@@ -2,9 +2,18 @@
 
 part of './models.devicekit.dart';
 
+extension ResultX on Result {
+  bool isEmpty() {
+    return this.shouldBeEmpty;
+  }
+}
+
 extension PayloadX on Payload {
   bool isInvalid() {
-    return error.code.isEmpty && result.value.isEmpty;
+    return !result.shouldBeEmpty &&
+        !result.valuebytes.hasValue() &&
+        result.value.isEmpty &&
+        error.code.isEmpty;
   }
 
   bool hasReportedErrors() {
@@ -14,6 +23,9 @@ extension PayloadX on Payload {
 
 extension MessageX on Message {
   //
+
+  bool isEmptyResult() => payload.result.shouldBeEmpty;
+
   Future<Result> validation() async {
     final payload = this.payload;
 

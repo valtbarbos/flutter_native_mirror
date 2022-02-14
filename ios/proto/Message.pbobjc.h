@@ -144,9 +144,12 @@ typedef GPB_ENUM(ProtosResult_FieldNumber) {
   ProtosResult_FieldNumber_Type = 1,
   ProtosResult_FieldNumber_Value = 2,
   ProtosResult_FieldNumber_Valuebytes = 3,
+  ProtosResult_FieldNumber_ShouldBeEmpty = 4,
 };
 
 @interface ProtosResult : GPBMessage
+
+@property(nonatomic, readwrite) BOOL shouldBeEmpty;
 
 @property(nonatomic, readwrite, copy, null_resettable) NSString *type;
 

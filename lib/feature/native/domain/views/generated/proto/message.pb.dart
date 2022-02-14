@@ -243,6 +243,7 @@ class Result extends $pb.GeneratedMessage {
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'type')
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'value')
     ..aOM<$1.Any>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'valuebytes', subBuilder: $1.Any.create)
+    ..aOB(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'shouldBeEmpty', protoName: 'shouldBeEmpty')
     ..hasRequiredFields = false
   ;
 
@@ -251,6 +252,7 @@ class Result extends $pb.GeneratedMessage {
     $core.String? type,
     $core.String? value,
     $1.Any? valuebytes,
+    $core.bool? shouldBeEmpty,
   }) {
     final _result = create();
     if (type != null) {
@@ -261,6 +263,9 @@ class Result extends $pb.GeneratedMessage {
     }
     if (valuebytes != null) {
       _result.valuebytes = valuebytes;
+    }
+    if (shouldBeEmpty != null) {
+      _result.shouldBeEmpty = shouldBeEmpty;
     }
     return _result;
   }
@@ -313,6 +318,15 @@ class Result extends $pb.GeneratedMessage {
   void clearValuebytes() => clearField(3);
   @$pb.TagNumber(3)
   $1.Any ensureValuebytes() => $_ensure(2);
+
+  @$pb.TagNumber(4)
+  $core.bool get shouldBeEmpty => $_getBF(3);
+  @$pb.TagNumber(4)
+  set shouldBeEmpty($core.bool v) { $_setBool(3, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasShouldBeEmpty() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearShouldBeEmpty() => clearField(4);
 }
 
 class Payload extends $pb.GeneratedMessage {

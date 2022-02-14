@@ -286,6 +286,7 @@ typedef struct ProtosError__storage_ {
 
 @implementation ProtosResult
 
+@dynamic shouldBeEmpty;
 @dynamic type;
 @dynamic value;
 @dynamic hasValuebytes, valuebytes;
@@ -307,7 +308,7 @@ typedef struct ProtosResult__storage_ {
         .name = "type",
         .dataTypeSpecific.className = NULL,
         .number = ProtosResult_FieldNumber_Type,
-        .hasIndex = 0,
+        .hasIndex = 2,
         .offset = (uint32_t)offsetof(ProtosResult__storage_, type),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeString,
@@ -316,7 +317,7 @@ typedef struct ProtosResult__storage_ {
         .name = "value",
         .dataTypeSpecific.className = NULL,
         .number = ProtosResult_FieldNumber_Value,
-        .hasIndex = 1,
+        .hasIndex = 3,
         .offset = (uint32_t)offsetof(ProtosResult__storage_, value),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeString,
@@ -325,10 +326,19 @@ typedef struct ProtosResult__storage_ {
         .name = "valuebytes",
         .dataTypeSpecific.className = GPBStringifySymbol(GPBAny),
         .number = ProtosResult_FieldNumber_Valuebytes,
-        .hasIndex = 2,
+        .hasIndex = 4,
         .offset = (uint32_t)offsetof(ProtosResult__storage_, valuebytes),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeMessage,
+      },
+      {
+        .name = "shouldBeEmpty",
+        .dataTypeSpecific.className = NULL,
+        .number = ProtosResult_FieldNumber_ShouldBeEmpty,
+        .hasIndex = 0,
+        .offset = 1,  // Stored in _has_storage_ to save space.
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeBool,
       },
     };
     GPBDescriptor *localDescriptor =
@@ -339,6 +349,11 @@ typedef struct ProtosResult__storage_ {
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(ProtosResult__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
+#if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
+    static const char *extraTextFormatInfo =
+        "\001\004\r\000";
+    [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
+#endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     NSAssert(descriptor == nil, @"Startup recursed!");
     descriptor = localDescriptor;
   }

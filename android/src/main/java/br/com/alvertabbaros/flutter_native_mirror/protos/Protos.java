@@ -2390,6 +2390,11 @@ public final class Protos {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <code>bool shouldBeEmpty = 4;</code>
+     */
+    boolean getShouldBeEmpty();
+
+    /**
      * <code>string type = 1;</code>
      */
     java.lang.String getType();
@@ -2435,6 +2440,7 @@ public final class Protos {
       super(builder);
     }
     private Result() {
+      shouldBeEmpty_ = false;
       type_ = "";
       value_ = "";
     }
@@ -2488,6 +2494,11 @@ public final class Protos {
 
               break;
             }
+            case 32: {
+
+              shouldBeEmpty_ = input.readBool();
+              break;
+            }
             default: {
               if (!parseUnknownFieldProto3(
                   input, unknownFields, extensionRegistry, tag)) {
@@ -2518,6 +2529,15 @@ public final class Protos {
       return br.com.alvertabbaros.flutter_native_mirror.protos.Protos.internal_static_protos_Result_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result.class, br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result.Builder.class);
+    }
+
+    public static final int SHOULDBEEMPTY_FIELD_NUMBER = 4;
+    private boolean shouldBeEmpty_;
+    /**
+     * <code>bool shouldBeEmpty = 4;</code>
+     */
+    public boolean getShouldBeEmpty() {
+      return shouldBeEmpty_;
     }
 
     public static final int TYPE_FIELD_NUMBER = 1;
@@ -2632,6 +2652,9 @@ public final class Protos {
       if (valuebytes_ != null) {
         output.writeMessage(3, getValuebytes());
       }
+      if (shouldBeEmpty_ != false) {
+        output.writeBool(4, shouldBeEmpty_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -2651,6 +2674,10 @@ public final class Protos {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(3, getValuebytes());
       }
+      if (shouldBeEmpty_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(4, shouldBeEmpty_);
+      }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
       return size;
@@ -2667,6 +2694,8 @@ public final class Protos {
       br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result other = (br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result) obj;
 
       boolean result = true;
+      result = result && (getShouldBeEmpty()
+          == other.getShouldBeEmpty());
       result = result && getType()
           .equals(other.getType());
       result = result && getValue()
@@ -2687,6 +2716,9 @@ public final class Protos {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + SHOULDBEEMPTY_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getShouldBeEmpty());
       hash = (37 * hash) + TYPE_FIELD_NUMBER;
       hash = (53 * hash) + getType().hashCode();
       hash = (37 * hash) + VALUE_FIELD_NUMBER;
@@ -2828,6 +2860,8 @@ public final class Protos {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        shouldBeEmpty_ = false;
+
         type_ = "";
 
         value_ = "";
@@ -2864,6 +2898,7 @@ public final class Protos {
       @java.lang.Override
       public br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result buildPartial() {
         br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result result = new br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result(this);
+        result.shouldBeEmpty_ = shouldBeEmpty_;
         result.type_ = type_;
         result.value_ = value_;
         if (valuebytesBuilder_ == null) {
@@ -2919,6 +2954,9 @@ public final class Protos {
 
       public Builder mergeFrom(br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result other) {
         if (other == br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result.getDefaultInstance()) return this;
+        if (other.getShouldBeEmpty() != false) {
+          setShouldBeEmpty(other.getShouldBeEmpty());
+        }
         if (!other.getType().isEmpty()) {
           type_ = other.type_;
           onChanged();
@@ -2956,6 +2994,32 @@ public final class Protos {
             mergeFrom(parsedMessage);
           }
         }
+        return this;
+      }
+
+      private boolean shouldBeEmpty_ ;
+      /**
+       * <code>bool shouldBeEmpty = 4;</code>
+       */
+      public boolean getShouldBeEmpty() {
+        return shouldBeEmpty_;
+      }
+      /**
+       * <code>bool shouldBeEmpty = 4;</code>
+       */
+      public Builder setShouldBeEmpty(boolean value) {
+        
+        shouldBeEmpty_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>bool shouldBeEmpty = 4;</code>
+       */
+      public Builder clearShouldBeEmpty() {
+        
+        shouldBeEmpty_ = false;
+        onChanged();
         return this;
       }
 
@@ -6412,18 +6476,19 @@ public final class Protos {
       "otobuf.Timestamp\"/\n\021CommunicationType\022\t\n" +
       "\005SETUP\020\000\022\017\n\013CANCELATION\020\001\"7\n\005Error\022\017\n\007me" +
       "ssage\030\001 \001(\t\022\014\n\004code\030\002 \001(\t\022\017\n\007details\030\003 \001" +
-      "(\t\"O\n\006Result\022\014\n\004type\030\001 \001(\t\022\r\n\005value\030\002 \001(" +
-      "\t\022(\n\nvaluebytes\030\003 \001(\0132\024.google.protobuf." +
-      "Any\"G\n\007Payload\022\036\n\006result\030\001 \001(\0132\016.protos." +
-      "Result\022\034\n\005error\030\002 \001(\0132\r.protos.Error\"\027\n\007" +
-      "Generic\022\014\n\004data\030\001 \001(\t\"K\n\020MirrorMethodCal" +
-      "l\022\016\n\006method\030\001 \001(\t\022\'\n\targuments\030\002 \001(\0132\024.g" +
-      "oogle.protobuf.Any\"y\n\007Message\022\036\n\006header\030" +
-      "\001 \001(\0132\016.protos.Header\022 \n\007payload\030\002 \001(\0132\017" +
-      ".protos.Payload\022,\n\nmethodCall\030\003 \001(\0132\030.pr" +
-      "otos.MirrorMethodCallBD\n/com.medm.device" +
-      "kit.flutter_native_mirror.protosB\006Protos" +
-      "P\000\242\002\006Protosb\006proto3"
+      "(\t\"f\n\006Result\022\025\n\rshouldBeEmpty\030\004 \001(\010\022\014\n\004t" +
+      "ype\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\022(\n\nvaluebytes\030\003" +
+      " \001(\0132\024.google.protobuf.Any\"G\n\007Payload\022\036\n" +
+      "\006result\030\001 \001(\0132\016.protos.Result\022\034\n\005error\030\002" +
+      " \001(\0132\r.protos.Error\"\027\n\007Generic\022\014\n\004data\030\001" +
+      " \001(\t\"K\n\020MirrorMethodCall\022\016\n\006method\030\001 \001(\t" +
+      "\022\'\n\targuments\030\002 \001(\0132\024.google.protobuf.An" +
+      "y\"y\n\007Message\022\036\n\006header\030\001 \001(\0132\016.protos.He" +
+      "ader\022 \n\007payload\030\002 \001(\0132\017.protos.Payload\022," +
+      "\n\nmethodCall\030\003 \001(\0132\030.protos.MirrorMethod" +
+      "CallBF\n1br.com.alvertabbaros.flutter_nat" +
+      "ive_mirror.protosB\006ProtosP\000\242\002\006Protosb\006pr" +
+      "oto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -6456,7 +6521,7 @@ public final class Protos {
     internal_static_protos_Result_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protos_Result_descriptor,
-        new java.lang.String[] { "Type", "Value", "Valuebytes", });
+        new java.lang.String[] { "ShouldBeEmpty", "Type", "Value", "Valuebytes", });
     internal_static_protos_Payload_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_protos_Payload_fieldAccessorTable = new
