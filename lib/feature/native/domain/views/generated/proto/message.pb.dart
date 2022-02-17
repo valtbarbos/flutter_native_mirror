@@ -18,7 +18,7 @@ export 'message.pbenum.dart';
 class Header extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Header', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'protos'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id')
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'objectClass', protoName: 'objectClass')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'namespace')
     ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'actionMethod', protoName: 'actionMethod')
     ..e<Header_CommunicationType>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'communicationType', $pb.PbFieldType.OE, protoName: 'communicationType', defaultOrMaker: Header_CommunicationType.SETUP, valueOf: Header_CommunicationType.valueOf, enumValues: Header_CommunicationType.values)
     ..aOS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'callBackMethodHandler', protoName: 'callBackMethodHandler')
@@ -30,7 +30,7 @@ class Header extends $pb.GeneratedMessage {
   Header._() : super();
   factory Header({
     $core.String? id,
-    $core.String? objectClass,
+    $core.String? namespace,
     $core.String? actionMethod,
     Header_CommunicationType? communicationType,
     $core.String? callBackMethodHandler,
@@ -41,8 +41,8 @@ class Header extends $pb.GeneratedMessage {
     if (id != null) {
       _result.id = id;
     }
-    if (objectClass != null) {
-      _result.objectClass = objectClass;
+    if (namespace != null) {
+      _result.namespace = namespace;
     }
     if (actionMethod != null) {
       _result.actionMethod = actionMethod;
@@ -92,13 +92,13 @@ class Header extends $pb.GeneratedMessage {
   void clearId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.String get objectClass => $_getSZ(1);
+  $core.String get namespace => $_getSZ(1);
   @$pb.TagNumber(2)
-  set objectClass($core.String v) { $_setString(1, v); }
+  set namespace($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasObjectClass() => $_has(1);
+  $core.bool hasNamespace() => $_has(1);
   @$pb.TagNumber(2)
-  void clearObjectClass() => clearField(2);
+  void clearNamespace() => clearField(2);
 
   @$pb.TagNumber(3)
   $core.String get actionMethod => $_getSZ(2);

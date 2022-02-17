@@ -129,7 +129,7 @@ public class BusinessMethods {
         // to each other
 
         header.setId(message.getHeader().getId());
-        header.setObjectClass(message.getHeader().getObjectClass());
+        header.setnamespace(message.getHeader().getnamespace());
         header.setActionMethod(message.getHeader().getActionMethod());
 
         // just an improvement
@@ -174,7 +174,7 @@ public class BusinessMethods {
 
         pHeader.setId(baseHeader.getId());
         pHeader.setCallBackId(baseHeader.getCallBackId());
-        pHeader.setObjectClass(baseHeader.getObjectClass());
+        pHeader.setnamespace(baseHeader.getnamespace());
         pHeader.setActionMethod(baseHeader.getActionMethod());
         pHeader.setActionMethodBytes(baseHeader.getActionMethodBytes());
 

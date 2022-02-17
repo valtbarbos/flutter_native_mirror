@@ -50,7 +50,7 @@ static GPBFileDescriptor *ProtosMessageRoot_FileDescriptor(void) {
 @implementation ProtosHeader
 
 @dynamic id_p;
-@dynamic objectClass;
+@dynamic namespace_p;
 @dynamic actionMethod;
 @dynamic callBackMethodHandler;
 @dynamic cancelationMethod;
@@ -62,7 +62,7 @@ typedef struct ProtosHeader__storage_ {
   ProtosHeader_CommunicationType communicationType;
   int32_t callBackId;
   NSString *id_p;
-  NSString *objectClass;
+  NSString *namespace_p;
   NSString *actionMethod;
   NSString *callBackMethodHandler;
   NSString *cancelationMethod;
@@ -84,12 +84,12 @@ typedef struct ProtosHeader__storage_ {
         .dataType = GPBDataTypeString,
       },
       {
-        .name = "objectClass",
+        .name = "namespace_p",
         .dataTypeSpecific.className = NULL,
-        .number = ProtosHeader_FieldNumber_ObjectClass,
+        .number = ProtosHeader_FieldNumber_Namespace_p,
         .hasIndex = 1,
-        .offset = (uint32_t)offsetof(ProtosHeader__storage_, objectClass),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .offset = (uint32_t)offsetof(ProtosHeader__storage_, namespace_p),
+        .flags = GPBFieldOptional,
         .dataType = GPBDataTypeString,
       },
       {
@@ -148,7 +148,7 @@ typedef struct ProtosHeader__storage_ {
                                          flags:GPBDescriptorInitializationFlag_None];
 #if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     static const char *extraTextFormatInfo =
-        "\006\002\013\000\003\014\000\004\021\000\006\025\000\007\021\000\010\n\000";
+        "\005\003\014\000\004\021\000\006\025\000\007\021\000\010\n\000";
     [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
 #endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     NSAssert(descriptor == nil, @"Startup recursed!");

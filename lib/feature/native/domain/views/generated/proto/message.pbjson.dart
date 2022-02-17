@@ -13,7 +13,7 @@ const Header$json = const {
   '1': 'Header',
   '2': const [
     const {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
-    const {'1': 'objectClass', '3': 2, '4': 1, '5': 9, '10': 'objectClass'},
+    const {'1': 'namespace', '3': 2, '4': 1, '5': 9, '10': 'namespace'},
     const {'1': 'actionMethod', '3': 3, '4': 1, '5': 9, '10': 'actionMethod'},
     const {'1': 'callBackMethodHandler', '3': 6, '4': 1, '5': 9, '10': 'callBackMethodHandler'},
     const {'1': 'cancelationMethod', '3': 7, '4': 1, '5': 9, '10': 'cancelationMethod'},
@@ -33,7 +33,7 @@ const Header_CommunicationType$json = const {
 };
 
 /// Descriptor for `Header`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List headerDescriptor = $convert.base64Decode('CgZIZWFkZXISDgoCaWQYASABKAlSAmlkEiAKC29iamVjdENsYXNzGAIgASgJUgtvYmplY3RDbGFzcxIiCgxhY3Rpb25NZXRob2QYAyABKAlSDGFjdGlvbk1ldGhvZBI0ChVjYWxsQmFja01ldGhvZEhhbmRsZXIYBiABKAlSFWNhbGxCYWNrTWV0aG9kSGFuZGxlchIsChFjYW5jZWxhdGlvbk1ldGhvZBgHIAEoCVIRY2FuY2VsYXRpb25NZXRob2QSHgoKY2FsbEJhY2tJZBgIIAEoBVIKY2FsbEJhY2tJZBJOChFjb21tdW5pY2F0aW9uVHlwZRgEIAEoDjIgLnByb3Rvcy5IZWFkZXIuQ29tbXVuaWNhdGlvblR5cGVSEWNvbW11bmljYXRpb25UeXBlIi8KEUNvbW11bmljYXRpb25UeXBlEgkKBVNFVFVQEAASDwoLQ0FOQ0VMQVRJT04QAQ==');
+final $typed_data.Uint8List headerDescriptor = $convert.base64Decode('CgZIZWFkZXISDgoCaWQYASABKAlSAmlkEhwKCW5hbWVzcGFjZRgCIAEoCVIJbmFtZXNwYWNlEiIKDGFjdGlvbk1ldGhvZBgDIAEoCVIMYWN0aW9uTWV0aG9kEjQKFWNhbGxCYWNrTWV0aG9kSGFuZGxlchgGIAEoCVIVY2FsbEJhY2tNZXRob2RIYW5kbGVyEiwKEWNhbmNlbGF0aW9uTWV0aG9kGAcgASgJUhFjYW5jZWxhdGlvbk1ldGhvZBIeCgpjYWxsQmFja0lkGAggASgFUgpjYWxsQmFja0lkEk4KEWNvbW11bmljYXRpb25UeXBlGAQgASgOMiAucHJvdG9zLkhlYWRlci5Db21tdW5pY2F0aW9uVHlwZVIRY29tbXVuaWNhdGlvblR5cGUiLwoRQ29tbXVuaWNhdGlvblR5cGUSCQoFU0VUVVAQABIPCgtDQU5DRUxBVElPThAB');
 @$core.Deprecated('Use errorDescriptor instead')
 const Error$json = const {
   '1': 'Error',

@@ -137,7 +137,7 @@ public class EntrypointHandler implements MethodCallHandler {
 
             if (businessInstance == null){
                 businessInstance = newBusinessInstance(
-                        receivedMessage.getHeader().getObjectClass(),
+                        receivedMessage.getHeader().getnamespace(),
                         application,
                         channel);
             }

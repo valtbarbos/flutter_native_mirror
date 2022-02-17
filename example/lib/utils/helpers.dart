@@ -73,7 +73,7 @@ class NativeChannelsCommunication {
     final requestMessage = Message(
       header: Header(
         id: entrypoint.id,
-        objectClass: NativeCommunicationMetadata.businessNamespace,
+        namespace: NativeCommunicationMetadata.businessNamespace,
         actionMethod: 'simpleRpc',
       ),
     );

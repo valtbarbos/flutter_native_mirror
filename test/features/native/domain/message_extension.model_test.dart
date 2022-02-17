@@ -14,7 +14,7 @@ void main() {
     // arranje
 
     final message = PlatformEntrypoint.defaultListenerSetup(
-      objectClass: NativeCommunicationMetadata.businessNamespace,
+      namespace: NativeCommunicationMetadata.businessNamespace,
       actionMethod: 'playgroundStart',
       cancelationMethod: 'playgroundStop',
     );
@@ -44,7 +44,7 @@ void main() {
     // arranje
 
     final message = PlatformEntrypoint.defaultListenerSetup(
-      objectClass: NativeCommunicationMetadata.businessNamespace,
+      namespace: NativeCommunicationMetadata.businessNamespace,
       actionMethod: 'playgroundStart',
       cancelationMethod: 'playgroundStop',
     );

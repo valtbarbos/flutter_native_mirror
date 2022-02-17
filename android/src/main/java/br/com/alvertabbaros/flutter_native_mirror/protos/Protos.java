@@ -29,14 +29,14 @@ public final class Protos {
         getIdBytes();
 
     /**
-     * <code>string objectClass = 2;</code>
+     * <code>string namespace = 2;</code>
      */
-    java.lang.String getObjectClass();
+    java.lang.String getNamespace();
     /**
-     * <code>string objectClass = 2;</code>
+     * <code>string namespace = 2;</code>
      */
     com.google.protobuf.ByteString
-        getObjectClassBytes();
+        getNamespaceBytes();
 
     /**
      * <code>string actionMethod = 3;</code>
@@ -96,7 +96,7 @@ public final class Protos {
     }
     private Header() {
       id_ = "";
-      objectClass_ = "";
+      namespace_ = "";
       actionMethod_ = "";
       callBackMethodHandler_ = "";
       cancelationMethod_ = "";
@@ -137,7 +137,7 @@ public final class Protos {
             case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              objectClass_ = s;
+              namespace_ = s;
               break;
             }
             case 26: {
@@ -333,34 +333,34 @@ public final class Protos {
       }
     }
 
-    public static final int OBJECTCLASS_FIELD_NUMBER = 2;
-    private volatile java.lang.Object objectClass_;
+    public static final int NAMESPACE_FIELD_NUMBER = 2;
+    private volatile java.lang.Object namespace_;
     /**
-     * <code>string objectClass = 2;</code>
+     * <code>string namespace = 2;</code>
      */
-    public java.lang.String getObjectClass() {
-      java.lang.Object ref = objectClass_;
+    public java.lang.String getNamespace() {
+      java.lang.Object ref = namespace_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        objectClass_ = s;
+        namespace_ = s;
         return s;
       }
     }
     /**
-     * <code>string objectClass = 2;</code>
+     * <code>string namespace = 2;</code>
      */
     public com.google.protobuf.ByteString
-        getObjectClassBytes() {
-      java.lang.Object ref = objectClass_;
+        getNamespaceBytes() {
+      java.lang.Object ref = namespace_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        objectClass_ = b;
+        namespace_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -512,8 +512,8 @@ public final class Protos {
       if (!getIdBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, id_);
       }
-      if (!getObjectClassBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, objectClass_);
+      if (!getNamespaceBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, namespace_);
       }
       if (!getActionMethodBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, actionMethod_);
@@ -542,8 +542,8 @@ public final class Protos {
       if (!getIdBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, id_);
       }
-      if (!getObjectClassBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, objectClass_);
+      if (!getNamespaceBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, namespace_);
       }
       if (!getActionMethodBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, actionMethod_);
@@ -580,8 +580,8 @@ public final class Protos {
       boolean result = true;
       result = result && getId()
           .equals(other.getId());
-      result = result && getObjectClass()
-          .equals(other.getObjectClass());
+      result = result && getNamespace()
+          .equals(other.getNamespace());
       result = result && getActionMethod()
           .equals(other.getActionMethod());
       result = result && getCallBackMethodHandler()
@@ -604,8 +604,8 @@ public final class Protos {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + ID_FIELD_NUMBER;
       hash = (53 * hash) + getId().hashCode();
-      hash = (37 * hash) + OBJECTCLASS_FIELD_NUMBER;
-      hash = (53 * hash) + getObjectClass().hashCode();
+      hash = (37 * hash) + NAMESPACE_FIELD_NUMBER;
+      hash = (53 * hash) + getNamespace().hashCode();
       hash = (37 * hash) + ACTIONMETHOD_FIELD_NUMBER;
       hash = (53 * hash) + getActionMethod().hashCode();
       hash = (37 * hash) + CALLBACKMETHODHANDLER_FIELD_NUMBER;
@@ -751,7 +751,7 @@ public final class Protos {
         super.clear();
         id_ = "";
 
-        objectClass_ = "";
+        namespace_ = "";
 
         actionMethod_ = "";
 
@@ -790,7 +790,7 @@ public final class Protos {
       public br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Header buildPartial() {
         br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Header result = new br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Header(this);
         result.id_ = id_;
-        result.objectClass_ = objectClass_;
+        result.namespace_ = namespace_;
         result.actionMethod_ = actionMethod_;
         result.callBackMethodHandler_ = callBackMethodHandler_;
         result.cancelationMethod_ = cancelationMethod_;
@@ -848,8 +848,8 @@ public final class Protos {
           id_ = other.id_;
           onChanged();
         }
-        if (!other.getObjectClass().isEmpty()) {
-          objectClass_ = other.objectClass_;
+        if (!other.getNamespace().isEmpty()) {
+          namespace_ = other.namespace_;
           onChanged();
         }
         if (!other.getActionMethod().isEmpty()) {
@@ -968,71 +968,71 @@ public final class Protos {
         return this;
       }
 
-      private java.lang.Object objectClass_ = "";
+      private java.lang.Object namespace_ = "";
       /**
-       * <code>string objectClass = 2;</code>
+       * <code>string namespace = 2;</code>
        */
-      public java.lang.String getObjectClass() {
-        java.lang.Object ref = objectClass_;
+      public java.lang.String getNamespace() {
+        java.lang.Object ref = namespace_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          objectClass_ = s;
+          namespace_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string objectClass = 2;</code>
+       * <code>string namespace = 2;</code>
        */
       public com.google.protobuf.ByteString
-          getObjectClassBytes() {
-        java.lang.Object ref = objectClass_;
+          getNamespaceBytes() {
+        java.lang.Object ref = namespace_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          objectClass_ = b;
+          namespace_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string objectClass = 2;</code>
+       * <code>string namespace = 2;</code>
        */
-      public Builder setObjectClass(
+      public Builder setNamespace(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        objectClass_ = value;
+        namespace_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string objectClass = 2;</code>
+       * <code>string namespace = 2;</code>
        */
-      public Builder clearObjectClass() {
+      public Builder clearNamespace() {
         
-        objectClass_ = getDefaultInstance().getObjectClass();
+        namespace_ = getDefaultInstance().getNamespace();
         onChanged();
         return this;
       }
       /**
-       * <code>string objectClass = 2;</code>
+       * <code>string namespace = 2;</code>
        */
-      public Builder setObjectClassBytes(
+      public Builder setNamespaceBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        objectClass_ = value;
+        namespace_ = value;
         onChanged();
         return this;
       }
@@ -6199,27 +6199,26 @@ public final class Protos {
     java.lang.String[] descriptorData = {
       "\n3lib/feature/native/domain/views/proto/" +
       "message.proto\022\006protos\032\031google/protobuf/a" +
-      "ny.proto\"\373\001\n\006Header\022\n\n\002id\030\001 \001(\t\022\023\n\013objec" +
-      "tClass\030\002 \001(\t\022\024\n\014actionMethod\030\003 \001(\t\022\035\n\025ca" +
-      "llBackMethodHandler\030\006 \001(\t\022\031\n\021cancelation" +
-      "Method\030\007 \001(\t\022\022\n\ncallBackId\030\010 \001(\005\022;\n\021comm" +
-      "unicationType\030\004 \001(\0162 .protos.Header.Comm" +
-      "unicationType\"/\n\021CommunicationType\022\t\n\005SE" +
-      "TUP\020\000\022\017\n\013CANCELATION\020\001\"7\n\005Error\022\017\n\007messa" +
-      "ge\030\001 \001(\t\022\014\n\004code\030\002 \001(\t\022\017\n\007details\030\003 \001(\t\"" +
-      "f\n\006Result\022\025\n\rshouldBeEmpty\030\004 \001(\010\022\014\n\004type" +
-      "\030\001 \001(\010\022\r\n\005value\030\002 \001(\t\022(\n\nvaluebytes\030\003 \001(" +
-      "\0132\024.google.protobuf.Any\"G\n\007Payload\022\036\n\006re" +
-      "sult\030\001 \001(\0132\016.protos.Result\022\034\n\005error\030\002 \001(" +
-      "\0132\r.protos.Error\"\027\n\007Generic\022\014\n\004data\030\001 \001(" +
-      "\t\"K\n\020MirrorMethodCall\022\016\n\006method\030\001 \001(\t\022\'\n" +
-      "\targuments\030\002 \001(\0132\024.google.protobuf.Any\"y" +
-      "\n\007Message\022\036\n\006header\030\001 \001(\0132\016.protos.Heade" +
-      "r\022 \n\007payload\030\002 \001(\0132\017.protos.Payload\022,\n\nm" +
-      "ethodCall\030\003 \001(\0132\030.protos.MirrorMethodCal" +
-      "lBF\n1br.com.alvertabbaros.flutter_native" +
-      "_mirror.protosB\006ProtosP\000\242\002\006Protosb\006proto" +
-      "3"
+      "ny.proto\"\371\001\n\006Header\022\n\n\002id\030\001 \001(\t\022\021\n\tnames" +
+      "pace\030\002 \001(\t\022\024\n\014actionMethod\030\003 \001(\t\022\035\n\025call" +
+      "BackMethodHandler\030\006 \001(\t\022\031\n\021cancelationMe" +
+      "thod\030\007 \001(\t\022\022\n\ncallBackId\030\010 \001(\005\022;\n\021commun" +
+      "icationType\030\004 \001(\0162 .protos.Header.Commun" +
+      "icationType\"/\n\021CommunicationType\022\t\n\005SETU" +
+      "P\020\000\022\017\n\013CANCELATION\020\001\"7\n\005Error\022\017\n\007message" +
+      "\030\001 \001(\t\022\014\n\004code\030\002 \001(\t\022\017\n\007details\030\003 \001(\t\"f\n" +
+      "\006Result\022\025\n\rshouldBeEmpty\030\004 \001(\010\022\014\n\004type\030\001" +
+      " \001(\010\022\r\n\005value\030\002 \001(\t\022(\n\nvaluebytes\030\003 \001(\0132" +
+      "\024.google.protobuf.Any\"G\n\007Payload\022\036\n\006resu" +
+      "lt\030\001 \001(\0132\016.protos.Result\022\034\n\005error\030\002 \001(\0132" +
+      "\r.protos.Error\"\027\n\007Generic\022\014\n\004data\030\001 \001(\t\"" +
+      "K\n\020MirrorMethodCall\022\016\n\006method\030\001 \001(\t\022\'\n\ta" +
+      "rguments\030\002 \001(\0132\024.google.protobuf.Any\"y\n\007" +
+      "Message\022\036\n\006header\030\001 \001(\0132\016.protos.Header\022" +
+      " \n\007payload\030\002 \001(\0132\017.protos.Payload\022,\n\nmet" +
+      "hodCall\030\003 \001(\0132\030.protos.MirrorMethodCallB" +
+      "F\n1br.com.alvertabbaros.flutter_native_m" +
+      "irror.protosB\006ProtosP\000\242\002\006Protosb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -6239,7 +6238,7 @@ public final class Protos {
     internal_static_protos_Header_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protos_Header_descriptor,
-        new java.lang.String[] { "Id", "ObjectClass", "ActionMethod", "CallBackMethodHandler", "CancelationMethod", "CallBackId", "CommunicationType", });
+        new java.lang.String[] { "Id", "Namespace", "ActionMethod", "CallBackMethodHandler", "CancelationMethod", "CallBackId", "CommunicationType", });
     internal_static_protos_Error_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_protos_Error_fieldAccessorTable = new

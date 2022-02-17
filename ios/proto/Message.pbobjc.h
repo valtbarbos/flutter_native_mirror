@@ -76,7 +76,7 @@ BOOL ProtosHeader_CommunicationType_IsValidValue(int32_t value);
 
 typedef GPB_ENUM(ProtosHeader_FieldNumber) {
   ProtosHeader_FieldNumber_Id_p = 1,
-  ProtosHeader_FieldNumber_ObjectClass = 2,
+  ProtosHeader_FieldNumber_Namespace_p = 2,
   ProtosHeader_FieldNumber_ActionMethod = 3,
   ProtosHeader_FieldNumber_CommunicationType = 4,
   ProtosHeader_FieldNumber_CallBackMethodHandler = 6,
@@ -88,7 +88,7 @@ typedef GPB_ENUM(ProtosHeader_FieldNumber) {
 
 @property(nonatomic, readwrite, copy, null_resettable) NSString *id_p;
 
-@property(nonatomic, readwrite, copy, null_resettable) NSString *objectClass;
+@property(nonatomic, readwrite, copy, null_resettable) NSString *namespace_p;
 
 @property(nonatomic, readwrite, copy, null_resettable) NSString *actionMethod;
 

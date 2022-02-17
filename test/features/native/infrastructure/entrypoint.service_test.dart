@@ -65,7 +65,7 @@ void main() {
         final message = Message(
           header: Header(
             id: id,
-            objectClass: 'PlatformEntrypoint',
+            namespace: 'PlatformEntrypoint',
             actionMethod: 'requestWithProtobuf',
           ),
         );
@@ -73,7 +73,7 @@ void main() {
         final responseFromUint8List = Message(
           header: Header(
             id: id,
-            objectClass: 'PlatformEntrypoint',
+            namespace: 'PlatformEntrypoint',
             actionMethod: 'requestWithProtobuf',
           ),
         ).writeToBuffer();
@@ -110,7 +110,7 @@ void main() {
         final message = Message(
           header: Header(
             id: id,
-            objectClass: 'PlatformEntrypoint',
+            namespace: 'PlatformEntrypoint',
             actionMethod: 'requestWithProtobuf',
           ),
         );
@@ -216,7 +216,7 @@ void main() {
           final entry = await groupEntry(tester);
 
           final expectedAnswer = PlatformEntrypoint.defaultListenerSetup(
-            objectClass: NativeCommunicationMetadata.businessNamespace,
+            namespace: NativeCommunicationMetadata.businessNamespace,
             actionMethod: 'playgroundStart',
             cancelationMethod: 'playgroundStop',
           );
