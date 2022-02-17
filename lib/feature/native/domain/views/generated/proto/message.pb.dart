@@ -9,8 +9,7 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../google/protobuf/timestamp.pb.dart' as $0;
-import '../google/protobuf/any.pb.dart' as $1;
+import '../google/protobuf/any.pb.dart' as $0;
 
 import 'message.pbenum.dart';
 
@@ -22,7 +21,6 @@ class Header extends $pb.GeneratedMessage {
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'objectClass', protoName: 'objectClass')
     ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'actionMethod', protoName: 'actionMethod')
     ..e<Header_CommunicationType>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'communicationType', $pb.PbFieldType.OE, protoName: 'communicationType', defaultOrMaker: Header_CommunicationType.SETUP, valueOf: Header_CommunicationType.valueOf, enumValues: Header_CommunicationType.values)
-    ..aOM<$0.Timestamp>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'lastUpdated', subBuilder: $0.Timestamp.create)
     ..aOS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'callBackMethodHandler', protoName: 'callBackMethodHandler')
     ..aOS(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'cancelationMethod', protoName: 'cancelationMethod')
     ..a<$core.int>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'callBackId', $pb.PbFieldType.O3, protoName: 'callBackId')
@@ -35,7 +33,6 @@ class Header extends $pb.GeneratedMessage {
     $core.String? objectClass,
     $core.String? actionMethod,
     Header_CommunicationType? communicationType,
-    $0.Timestamp? lastUpdated,
     $core.String? callBackMethodHandler,
     $core.String? cancelationMethod,
     $core.int? callBackId,
@@ -52,9 +49,6 @@ class Header extends $pb.GeneratedMessage {
     }
     if (communicationType != null) {
       _result.communicationType = communicationType;
-    }
-    if (lastUpdated != null) {
-      _result.lastUpdated = lastUpdated;
     }
     if (callBackMethodHandler != null) {
       _result.callBackMethodHandler = callBackMethodHandler;
@@ -124,41 +118,30 @@ class Header extends $pb.GeneratedMessage {
   @$pb.TagNumber(4)
   void clearCommunicationType() => clearField(4);
 
-  @$pb.TagNumber(5)
-  $0.Timestamp get lastUpdated => $_getN(4);
-  @$pb.TagNumber(5)
-  set lastUpdated($0.Timestamp v) { setField(5, v); }
-  @$pb.TagNumber(5)
-  $core.bool hasLastUpdated() => $_has(4);
-  @$pb.TagNumber(5)
-  void clearLastUpdated() => clearField(5);
-  @$pb.TagNumber(5)
-  $0.Timestamp ensureLastUpdated() => $_ensure(4);
-
   @$pb.TagNumber(6)
-  $core.String get callBackMethodHandler => $_getSZ(5);
+  $core.String get callBackMethodHandler => $_getSZ(4);
   @$pb.TagNumber(6)
-  set callBackMethodHandler($core.String v) { $_setString(5, v); }
+  set callBackMethodHandler($core.String v) { $_setString(4, v); }
   @$pb.TagNumber(6)
-  $core.bool hasCallBackMethodHandler() => $_has(5);
+  $core.bool hasCallBackMethodHandler() => $_has(4);
   @$pb.TagNumber(6)
   void clearCallBackMethodHandler() => clearField(6);
 
   @$pb.TagNumber(7)
-  $core.String get cancelationMethod => $_getSZ(6);
+  $core.String get cancelationMethod => $_getSZ(5);
   @$pb.TagNumber(7)
-  set cancelationMethod($core.String v) { $_setString(6, v); }
+  set cancelationMethod($core.String v) { $_setString(5, v); }
   @$pb.TagNumber(7)
-  $core.bool hasCancelationMethod() => $_has(6);
+  $core.bool hasCancelationMethod() => $_has(5);
   @$pb.TagNumber(7)
   void clearCancelationMethod() => clearField(7);
 
   @$pb.TagNumber(8)
-  $core.int get callBackId => $_getIZ(7);
+  $core.int get callBackId => $_getIZ(6);
   @$pb.TagNumber(8)
-  set callBackId($core.int v) { $_setSignedInt32(7, v); }
+  set callBackId($core.int v) { $_setSignedInt32(6, v); }
   @$pb.TagNumber(8)
-  $core.bool hasCallBackId() => $_has(7);
+  $core.bool hasCallBackId() => $_has(6);
   @$pb.TagNumber(8)
   void clearCallBackId() => clearField(8);
 }
@@ -240,18 +223,18 @@ class Error extends $pb.GeneratedMessage {
 
 class Result extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Result', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'protos'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'type')
+    ..aOB(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'type')
     ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'value')
-    ..aOM<$1.Any>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'valuebytes', subBuilder: $1.Any.create)
+    ..aOM<$0.Any>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'valuebytes', subBuilder: $0.Any.create)
     ..aOB(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'shouldBeEmpty', protoName: 'shouldBeEmpty')
     ..hasRequiredFields = false
   ;
 
   Result._() : super();
   factory Result({
-    $core.String? type,
+    $core.bool? type,
     $core.String? value,
-    $1.Any? valuebytes,
+    $0.Any? valuebytes,
     $core.bool? shouldBeEmpty,
   }) {
     final _result = create();
@@ -291,9 +274,9 @@ class Result extends $pb.GeneratedMessage {
   static Result? _defaultInstance;
 
   @$pb.TagNumber(1)
-  $core.String get type => $_getSZ(0);
+  $core.bool get type => $_getBF(0);
   @$pb.TagNumber(1)
-  set type($core.String v) { $_setString(0, v); }
+  set type($core.bool v) { $_setBool(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasType() => $_has(0);
   @$pb.TagNumber(1)
@@ -309,15 +292,15 @@ class Result extends $pb.GeneratedMessage {
   void clearValue() => clearField(2);
 
   @$pb.TagNumber(3)
-  $1.Any get valuebytes => $_getN(2);
+  $0.Any get valuebytes => $_getN(2);
   @$pb.TagNumber(3)
-  set valuebytes($1.Any v) { setField(3, v); }
+  set valuebytes($0.Any v) { setField(3, v); }
   @$pb.TagNumber(3)
   $core.bool hasValuebytes() => $_has(2);
   @$pb.TagNumber(3)
   void clearValuebytes() => clearField(3);
   @$pb.TagNumber(3)
-  $1.Any ensureValuebytes() => $_ensure(2);
+  $0.Any ensureValuebytes() => $_ensure(2);
 
   @$pb.TagNumber(4)
   $core.bool get shouldBeEmpty => $_getBF(3);
@@ -444,14 +427,14 @@ class Generic extends $pb.GeneratedMessage {
 class MirrorMethodCall extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'MirrorMethodCall', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'protos'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'method')
-    ..aOM<$1.Any>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'arguments', subBuilder: $1.Any.create)
+    ..aOM<$0.Any>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'arguments', subBuilder: $0.Any.create)
     ..hasRequiredFields = false
   ;
 
   MirrorMethodCall._() : super();
   factory MirrorMethodCall({
     $core.String? method,
-    $1.Any? arguments,
+    $0.Any? arguments,
   }) {
     final _result = create();
     if (method != null) {
@@ -493,15 +476,15 @@ class MirrorMethodCall extends $pb.GeneratedMessage {
   void clearMethod() => clearField(1);
 
   @$pb.TagNumber(2)
-  $1.Any get arguments => $_getN(1);
+  $0.Any get arguments => $_getN(1);
   @$pb.TagNumber(2)
-  set arguments($1.Any v) { setField(2, v); }
+  set arguments($0.Any v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasArguments() => $_has(1);
   @$pb.TagNumber(2)
   void clearArguments() => clearField(2);
   @$pb.TagNumber(2)
-  $1.Any ensureArguments() => $_ensure(1);
+  $0.Any ensureArguments() => $_ensure(1);
 }
 
 class Message extends $pb.GeneratedMessage {

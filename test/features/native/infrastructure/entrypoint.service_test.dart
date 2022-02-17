@@ -67,7 +67,6 @@ void main() {
             id: id,
             objectClass: 'PlatformEntrypoint',
             actionMethod: 'requestWithProtobuf',
-            lastUpdated: Timestamp.fromDateTime(date),
           ),
         );
 
@@ -76,9 +75,6 @@ void main() {
             id: id,
             objectClass: 'PlatformEntrypoint',
             actionMethod: 'requestWithProtobuf',
-            lastUpdated: Timestamp.fromDateTime(date.add(
-              const Duration(seconds: 10),
-            )),
           ),
         ).writeToBuffer();
 
@@ -90,15 +86,15 @@ void main() {
 
         final response = await entry.send(message);
 
-        final messageTime = message.header.lastUpdated.toDateTime();
+        // final messageTime = message.header.lastUpdated.toDateTime();
 
-        final responseTime = response.header.lastUpdated.toDateTime();
+        // final responseTime = response.header.lastUpdated.toDateTime();
 
-        // assert
+        // // assert
 
         expect(id, response.header.id);
 
-        expect(messageTime.second < responseTime.second, true);
+        // expect(messageTime.second < responseTime.second, true);
       });
 
       testWidgets(
@@ -111,14 +107,11 @@ void main() {
 
         final id = entry.id;
 
-        final date = DateTime.now();
-
         final message = Message(
           header: Header(
             id: id,
             objectClass: 'PlatformEntrypoint',
             actionMethod: 'requestWithProtobuf',
-            lastUpdated: Timestamp.fromDateTime(date),
           ),
         );
 

@@ -12,8 +12,6 @@ package protos;
 
 import "google/protobuf/any.proto";
 
-import "google/protobuf/timestamp.proto";
-
 // [END declaration]
 
 // [START java_declaration]
@@ -53,8 +51,6 @@ message Header {
   }
 
   CommunicationType communicationType = 4;
-
-  google.protobuf.Timestamp last_updated = 5;
 }
 
 message Error {

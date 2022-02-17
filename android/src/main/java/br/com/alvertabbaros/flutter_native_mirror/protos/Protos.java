@@ -81,19 +81,6 @@ public final class Protos {
      * <code>.protos.Header.CommunicationType communicationType = 4;</code>
      */
     br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Header.CommunicationType getCommunicationType();
-
-    /**
-     * <code>.google.protobuf.Timestamp last_updated = 5;</code>
-     */
-    boolean hasLastUpdated();
-    /**
-     * <code>.google.protobuf.Timestamp last_updated = 5;</code>
-     */
-    com.google.protobuf.Timestamp getLastUpdated();
-    /**
-     * <code>.google.protobuf.Timestamp last_updated = 5;</code>
-     */
-    com.google.protobuf.TimestampOrBuilder getLastUpdatedOrBuilder();
   }
   /**
    * Protobuf type {@code protos.Header}
@@ -163,19 +150,6 @@ public final class Protos {
               int rawValue = input.readEnum();
 
               communicationType_ = rawValue;
-              break;
-            }
-            case 42: {
-              com.google.protobuf.Timestamp.Builder subBuilder = null;
-              if (lastUpdated_ != null) {
-                subBuilder = lastUpdated_.toBuilder();
-              }
-              lastUpdated_ = input.readMessage(com.google.protobuf.Timestamp.parser(), extensionRegistry);
-              if (subBuilder != null) {
-                subBuilder.mergeFrom(lastUpdated_);
-                lastUpdated_ = subBuilder.buildPartial();
-              }
-
               break;
             }
             case 50: {
@@ -521,27 +495,6 @@ public final class Protos {
       return result == null ? br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Header.CommunicationType.UNRECOGNIZED : result;
     }
 
-    public static final int LAST_UPDATED_FIELD_NUMBER = 5;
-    private com.google.protobuf.Timestamp lastUpdated_;
-    /**
-     * <code>.google.protobuf.Timestamp last_updated = 5;</code>
-     */
-    public boolean hasLastUpdated() {
-      return lastUpdated_ != null;
-    }
-    /**
-     * <code>.google.protobuf.Timestamp last_updated = 5;</code>
-     */
-    public com.google.protobuf.Timestamp getLastUpdated() {
-      return lastUpdated_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : lastUpdated_;
-    }
-    /**
-     * <code>.google.protobuf.Timestamp last_updated = 5;</code>
-     */
-    public com.google.protobuf.TimestampOrBuilder getLastUpdatedOrBuilder() {
-      return getLastUpdated();
-    }
-
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -567,9 +520,6 @@ public final class Protos {
       }
       if (communicationType_ != br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Header.CommunicationType.SETUP.getNumber()) {
         output.writeEnum(4, communicationType_);
-      }
-      if (lastUpdated_ != null) {
-        output.writeMessage(5, getLastUpdated());
       }
       if (!getCallBackMethodHandlerBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 6, callBackMethodHandler_);
@@ -601,10 +551,6 @@ public final class Protos {
       if (communicationType_ != br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Header.CommunicationType.SETUP.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
           .computeEnumSize(4, communicationType_);
-      }
-      if (lastUpdated_ != null) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(5, getLastUpdated());
       }
       if (!getCallBackMethodHandlerBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, callBackMethodHandler_);
@@ -645,11 +591,6 @@ public final class Protos {
       result = result && (getCallBackId()
           == other.getCallBackId());
       result = result && communicationType_ == other.communicationType_;
-      result = result && (hasLastUpdated() == other.hasLastUpdated());
-      if (hasLastUpdated()) {
-        result = result && getLastUpdated()
-            .equals(other.getLastUpdated());
-      }
       result = result && unknownFields.equals(other.unknownFields);
       return result;
     }
@@ -675,10 +616,6 @@ public final class Protos {
       hash = (53 * hash) + getCallBackId();
       hash = (37 * hash) + COMMUNICATIONTYPE_FIELD_NUMBER;
       hash = (53 * hash) + communicationType_;
-      if (hasLastUpdated()) {
-        hash = (37 * hash) + LAST_UPDATED_FIELD_NUMBER;
-        hash = (53 * hash) + getLastUpdated().hashCode();
-      }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -826,12 +763,6 @@ public final class Protos {
 
         communicationType_ = 0;
 
-        if (lastUpdatedBuilder_ == null) {
-          lastUpdated_ = null;
-        } else {
-          lastUpdated_ = null;
-          lastUpdatedBuilder_ = null;
-        }
         return this;
       }
 
@@ -865,11 +796,6 @@ public final class Protos {
         result.cancelationMethod_ = cancelationMethod_;
         result.callBackId_ = callBackId_;
         result.communicationType_ = communicationType_;
-        if (lastUpdatedBuilder_ == null) {
-          result.lastUpdated_ = lastUpdated_;
-        } else {
-          result.lastUpdated_ = lastUpdatedBuilder_.build();
-        }
         onBuilt();
         return result;
       }
@@ -943,9 +869,6 @@ public final class Protos {
         }
         if (other.communicationType_ != 0) {
           setCommunicationTypeValue(other.getCommunicationTypeValue());
-        }
-        if (other.hasLastUpdated()) {
-          mergeLastUpdated(other.getLastUpdated());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1390,123 +1313,6 @@ public final class Protos {
         communicationType_ = 0;
         onChanged();
         return this;
-      }
-
-      private com.google.protobuf.Timestamp lastUpdated_ = null;
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> lastUpdatedBuilder_;
-      /**
-       * <code>.google.protobuf.Timestamp last_updated = 5;</code>
-       */
-      public boolean hasLastUpdated() {
-        return lastUpdatedBuilder_ != null || lastUpdated_ != null;
-      }
-      /**
-       * <code>.google.protobuf.Timestamp last_updated = 5;</code>
-       */
-      public com.google.protobuf.Timestamp getLastUpdated() {
-        if (lastUpdatedBuilder_ == null) {
-          return lastUpdated_ == null ? com.google.protobuf.Timestamp.getDefaultInstance() : lastUpdated_;
-        } else {
-          return lastUpdatedBuilder_.getMessage();
-        }
-      }
-      /**
-       * <code>.google.protobuf.Timestamp last_updated = 5;</code>
-       */
-      public Builder setLastUpdated(com.google.protobuf.Timestamp value) {
-        if (lastUpdatedBuilder_ == null) {
-          if (value == null) {
-            throw new NullPointerException();
-          }
-          lastUpdated_ = value;
-          onChanged();
-        } else {
-          lastUpdatedBuilder_.setMessage(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.google.protobuf.Timestamp last_updated = 5;</code>
-       */
-      public Builder setLastUpdated(
-          com.google.protobuf.Timestamp.Builder builderForValue) {
-        if (lastUpdatedBuilder_ == null) {
-          lastUpdated_ = builderForValue.build();
-          onChanged();
-        } else {
-          lastUpdatedBuilder_.setMessage(builderForValue.build());
-        }
-
-        return this;
-      }
-      /**
-       * <code>.google.protobuf.Timestamp last_updated = 5;</code>
-       */
-      public Builder mergeLastUpdated(com.google.protobuf.Timestamp value) {
-        if (lastUpdatedBuilder_ == null) {
-          if (lastUpdated_ != null) {
-            lastUpdated_ =
-              com.google.protobuf.Timestamp.newBuilder(lastUpdated_).mergeFrom(value).buildPartial();
-          } else {
-            lastUpdated_ = value;
-          }
-          onChanged();
-        } else {
-          lastUpdatedBuilder_.mergeFrom(value);
-        }
-
-        return this;
-      }
-      /**
-       * <code>.google.protobuf.Timestamp last_updated = 5;</code>
-       */
-      public Builder clearLastUpdated() {
-        if (lastUpdatedBuilder_ == null) {
-          lastUpdated_ = null;
-          onChanged();
-        } else {
-          lastUpdated_ = null;
-          lastUpdatedBuilder_ = null;
-        }
-
-        return this;
-      }
-      /**
-       * <code>.google.protobuf.Timestamp last_updated = 5;</code>
-       */
-      public com.google.protobuf.Timestamp.Builder getLastUpdatedBuilder() {
-        
-        onChanged();
-        return getLastUpdatedFieldBuilder().getBuilder();
-      }
-      /**
-       * <code>.google.protobuf.Timestamp last_updated = 5;</code>
-       */
-      public com.google.protobuf.TimestampOrBuilder getLastUpdatedOrBuilder() {
-        if (lastUpdatedBuilder_ != null) {
-          return lastUpdatedBuilder_.getMessageOrBuilder();
-        } else {
-          return lastUpdated_ == null ?
-              com.google.protobuf.Timestamp.getDefaultInstance() : lastUpdated_;
-        }
-      }
-      /**
-       * <code>.google.protobuf.Timestamp last_updated = 5;</code>
-       */
-      private com.google.protobuf.SingleFieldBuilderV3<
-          com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder> 
-          getLastUpdatedFieldBuilder() {
-        if (lastUpdatedBuilder_ == null) {
-          lastUpdatedBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.google.protobuf.Timestamp, com.google.protobuf.Timestamp.Builder, com.google.protobuf.TimestampOrBuilder>(
-                  getLastUpdated(),
-                  getParentForChildren(),
-                  isClean());
-          lastUpdated_ = null;
-        }
-        return lastUpdatedBuilder_;
       }
       @java.lang.Override
       public final Builder setUnknownFields(
@@ -2395,14 +2201,9 @@ public final class Protos {
     boolean getShouldBeEmpty();
 
     /**
-     * <code>string type = 1;</code>
+     * <code>bool type = 1;</code>
      */
-    java.lang.String getType();
-    /**
-     * <code>string type = 1;</code>
-     */
-    com.google.protobuf.ByteString
-        getTypeBytes();
+    boolean getType();
 
     /**
      * <code>string value = 2;</code>
@@ -2441,7 +2242,7 @@ public final class Protos {
     }
     private Result() {
       shouldBeEmpty_ = false;
-      type_ = "";
+      type_ = false;
       value_ = "";
     }
 
@@ -2469,10 +2270,9 @@ public final class Protos {
             case 0:
               done = true;
               break;
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
+            case 8: {
 
-              type_ = s;
+              type_ = input.readBool();
               break;
             }
             case 18: {
@@ -2541,37 +2341,12 @@ public final class Protos {
     }
 
     public static final int TYPE_FIELD_NUMBER = 1;
-    private volatile java.lang.Object type_;
+    private boolean type_;
     /**
-     * <code>string type = 1;</code>
+     * <code>bool type = 1;</code>
      */
-    public java.lang.String getType() {
-      java.lang.Object ref = type_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        type_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string type = 1;</code>
-     */
-    public com.google.protobuf.ByteString
-        getTypeBytes() {
-      java.lang.Object ref = type_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        type_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public boolean getType() {
+      return type_;
     }
 
     public static final int VALUE_FIELD_NUMBER = 2;
@@ -2643,8 +2418,8 @@ public final class Protos {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!getTypeBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, type_);
+      if (type_ != false) {
+        output.writeBool(1, type_);
       }
       if (!getValueBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, value_);
@@ -2664,8 +2439,9 @@ public final class Protos {
       if (size != -1) return size;
 
       size = 0;
-      if (!getTypeBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, type_);
+      if (type_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(1, type_);
       }
       if (!getValueBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, value_);
@@ -2696,8 +2472,8 @@ public final class Protos {
       boolean result = true;
       result = result && (getShouldBeEmpty()
           == other.getShouldBeEmpty());
-      result = result && getType()
-          .equals(other.getType());
+      result = result && (getType()
+          == other.getType());
       result = result && getValue()
           .equals(other.getValue());
       result = result && (hasValuebytes() == other.hasValuebytes());
@@ -2720,7 +2496,8 @@ public final class Protos {
       hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
           getShouldBeEmpty());
       hash = (37 * hash) + TYPE_FIELD_NUMBER;
-      hash = (53 * hash) + getType().hashCode();
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getType());
       hash = (37 * hash) + VALUE_FIELD_NUMBER;
       hash = (53 * hash) + getValue().hashCode();
       if (hasValuebytes()) {
@@ -2862,7 +2639,7 @@ public final class Protos {
         super.clear();
         shouldBeEmpty_ = false;
 
-        type_ = "";
+        type_ = false;
 
         value_ = "";
 
@@ -2957,9 +2734,8 @@ public final class Protos {
         if (other.getShouldBeEmpty() != false) {
           setShouldBeEmpty(other.getShouldBeEmpty());
         }
-        if (!other.getType().isEmpty()) {
-          type_ = other.type_;
-          onChanged();
+        if (other.getType() != false) {
+          setType(other.getType());
         }
         if (!other.getValue().isEmpty()) {
           value_ = other.value_;
@@ -3023,71 +2799,28 @@ public final class Protos {
         return this;
       }
 
-      private java.lang.Object type_ = "";
+      private boolean type_ ;
       /**
-       * <code>string type = 1;</code>
+       * <code>bool type = 1;</code>
        */
-      public java.lang.String getType() {
-        java.lang.Object ref = type_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          type_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      public boolean getType() {
+        return type_;
       }
       /**
-       * <code>string type = 1;</code>
+       * <code>bool type = 1;</code>
        */
-      public com.google.protobuf.ByteString
-          getTypeBytes() {
-        java.lang.Object ref = type_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          type_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string type = 1;</code>
-       */
-      public Builder setType(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
+      public Builder setType(boolean value) {
+        
         type_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string type = 1;</code>
+       * <code>bool type = 1;</code>
        */
       public Builder clearType() {
         
-        type_ = getDefaultInstance().getType();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string type = 1;</code>
-       */
-      public Builder setTypeBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        type_ = value;
+        type_ = false;
         onChanged();
         return this;
       }
@@ -6466,29 +6199,27 @@ public final class Protos {
     java.lang.String[] descriptorData = {
       "\n3lib/feature/native/domain/views/proto/" +
       "message.proto\022\006protos\032\031google/protobuf/a" +
-      "ny.proto\032\037google/protobuf/timestamp.prot" +
-      "o\"\255\002\n\006Header\022\n\n\002id\030\001 \001(\t\022\023\n\013objectClass\030" +
-      "\002 \001(\t\022\024\n\014actionMethod\030\003 \001(\t\022\035\n\025callBackM" +
-      "ethodHandler\030\006 \001(\t\022\031\n\021cancelationMethod\030" +
-      "\007 \001(\t\022\022\n\ncallBackId\030\010 \001(\005\022;\n\021communicati" +
-      "onType\030\004 \001(\0162 .protos.Header.Communicati" +
-      "onType\0220\n\014last_updated\030\005 \001(\0132\032.google.pr" +
-      "otobuf.Timestamp\"/\n\021CommunicationType\022\t\n" +
-      "\005SETUP\020\000\022\017\n\013CANCELATION\020\001\"7\n\005Error\022\017\n\007me" +
-      "ssage\030\001 \001(\t\022\014\n\004code\030\002 \001(\t\022\017\n\007details\030\003 \001" +
-      "(\t\"f\n\006Result\022\025\n\rshouldBeEmpty\030\004 \001(\010\022\014\n\004t" +
-      "ype\030\001 \001(\t\022\r\n\005value\030\002 \001(\t\022(\n\nvaluebytes\030\003" +
-      " \001(\0132\024.google.protobuf.Any\"G\n\007Payload\022\036\n" +
-      "\006result\030\001 \001(\0132\016.protos.Result\022\034\n\005error\030\002" +
-      " \001(\0132\r.protos.Error\"\027\n\007Generic\022\014\n\004data\030\001" +
-      " \001(\t\"K\n\020MirrorMethodCall\022\016\n\006method\030\001 \001(\t" +
-      "\022\'\n\targuments\030\002 \001(\0132\024.google.protobuf.An" +
-      "y\"y\n\007Message\022\036\n\006header\030\001 \001(\0132\016.protos.He" +
-      "ader\022 \n\007payload\030\002 \001(\0132\017.protos.Payload\022," +
-      "\n\nmethodCall\030\003 \001(\0132\030.protos.MirrorMethod" +
-      "CallBF\n1br.com.alvertabbaros.flutter_nat" +
-      "ive_mirror.protosB\006ProtosP\000\242\002\006Protosb\006pr" +
-      "oto3"
+      "ny.proto\"\373\001\n\006Header\022\n\n\002id\030\001 \001(\t\022\023\n\013objec" +
+      "tClass\030\002 \001(\t\022\024\n\014actionMethod\030\003 \001(\t\022\035\n\025ca" +
+      "llBackMethodHandler\030\006 \001(\t\022\031\n\021cancelation" +
+      "Method\030\007 \001(\t\022\022\n\ncallBackId\030\010 \001(\005\022;\n\021comm" +
+      "unicationType\030\004 \001(\0162 .protos.Header.Comm" +
+      "unicationType\"/\n\021CommunicationType\022\t\n\005SE" +
+      "TUP\020\000\022\017\n\013CANCELATION\020\001\"7\n\005Error\022\017\n\007messa" +
+      "ge\030\001 \001(\t\022\014\n\004code\030\002 \001(\t\022\017\n\007details\030\003 \001(\t\"" +
+      "f\n\006Result\022\025\n\rshouldBeEmpty\030\004 \001(\010\022\014\n\004type" +
+      "\030\001 \001(\010\022\r\n\005value\030\002 \001(\t\022(\n\nvaluebytes\030\003 \001(" +
+      "\0132\024.google.protobuf.Any\"G\n\007Payload\022\036\n\006re" +
+      "sult\030\001 \001(\0132\016.protos.Result\022\034\n\005error\030\002 \001(" +
+      "\0132\r.protos.Error\"\027\n\007Generic\022\014\n\004data\030\001 \001(" +
+      "\t\"K\n\020MirrorMethodCall\022\016\n\006method\030\001 \001(\t\022\'\n" +
+      "\targuments\030\002 \001(\0132\024.google.protobuf.Any\"y" +
+      "\n\007Message\022\036\n\006header\030\001 \001(\0132\016.protos.Heade" +
+      "r\022 \n\007payload\030\002 \001(\0132\017.protos.Payload\022,\n\nm" +
+      "ethodCall\030\003 \001(\0132\030.protos.MirrorMethodCal" +
+      "lBF\n1br.com.alvertabbaros.flutter_native" +
+      "_mirror.protosB\006ProtosP\000\242\002\006Protosb\006proto" +
+      "3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -6502,14 +6233,13 @@ public final class Protos {
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.google.protobuf.AnyProto.getDescriptor(),
-          com.google.protobuf.TimestampProto.getDescriptor(),
         }, assigner);
     internal_static_protos_Header_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_protos_Header_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protos_Header_descriptor,
-        new java.lang.String[] { "Id", "ObjectClass", "ActionMethod", "CallBackMethodHandler", "CancelationMethod", "CallBackId", "CommunicationType", "LastUpdated", });
+        new java.lang.String[] { "Id", "ObjectClass", "ActionMethod", "CallBackMethodHandler", "CancelationMethod", "CallBackId", "CommunicationType", });
     internal_static_protos_Error_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_protos_Error_fieldAccessorTable = new
@@ -6547,7 +6277,6 @@ public final class Protos {
         internal_static_protos_Message_descriptor,
         new java.lang.String[] { "Header", "Payload", "MethodCall", });
     com.google.protobuf.AnyProto.getDescriptor();
-    com.google.protobuf.TimestampProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

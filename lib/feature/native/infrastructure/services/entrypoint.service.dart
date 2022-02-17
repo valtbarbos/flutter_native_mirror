@@ -38,9 +38,6 @@ class PlatformEntrypoint extends IPlatformEntrypoint {
         cancelationMethod: cancelationMethod,
         callBackMethodHandler: PlatformEntrypoint.callBackMethodHandler,
         communicationType: Header_CommunicationType.SETUP,
-        lastUpdated: Timestamp.fromDateTime(
-          DateTime.now(),
-        ),
       ),
       payload: Payload(
         result: args,

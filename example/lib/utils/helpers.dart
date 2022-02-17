@@ -5,7 +5,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_native_mirror/feature/native/domain/interfaces/interfaces.nativechannels.dart';
 import 'package:flutter_native_mirror/feature/native/domain/models/models.devicekit.dart';
 import 'package:flutter_native_mirror/feature/native/domain/views/generated/proto/message.pb.dart';
-import 'package:flutter_native_mirror/feature/native/domain/views/viewmodels.proto.dart';
 import 'package:flutter_native_mirror/feature/native/environment/environment.devicekit.dart';
 import 'package:flutter_native_mirror/feature/native/infrastructure/services/services.nativechannels.dart';
 import 'package:uuid/uuid.dart';
@@ -76,24 +75,23 @@ class NativeChannelsCommunication {
         id: entrypoint.id,
         objectClass: NativeCommunicationMetadata.businessNamespace,
         actionMethod: 'simpleRpc',
-        lastUpdated: Timestamp.fromDateTime(DateTime.now()),
       ),
     );
 
     final responseMessage = await entrypoint.send(requestMessage);
 
-    final sentTime = requestMessage.header.lastUpdated.toDateTime();
+    // final sentTime = requestMessage.header.lastUpdated.toDateTime();
 
-    final receivedTime = responseMessage.header.lastUpdated.toDateTime();
+    // final receivedTime = responseMessage.header.lastUpdated.toDateTime();
 
-    if (receivedTime.second > sentTime.second) {
-      platformVersion = 'nativeInstanceId:\n'
-          '$nativeInstanceId\n'
-          'haha!\n'
-          'sent: $sentTime\n'
-          'received: $receivedTime *(from the "future"! hahah)';
-      log(platformVersion);
-    }
+    // if (receivedTime.second > sentTime.second) {
+    //   platformVersion = 'nativeInstanceId:\n'
+    //       '$nativeInstanceId\n'
+    //       'haha!\n'
+    //       'sent: $sentTime\n'
+    //       'received: $receivedTime *(from the "future"! hahah)';
+    //   log(platformVersion);
+    // }
   }
 
   Future<String> testAvailableMethods() async {

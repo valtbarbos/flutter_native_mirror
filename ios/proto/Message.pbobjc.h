@@ -28,7 +28,6 @@
 CF_EXTERN_C_BEGIN
 
 @class GPBAny;
-@class GPBTimestamp;
 @class ProtosError;
 @class ProtosHeader;
 @class ProtosMirrorMethodCall;
@@ -80,7 +79,6 @@ typedef GPB_ENUM(ProtosHeader_FieldNumber) {
   ProtosHeader_FieldNumber_ObjectClass = 2,
   ProtosHeader_FieldNumber_ActionMethod = 3,
   ProtosHeader_FieldNumber_CommunicationType = 4,
-  ProtosHeader_FieldNumber_LastUpdated = 5,
   ProtosHeader_FieldNumber_CallBackMethodHandler = 6,
   ProtosHeader_FieldNumber_CancelationMethod = 7,
   ProtosHeader_FieldNumber_CallBackId = 8,
@@ -101,10 +99,6 @@ typedef GPB_ENUM(ProtosHeader_FieldNumber) {
 @property(nonatomic, readwrite) int32_t callBackId;
 
 @property(nonatomic, readwrite) ProtosHeader_CommunicationType communicationType;
-
-@property(nonatomic, readwrite, strong, null_resettable) GPBTimestamp *lastUpdated;
-/** Test to see if @c lastUpdated has been set. */
-@property(nonatomic, readwrite) BOOL hasLastUpdated;
 
 @end
 
@@ -151,7 +145,7 @@ typedef GPB_ENUM(ProtosResult_FieldNumber) {
 
 @property(nonatomic, readwrite) BOOL shouldBeEmpty;
 
-@property(nonatomic, readwrite, copy, null_resettable) NSString *type;
+@property(nonatomic, readwrite) BOOL type;
 
 @property(nonatomic, readwrite, copy, null_resettable) NSString *value;
 

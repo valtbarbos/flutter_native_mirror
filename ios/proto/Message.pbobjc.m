@@ -56,7 +56,6 @@ static GPBFileDescriptor *ProtosMessageRoot_FileDescriptor(void) {
 @dynamic cancelationMethod;
 @dynamic callBackId;
 @dynamic communicationType;
-@dynamic hasLastUpdated, lastUpdated;
 
 typedef struct ProtosHeader__storage_ {
   uint32_t _has_storage_[1];
@@ -65,7 +64,6 @@ typedef struct ProtosHeader__storage_ {
   NSString *id_p;
   NSString *objectClass;
   NSString *actionMethod;
-  GPBTimestamp *lastUpdated;
   NSString *callBackMethodHandler;
   NSString *cancelationMethod;
 } ProtosHeader__storage_;
@@ -111,15 +109,6 @@ typedef struct ProtosHeader__storage_ {
         .offset = (uint32_t)offsetof(ProtosHeader__storage_, communicationType),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldHasEnumDescriptor),
         .dataType = GPBDataTypeEnum,
-      },
-      {
-        .name = "lastUpdated",
-        .dataTypeSpecific.className = GPBStringifySymbol(GPBTimestamp),
-        .number = ProtosHeader_FieldNumber_LastUpdated,
-        .hasIndex = 7,
-        .offset = (uint32_t)offsetof(ProtosHeader__storage_, lastUpdated),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeMessage,
       },
       {
         .name = "callBackMethodHandler",
@@ -293,7 +282,6 @@ typedef struct ProtosError__storage_ {
 
 typedef struct ProtosResult__storage_ {
   uint32_t _has_storage_[1];
-  NSString *type;
   NSString *value;
   GPBAny *valuebytes;
 } ProtosResult__storage_;
@@ -309,15 +297,15 @@ typedef struct ProtosResult__storage_ {
         .dataTypeSpecific.className = NULL,
         .number = ProtosResult_FieldNumber_Type,
         .hasIndex = 2,
-        .offset = (uint32_t)offsetof(ProtosResult__storage_, type),
+        .offset = 3,  // Stored in _has_storage_ to save space.
         .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeString,
+        .dataType = GPBDataTypeBool,
       },
       {
         .name = "value",
         .dataTypeSpecific.className = NULL,
         .number = ProtosResult_FieldNumber_Value,
-        .hasIndex = 3,
+        .hasIndex = 4,
         .offset = (uint32_t)offsetof(ProtosResult__storage_, value),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeString,
@@ -326,7 +314,7 @@ typedef struct ProtosResult__storage_ {
         .name = "valuebytes",
         .dataTypeSpecific.className = GPBStringifySymbol(GPBAny),
         .number = ProtosResult_FieldNumber_Valuebytes,
-        .hasIndex = 4,
+        .hasIndex = 5,
         .offset = (uint32_t)offsetof(ProtosResult__storage_, valuebytes),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeMessage,
