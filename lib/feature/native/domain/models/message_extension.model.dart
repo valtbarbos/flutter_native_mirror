@@ -4,11 +4,11 @@ part of './models.devicekit.dart';
 
 extension ResultX on Result {
   bool isEmpty() {
-    return shouldBeEmpty;
+    return !valuebytes.hasValue();
   }
 
   bool isInvalid() {
-    return !shouldBeEmpty && !valuebytes.hasValue();
+    return isEmpty() && !shouldBeEmpty;
   }
 }
 
