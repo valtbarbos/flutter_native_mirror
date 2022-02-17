@@ -26,7 +26,7 @@ class PlatformEntrypoint extends IPlatformEntrypoint {
   /// Because of this  I put this 'factory' here as an extension.
   static Message defaultListenerSetup({
     required namespace,
-    required actionMethod,
+    required targetMethod,
     required cancelationMethod,
     Result? args,
   }) {
@@ -34,7 +34,7 @@ class PlatformEntrypoint extends IPlatformEntrypoint {
       header: Header(
         id: '_',
         namespace: namespace,
-        actionMethod: actionMethod,
+        targetMethod: targetMethod,
         cancelationMethod: cancelationMethod,
         callBackMethodHandler: PlatformEntrypoint.callBackMethodHandler,
         communicationType: Header_CommunicationType.SETUP,
@@ -51,7 +51,7 @@ class PlatformEntrypoint extends IPlatformEntrypoint {
     required MultiUseCallback<MirrorMethodCall, Error> callback,
   }) async {
     await callbacksController.disposeActiveCallbackListener(
-      actionMethod: message.header.actionMethod,
+      targetMethod: message.header.targetMethod,
       listenerCancelation: listenerCancelation,
     );
 

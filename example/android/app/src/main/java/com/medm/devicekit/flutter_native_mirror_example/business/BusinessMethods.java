@@ -130,7 +130,7 @@ public class BusinessMethods {
 
         header.setId(message.getHeader().getId());
         header.setnamespace(message.getHeader().getnamespace());
-        header.setActionMethod(message.getHeader().getActionMethod());
+        header.settargetMethod(message.getHeader().gettargetMethod());
 
         // just an improvement
 
@@ -175,8 +175,8 @@ public class BusinessMethods {
         pHeader.setId(baseHeader.getId());
         pHeader.setCallBackId(baseHeader.getCallBackId());
         pHeader.setnamespace(baseHeader.getnamespace());
-        pHeader.setActionMethod(baseHeader.getActionMethod());
-        pHeader.setActionMethodBytes(baseHeader.getActionMethodBytes());
+        pHeader.settargetMethod(baseHeader.gettargetMethod());
+        pHeader.settargetMethodBytes(baseHeader.gettargetMethodBytes());
 
         Instant time;
 

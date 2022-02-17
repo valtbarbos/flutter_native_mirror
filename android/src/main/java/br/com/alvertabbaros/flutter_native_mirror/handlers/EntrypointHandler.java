@@ -146,7 +146,7 @@ public class EntrypointHandler implements MethodCallHandler {
                 case "rpc":
 
                     method = businessInstance.getClass().getDeclaredMethod(
-                            receivedMessage.getHeader().getActionMethod(),
+                            receivedMessage.getHeader().gettargetMethod(),
                             Protos.Message.class,
                             Result.class
                     );
@@ -164,7 +164,7 @@ public class EntrypointHandler implements MethodCallHandler {
 
                     String intendMethodCall =
                             communicationType.equals(Protos.Header.CommunicationType.SETUP) ?
-                                    receivedHeader.getActionMethod() :
+                                    receivedHeader.gettargetMethod() :
                                     receivedHeader.getCancelationMethod();
 
                     String callBackMethodHandler = receivedHeader.getCallBackMethodHandler();

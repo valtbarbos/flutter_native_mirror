@@ -39,14 +39,14 @@ public final class Protos {
         getNamespaceBytes();
 
     /**
-     * <code>string actionMethod = 3;</code>
+     * <code>string targetMethod = 3;</code>
      */
-    java.lang.String getActionMethod();
+    java.lang.String gettargetMethod();
     /**
-     * <code>string actionMethod = 3;</code>
+     * <code>string targetMethod = 3;</code>
      */
     com.google.protobuf.ByteString
-        getActionMethodBytes();
+        gettargetMethodBytes();
 
     /**
      * <code>string callBackMethodHandler = 6;</code>
@@ -97,7 +97,7 @@ public final class Protos {
     private Header() {
       id_ = "";
       namespace_ = "";
-      actionMethod_ = "";
+      targetMethod_ = "";
       callBackMethodHandler_ = "";
       cancelationMethod_ = "";
       callBackId_ = 0;
@@ -143,7 +143,7 @@ public final class Protos {
             case 26: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              actionMethod_ = s;
+              targetMethod_ = s;
               break;
             }
             case 32: {
@@ -367,34 +367,34 @@ public final class Protos {
       }
     }
 
-    public static final int ACTIONMETHOD_FIELD_NUMBER = 3;
-    private volatile java.lang.Object actionMethod_;
+    public static final int targetMethod_FIELD_NUMBER = 3;
+    private volatile java.lang.Object targetMethod_;
     /**
-     * <code>string actionMethod = 3;</code>
+     * <code>string targetMethod = 3;</code>
      */
-    public java.lang.String getActionMethod() {
-      java.lang.Object ref = actionMethod_;
+    public java.lang.String gettargetMethod() {
+      java.lang.Object ref = targetMethod_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        actionMethod_ = s;
+        targetMethod_ = s;
         return s;
       }
     }
     /**
-     * <code>string actionMethod = 3;</code>
+     * <code>string targetMethod = 3;</code>
      */
     public com.google.protobuf.ByteString
-        getActionMethodBytes() {
-      java.lang.Object ref = actionMethod_;
+        gettargetMethodBytes() {
+      java.lang.Object ref = targetMethod_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        actionMethod_ = b;
+        targetMethod_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -515,8 +515,8 @@ public final class Protos {
       if (!getNamespaceBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, namespace_);
       }
-      if (!getActionMethodBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, actionMethod_);
+      if (!gettargetMethodBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, targetMethod_);
       }
       if (communicationType_ != br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Header.CommunicationType.SETUP.getNumber()) {
         output.writeEnum(4, communicationType_);
@@ -545,8 +545,8 @@ public final class Protos {
       if (!getNamespaceBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, namespace_);
       }
-      if (!getActionMethodBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, actionMethod_);
+      if (!gettargetMethodBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, targetMethod_);
       }
       if (communicationType_ != br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Header.CommunicationType.SETUP.getNumber()) {
         size += com.google.protobuf.CodedOutputStream
@@ -582,8 +582,8 @@ public final class Protos {
           .equals(other.getId());
       result = result && getNamespace()
           .equals(other.getNamespace());
-      result = result && getActionMethod()
-          .equals(other.getActionMethod());
+      result = result && gettargetMethod()
+          .equals(other.gettargetMethod());
       result = result && getCallBackMethodHandler()
           .equals(other.getCallBackMethodHandler());
       result = result && getCancelationMethod()
@@ -606,8 +606,8 @@ public final class Protos {
       hash = (53 * hash) + getId().hashCode();
       hash = (37 * hash) + NAMESPACE_FIELD_NUMBER;
       hash = (53 * hash) + getNamespace().hashCode();
-      hash = (37 * hash) + ACTIONMETHOD_FIELD_NUMBER;
-      hash = (53 * hash) + getActionMethod().hashCode();
+      hash = (37 * hash) + targetMethod_FIELD_NUMBER;
+      hash = (53 * hash) + gettargetMethod().hashCode();
       hash = (37 * hash) + CALLBACKMETHODHANDLER_FIELD_NUMBER;
       hash = (53 * hash) + getCallBackMethodHandler().hashCode();
       hash = (37 * hash) + CANCELATIONMETHOD_FIELD_NUMBER;
@@ -753,7 +753,7 @@ public final class Protos {
 
         namespace_ = "";
 
-        actionMethod_ = "";
+        targetMethod_ = "";
 
         callBackMethodHandler_ = "";
 
@@ -791,7 +791,7 @@ public final class Protos {
         br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Header result = new br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Header(this);
         result.id_ = id_;
         result.namespace_ = namespace_;
-        result.actionMethod_ = actionMethod_;
+        result.targetMethod_ = targetMethod_;
         result.callBackMethodHandler_ = callBackMethodHandler_;
         result.cancelationMethod_ = cancelationMethod_;
         result.callBackId_ = callBackId_;
@@ -852,8 +852,8 @@ public final class Protos {
           namespace_ = other.namespace_;
           onChanged();
         }
-        if (!other.getActionMethod().isEmpty()) {
-          actionMethod_ = other.actionMethod_;
+        if (!other.gettargetMethod().isEmpty()) {
+          targetMethod_ = other.targetMethod_;
           onChanged();
         }
         if (!other.getCallBackMethodHandler().isEmpty()) {
@@ -1037,71 +1037,71 @@ public final class Protos {
         return this;
       }
 
-      private java.lang.Object actionMethod_ = "";
+      private java.lang.Object targetMethod_ = "";
       /**
-       * <code>string actionMethod = 3;</code>
+       * <code>string targetMethod = 3;</code>
        */
-      public java.lang.String getActionMethod() {
-        java.lang.Object ref = actionMethod_;
+      public java.lang.String gettargetMethod() {
+        java.lang.Object ref = targetMethod_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          actionMethod_ = s;
+          targetMethod_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
         }
       }
       /**
-       * <code>string actionMethod = 3;</code>
+       * <code>string targetMethod = 3;</code>
        */
       public com.google.protobuf.ByteString
-          getActionMethodBytes() {
-        java.lang.Object ref = actionMethod_;
+          gettargetMethodBytes() {
+        java.lang.Object ref = targetMethod_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          actionMethod_ = b;
+          targetMethod_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
         }
       }
       /**
-       * <code>string actionMethod = 3;</code>
+       * <code>string targetMethod = 3;</code>
        */
-      public Builder setActionMethod(
+      public Builder settargetMethod(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        actionMethod_ = value;
+        targetMethod_ = value;
         onChanged();
         return this;
       }
       /**
-       * <code>string actionMethod = 3;</code>
+       * <code>string targetMethod = 3;</code>
        */
-      public Builder clearActionMethod() {
+      public Builder cleartargetMethod() {
         
-        actionMethod_ = getDefaultInstance().getActionMethod();
+        targetMethod_ = getDefaultInstance().gettargetMethod();
         onChanged();
         return this;
       }
       /**
-       * <code>string actionMethod = 3;</code>
+       * <code>string targetMethod = 3;</code>
        */
-      public Builder setActionMethodBytes(
+      public Builder settargetMethodBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        actionMethod_ = value;
+        targetMethod_ = value;
         onChanged();
         return this;
       }
@@ -6200,7 +6200,7 @@ public final class Protos {
       "\n3lib/feature/native/domain/views/proto/" +
       "message.proto\022\006protos\032\031google/protobuf/a" +
       "ny.proto\"\371\001\n\006Header\022\n\n\002id\030\001 \001(\t\022\021\n\tnames" +
-      "pace\030\002 \001(\t\022\024\n\014actionMethod\030\003 \001(\t\022\035\n\025call" +
+      "pace\030\002 \001(\t\022\024\n\014targetMethod\030\003 \001(\t\022\035\n\025call" +
       "BackMethodHandler\030\006 \001(\t\022\031\n\021cancelationMe" +
       "thod\030\007 \001(\t\022\022\n\ncallBackId\030\010 \001(\005\022;\n\021commun" +
       "icationType\030\004 \001(\0162 .protos.Header.Commun" +
@@ -6238,7 +6238,7 @@ public final class Protos {
     internal_static_protos_Header_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protos_Header_descriptor,
-        new java.lang.String[] { "Id", "Namespace", "ActionMethod", "CallBackMethodHandler", "CancelationMethod", "CallBackId", "CommunicationType", });
+        new java.lang.String[] { "Id", "Namespace", "targetMethod", "CallBackMethodHandler", "CancelationMethod", "CallBackId", "CommunicationType", });
     internal_static_protos_Error_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_protos_Error_fieldAccessorTable = new

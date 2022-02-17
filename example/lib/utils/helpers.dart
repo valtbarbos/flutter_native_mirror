@@ -74,7 +74,7 @@ class NativeChannelsCommunication {
       header: Header(
         id: entrypoint.id,
         namespace: NativeCommunicationMetadata.businessNamespace,
-        actionMethod: 'simpleRpc',
+        targetMethod: 'simpleRpc',
       ),
     );
 

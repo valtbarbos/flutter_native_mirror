@@ -51,7 +51,7 @@ static GPBFileDescriptor *ProtosMessageRoot_FileDescriptor(void) {
 
 @dynamic id_p;
 @dynamic namespace_p;
-@dynamic actionMethod;
+@dynamic targetMethod;
 @dynamic callBackMethodHandler;
 @dynamic cancelationMethod;
 @dynamic callBackId;
@@ -63,7 +63,7 @@ typedef struct ProtosHeader__storage_ {
   int32_t callBackId;
   NSString *id_p;
   NSString *namespace_p;
-  NSString *actionMethod;
+  NSString *targetMethod;
   NSString *callBackMethodHandler;
   NSString *cancelationMethod;
 } ProtosHeader__storage_;
@@ -93,11 +93,11 @@ typedef struct ProtosHeader__storage_ {
         .dataType = GPBDataTypeString,
       },
       {
-        .name = "actionMethod",
+        .name = "targetMethod",
         .dataTypeSpecific.className = NULL,
-        .number = ProtosHeader_FieldNumber_ActionMethod,
+        .number = ProtosHeader_FieldNumber_targetMethod,
         .hasIndex = 2,
-        .offset = (uint32_t)offsetof(ProtosHeader__storage_, actionMethod),
+        .offset = (uint32_t)offsetof(ProtosHeader__storage_, targetMethod),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeString,
       },

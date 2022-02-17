@@ -66,7 +66,7 @@ void main() {
           header: Header(
             id: id,
             namespace: 'PlatformEntrypoint',
-            actionMethod: 'requestWithProtobuf',
+            targetMethod: 'requestWithProtobuf',
           ),
         );
 
@@ -74,7 +74,7 @@ void main() {
           header: Header(
             id: id,
             namespace: 'PlatformEntrypoint',
-            actionMethod: 'requestWithProtobuf',
+            targetMethod: 'requestWithProtobuf',
           ),
         ).writeToBuffer();
 
@@ -111,7 +111,7 @@ void main() {
           header: Header(
             id: id,
             namespace: 'PlatformEntrypoint',
-            actionMethod: 'requestWithProtobuf',
+            targetMethod: 'requestWithProtobuf',
           ),
         );
 
@@ -217,7 +217,7 @@ void main() {
 
           final expectedAnswer = PlatformEntrypoint.defaultListenerSetup(
             namespace: NativeCommunicationMetadata.businessNamespace,
-            actionMethod: 'playgroundStart',
+            targetMethod: 'playgroundStart',
             cancelationMethod: 'playgroundStop',
           );
 

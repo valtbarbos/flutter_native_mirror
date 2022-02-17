@@ -37,7 +37,7 @@ message Header {
     
   string namespace = 2;
   
-  string actionMethod = 3;
+  string targetMethod = 3;
 
   string callBackMethodHandler = 6;
 

@@ -1,6 +1,6 @@
 part of './services.nativechannels.dart';
 
-/// Manage our channels instances and listeners by [actionMethod]
+/// Manage our channels instances and listeners by [targetMethod]
 /// callback registered.
 class CallBacksController implements ICallBacksController {
   static const String _tag = 'CallBacksController';
@@ -87,22 +87,22 @@ class CallBacksController implements ICallBacksController {
   }
 
   @override
-  bool isAlreadyRegistered({required String actionMethod}) =>
-      _callbacks.any((e) => e.message.header.actionMethod == actionMethod);
+  bool isAlreadyRegistered({required String targetMethod}) =>
+      _callbacks.any((e) => e.message.header.targetMethod == targetMethod);
 
   /// If [listenerCancelation] method is provided
-  /// It will dispose the current [actionMethod] listener.
+  /// It will dispose the current [targetMethod] listener.
   /// Can be used like a [restart] on our actual callback listener,
   /// and avoid duplicated listeners.
   Future<void> disposeActiveCallbackListener({
-    required String actionMethod,
+    required String targetMethod,
     required CancelListening Function(Message msg) listenerCancelation,
   }) async {
     CallBackMethod<dynamic, dynamic> callBack;
 
     try {
       callBack = _callbacks
-          .firstWhere((e) => e.message.header.actionMethod == actionMethod);
+          .firstWhere((e) => e.message.header.targetMethod == targetMethod);
     } on StateError catch (_) {
       return;
     } on Exception catch (e, s) {
@@ -122,16 +122,16 @@ class CallBacksController implements ICallBacksController {
     }
   }
 
-  /// If call [setCallBack] to a [actionMethod] already registered,
+  /// If call [setCallBack] to a [targetMethod] already registered,
   /// then will dispose the actual callback listener before continue.
   @override
   void setCallBack({
     required CallBackMethod<MirrorMethodCall, Error> call,
   }) {
-    if (isAlreadyRegistered(actionMethod: call.message.header.actionMethod)) {
+    if (isAlreadyRegistered(targetMethod: call.message.header.targetMethod)) {
       // throw Exception(
-      //     'actionMethod: [call.message.header.actionMethod] already registered.');
-      log('SUPOSE TO: \nthrow Exception(\'actionMethod: [call.message.header.actionMethod] already registered.\');',
+      //     'targetMethod: [call.message.header.targetMethod] already registered.');
+      log('SUPOSE TO: \nthrow Exception(\'targetMethod: [call.message.header.targetMethod] already registered.\');',
           level: 2000);
       return;
     }
@@ -142,7 +142,7 @@ class CallBacksController implements ICallBacksController {
 
     _callbacks.add(call);
 
-    log('CallBacksController, setCallBack -> $_nextCallbackId : ${call.message.header.actionMethod}');
+    log('CallBacksController, setCallBack -> $_nextCallbackId : ${call.message.header.targetMethod}');
   }
 
   @override
