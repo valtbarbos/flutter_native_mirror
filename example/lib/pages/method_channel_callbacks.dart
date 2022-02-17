@@ -72,7 +72,7 @@ class MethodChannelCallbacksState extends State<MethodChannelCallbacks> {
           message: PlatformEntrypoint.defaultListenerSetup(
             namespace: NativeCommunicationMetadata.businessNamespace,
             targetMethod: 'playgroundStart',
-            cancelationMethod: 'playgroundStop',
+            targetMethodCancellation: 'playgroundStop',
           ),
           callback: (mirrorMethodCall, error) {
             setState(() {

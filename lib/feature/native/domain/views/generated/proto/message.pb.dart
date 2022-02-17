@@ -16,71 +16,26 @@ import 'message.pbenum.dart';
 export 'message.pbenum.dart';
 
 class Header extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Header',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'protos'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'id')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'namespace')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'targetMethod',
-        protoName: 'targetMethod')
-    ..e<Header_CommunicationType>(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'communicationType',
-        $pb.PbFieldType.OE,
-        protoName: 'communicationType',
-        defaultOrMaker: Header_CommunicationType.SETUP,
-        valueOf: Header_CommunicationType.valueOf,
-        enumValues: Header_CommunicationType.values)
-    ..aOS(
-        6,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'callBackMethodHandler',
-        protoName: 'callBackMethodHandler')
-    ..aOS(
-        7,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'cancelationMethod',
-        protoName: 'cancelationMethod')
-    ..a<$core.int>(
-        8,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'callBackId',
-        $pb.PbFieldType.O3,
-        protoName: 'callBackId')
-    ..hasRequiredFields = false;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Header', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'protos'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'namespace')
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'targetMethod', protoName: 'targetMethod')
+    ..e<Header_CommunicationType>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'intent', $pb.PbFieldType.OE, defaultOrMaker: Header_CommunicationType.SETUP, valueOf: Header_CommunicationType.valueOf, enumValues: Header_CommunicationType.values)
+    ..aOS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'platformCallBackMethodHandler', protoName: 'platformCallBackMethodHandler')
+    ..aOS(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'targetMethodCancellation', protoName: 'targetMethodCancellation')
+    ..a<$core.int>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'callBackReferenceId', $pb.PbFieldType.O3, protoName: 'callBackReferenceId')
+    ..hasRequiredFields = false
+  ;
 
   Header._() : super();
   factory Header({
     $core.String? id,
     $core.String? namespace,
     $core.String? targetMethod,
-    Header_CommunicationType? communicationType,
-    $core.String? callBackMethodHandler,
-    $core.String? cancelationMethod,
-    $core.int? callBackId,
+    Header_CommunicationType? intent,
+    $core.String? platformCallBackMethodHandler,
+    $core.String? targetMethodCancellation,
+    $core.int? callBackReferenceId,
   }) {
     final _result = create();
     if (id != null) {
@@ -92,53 +47,45 @@ class Header extends $pb.GeneratedMessage {
     if (targetMethod != null) {
       _result.targetMethod = targetMethod;
     }
-    if (communicationType != null) {
-      _result.communicationType = communicationType;
+    if (intent != null) {
+      _result.intent = intent;
     }
-    if (callBackMethodHandler != null) {
-      _result.callBackMethodHandler = callBackMethodHandler;
+    if (platformCallBackMethodHandler != null) {
+      _result.platformCallBackMethodHandler = platformCallBackMethodHandler;
     }
-    if (cancelationMethod != null) {
-      _result.cancelationMethod = cancelationMethod;
+    if (targetMethodCancellation != null) {
+      _result.targetMethodCancellation = targetMethodCancellation;
     }
-    if (callBackId != null) {
-      _result.callBackId = callBackId;
+    if (callBackReferenceId != null) {
+      _result.callBackReferenceId = callBackReferenceId;
     }
     return _result;
   }
-  factory Header.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory Header.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-      'Will be removed in next major version')
+  factory Header.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory Header.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
   Header clone() => Header()..mergeFromMessage(this);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-      'Will be removed in next major version')
-  Header copyWith(void Function(Header) updates) =>
-      super.copyWith((message) => updates(message as Header))
-          as Header; // ignore: deprecated_member_use
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  Header copyWith(void Function(Header) updates) => super.copyWith((message) => updates(message as Header)) as Header; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static Header create() => Header._();
   Header createEmptyInstance() => create();
   static $pb.PbList<Header> createRepeated() => $pb.PbList<Header>();
   @$core.pragma('dart2js:noInline')
-  static Header getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Header>(create);
+  static Header getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Header>(create);
   static Header? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get id => $_getSZ(0);
   @$pb.TagNumber(1)
-  set id($core.String v) {
-    $_setString(0, v);
-  }
-
+  set id($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasId() => $_has(0);
   @$pb.TagNumber(1)
@@ -147,10 +94,7 @@ class Header extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.String get namespace => $_getSZ(1);
   @$pb.TagNumber(2)
-  set namespace($core.String v) {
-    $_setString(1, v);
-  }
-
+  set namespace($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
   $core.bool hasNamespace() => $_has(1);
   @$pb.TagNumber(2)
@@ -159,90 +103,56 @@ class Header extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.String get targetMethod => $_getSZ(2);
   @$pb.TagNumber(3)
-  set targetMethod($core.String v) {
-    $_setString(2, v);
-  }
-
+  set targetMethod($core.String v) { $_setString(2, v); }
   @$pb.TagNumber(3)
-  $core.bool hastargetMethod() => $_has(2);
+  $core.bool hasTargetMethod() => $_has(2);
   @$pb.TagNumber(3)
-  void cleartargetMethod() => clearField(3);
+  void clearTargetMethod() => clearField(3);
 
   @$pb.TagNumber(4)
-  Header_CommunicationType get communicationType => $_getN(3);
+  Header_CommunicationType get intent => $_getN(3);
   @$pb.TagNumber(4)
-  set communicationType(Header_CommunicationType v) {
-    setField(4, v);
-  }
-
+  set intent(Header_CommunicationType v) { setField(4, v); }
   @$pb.TagNumber(4)
-  $core.bool hasCommunicationType() => $_has(3);
+  $core.bool hasIntent() => $_has(3);
   @$pb.TagNumber(4)
-  void clearCommunicationType() => clearField(4);
+  void clearIntent() => clearField(4);
 
   @$pb.TagNumber(6)
-  $core.String get callBackMethodHandler => $_getSZ(4);
+  $core.String get platformCallBackMethodHandler => $_getSZ(4);
   @$pb.TagNumber(6)
-  set callBackMethodHandler($core.String v) {
-    $_setString(4, v);
-  }
-
+  set platformCallBackMethodHandler($core.String v) { $_setString(4, v); }
   @$pb.TagNumber(6)
-  $core.bool hasCallBackMethodHandler() => $_has(4);
+  $core.bool hasPlatformCallBackMethodHandler() => $_has(4);
   @$pb.TagNumber(6)
-  void clearCallBackMethodHandler() => clearField(6);
+  void clearPlatformCallBackMethodHandler() => clearField(6);
 
   @$pb.TagNumber(7)
-  $core.String get cancelationMethod => $_getSZ(5);
+  $core.String get targetMethodCancellation => $_getSZ(5);
   @$pb.TagNumber(7)
-  set cancelationMethod($core.String v) {
-    $_setString(5, v);
-  }
-
+  set targetMethodCancellation($core.String v) { $_setString(5, v); }
   @$pb.TagNumber(7)
-  $core.bool hasCancelationMethod() => $_has(5);
+  $core.bool hasTargetMethodCancellation() => $_has(5);
   @$pb.TagNumber(7)
-  void clearCancelationMethod() => clearField(7);
+  void clearTargetMethodCancellation() => clearField(7);
 
   @$pb.TagNumber(8)
-  $core.int get callBackId => $_getIZ(6);
+  $core.int get callBackReferenceId => $_getIZ(6);
   @$pb.TagNumber(8)
-  set callBackId($core.int v) {
-    $_setSignedInt32(6, v);
-  }
-
+  set callBackReferenceId($core.int v) { $_setSignedInt32(6, v); }
   @$pb.TagNumber(8)
-  $core.bool hasCallBackId() => $_has(6);
+  $core.bool hasCallBackReferenceId() => $_has(6);
   @$pb.TagNumber(8)
-  void clearCallBackId() => clearField(8);
+  void clearCallBackReferenceId() => clearField(8);
 }
 
 class Error extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Error',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'protos'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'message')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'code')
-    ..aOS(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'details')
-    ..hasRequiredFields = false;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Error', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'protos'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'message')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'code')
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'details')
+    ..hasRequiredFields = false
+  ;
 
   Error._() : super();
   factory Error({
@@ -262,39 +172,31 @@ class Error extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory Error.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory Error.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-      'Will be removed in next major version')
+  factory Error.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory Error.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
   Error clone() => Error()..mergeFromMessage(this);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-      'Will be removed in next major version')
-  Error copyWith(void Function(Error) updates) =>
-      super.copyWith((message) => updates(message as Error))
-          as Error; // ignore: deprecated_member_use
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  Error copyWith(void Function(Error) updates) => super.copyWith((message) => updates(message as Error)) as Error; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static Error create() => Error._();
   Error createEmptyInstance() => create();
   static $pb.PbList<Error> createRepeated() => $pb.PbList<Error>();
   @$core.pragma('dart2js:noInline')
-  static Error getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Error>(create);
+  static Error getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Error>(create);
   static Error? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get message => $_getSZ(0);
   @$pb.TagNumber(1)
-  set message($core.String v) {
-    $_setString(0, v);
-  }
-
+  set message($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasMessage() => $_has(0);
   @$pb.TagNumber(1)
@@ -303,10 +205,7 @@ class Error extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $core.String get code => $_getSZ(1);
   @$pb.TagNumber(2)
-  set code($core.String v) {
-    $_setString(1, v);
-  }
-
+  set code($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
   $core.bool hasCode() => $_has(1);
   @$pb.TagNumber(2)
@@ -315,10 +214,7 @@ class Error extends $pb.GeneratedMessage {
   @$pb.TagNumber(3)
   $core.String get details => $_getSZ(2);
   @$pb.TagNumber(3)
-  set details($core.String v) {
-    $_setString(2, v);
-  }
-
+  set details($core.String v) { $_setString(2, v); }
   @$pb.TagNumber(3)
   $core.bool hasDetails() => $_has(2);
   @$pb.TagNumber(3)
@@ -326,53 +222,18 @@ class Error extends $pb.GeneratedMessage {
 }
 
 class Result extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Result',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'protos'),
-      createEmptyInstance: create)
-    ..aOB(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'type')
-    ..aOS(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'value')
-    ..aOM<$0.Any>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'valuebytes',
-        subBuilder: $0.Any.create)
-    ..aOB(
-        4,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'shouldBeEmpty',
-        protoName: 'shouldBeEmpty')
-    ..hasRequiredFields = false;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Result', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'protos'), createEmptyInstance: create)
+    ..aOM<$0.Any>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'valuebytes', subBuilder: $0.Any.create)
+    ..aOB(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'shouldBeEmpty', protoName: 'shouldBeEmpty')
+    ..hasRequiredFields = false
+  ;
 
   Result._() : super();
   factory Result({
-    $core.bool? type,
-    $core.String? value,
     $0.Any? valuebytes,
     $core.bool? shouldBeEmpty,
   }) {
     final _result = create();
-    if (type != null) {
-      _result.type = type;
-    }
-    if (value != null) {
-      _result.value = value;
-    }
     if (valuebytes != null) {
       _result.valuebytes = valuebytes;
     }
@@ -381,192 +242,53 @@ class Result extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory Result.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory Result.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-      'Will be removed in next major version')
+  factory Result.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory Result.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
   Result clone() => Result()..mergeFromMessage(this);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-      'Will be removed in next major version')
-  Result copyWith(void Function(Result) updates) =>
-      super.copyWith((message) => updates(message as Result))
-          as Result; // ignore: deprecated_member_use
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  Result copyWith(void Function(Result) updates) => super.copyWith((message) => updates(message as Result)) as Result; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static Result create() => Result._();
   Result createEmptyInstance() => create();
   static $pb.PbList<Result> createRepeated() => $pb.PbList<Result>();
   @$core.pragma('dart2js:noInline')
-  static Result getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Result>(create);
+  static Result getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Result>(create);
   static Result? _defaultInstance;
 
-  @$pb.TagNumber(1)
-  $core.bool get type => $_getBF(0);
-  @$pb.TagNumber(1)
-  set type($core.bool v) {
-    $_setBool(0, v);
-  }
-
-  @$pb.TagNumber(1)
-  $core.bool hasType() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearType() => clearField(1);
-
-  @$pb.TagNumber(2)
-  $core.String get value => $_getSZ(1);
-  @$pb.TagNumber(2)
-  set value($core.String v) {
-    $_setString(1, v);
-  }
-
-  @$pb.TagNumber(2)
-  $core.bool hasValue() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearValue() => clearField(2);
-
   @$pb.TagNumber(3)
-  $0.Any get valuebytes => $_getN(2);
+  $0.Any get valuebytes => $_getN(0);
   @$pb.TagNumber(3)
-  set valuebytes($0.Any v) {
-    setField(3, v);
-  }
-
+  set valuebytes($0.Any v) { setField(3, v); }
   @$pb.TagNumber(3)
-  $core.bool hasValuebytes() => $_has(2);
+  $core.bool hasValuebytes() => $_has(0);
   @$pb.TagNumber(3)
   void clearValuebytes() => clearField(3);
   @$pb.TagNumber(3)
-  $0.Any ensureValuebytes() => $_ensure(2);
+  $0.Any ensureValuebytes() => $_ensure(0);
 
   @$pb.TagNumber(4)
-  $core.bool get shouldBeEmpty => $_getBF(3);
+  $core.bool get shouldBeEmpty => $_getBF(1);
   @$pb.TagNumber(4)
-  set shouldBeEmpty($core.bool v) {
-    $_setBool(3, v);
-  }
-
+  set shouldBeEmpty($core.bool v) { $_setBool(1, v); }
   @$pb.TagNumber(4)
-  $core.bool hasShouldBeEmpty() => $_has(3);
+  $core.bool hasShouldBeEmpty() => $_has(1);
   @$pb.TagNumber(4)
   void clearShouldBeEmpty() => clearField(4);
 }
 
-class Payload extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Payload',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'protos'),
-      createEmptyInstance: create)
-    ..aOM<Result>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'result',
-        subBuilder: Result.create)
-    ..aOM<Error>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'error',
-        subBuilder: Error.create)
-    ..hasRequiredFields = false;
-
-  Payload._() : super();
-  factory Payload({
-    Result? result,
-    Error? error,
-  }) {
-    final _result = create();
-    if (result != null) {
-      _result.result = result;
-    }
-    if (error != null) {
-      _result.error = error;
-    }
-    return _result;
-  }
-  factory Payload.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory Payload.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-      'Will be removed in next major version')
-  Payload clone() => Payload()..mergeFromMessage(this);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-      'Will be removed in next major version')
-  Payload copyWith(void Function(Payload) updates) =>
-      super.copyWith((message) => updates(message as Payload))
-          as Payload; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static Payload create() => Payload._();
-  Payload createEmptyInstance() => create();
-  static $pb.PbList<Payload> createRepeated() => $pb.PbList<Payload>();
-  @$core.pragma('dart2js:noInline')
-  static Payload getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Payload>(create);
-  static Payload? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  Result get result => $_getN(0);
-  @$pb.TagNumber(1)
-  set result(Result v) {
-    setField(1, v);
-  }
-
-  @$pb.TagNumber(1)
-  $core.bool hasResult() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearResult() => clearField(1);
-  @$pb.TagNumber(1)
-  Result ensureResult() => $_ensure(0);
-
-  @$pb.TagNumber(2)
-  Error get error => $_getN(1);
-  @$pb.TagNumber(2)
-  set error(Error v) {
-    setField(2, v);
-  }
-
-  @$pb.TagNumber(2)
-  $core.bool hasError() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearError() => clearField(2);
-  @$pb.TagNumber(2)
-  Error ensureError() => $_ensure(1);
-}
-
 class Generic extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Generic',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'protos'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'data')
-    ..hasRequiredFields = false;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Generic', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'protos'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'data')
+    ..hasRequiredFields = false
+  ;
 
   Generic._() : super();
   factory Generic({
@@ -578,39 +300,31 @@ class Generic extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory Generic.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory Generic.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-      'Will be removed in next major version')
+  factory Generic.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory Generic.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
   Generic clone() => Generic()..mergeFromMessage(this);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-      'Will be removed in next major version')
-  Generic copyWith(void Function(Generic) updates) =>
-      super.copyWith((message) => updates(message as Generic))
-          as Generic; // ignore: deprecated_member_use
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  Generic copyWith(void Function(Generic) updates) => super.copyWith((message) => updates(message as Generic)) as Generic; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static Generic create() => Generic._();
   Generic createEmptyInstance() => create();
   static $pb.PbList<Generic> createRepeated() => $pb.PbList<Generic>();
   @$core.pragma('dart2js:noInline')
-  static Generic getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Generic>(create);
+  static Generic getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Generic>(create);
   static Generic? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get data => $_getSZ(0);
   @$pb.TagNumber(1)
-  set data($core.String v) {
-    $_setString(0, v);
-  }
-
+  set data($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasData() => $_has(0);
   @$pb.TagNumber(1)
@@ -618,27 +332,11 @@ class Generic extends $pb.GeneratedMessage {
 }
 
 class MirrorMethodCall extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'MirrorMethodCall',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'protos'),
-      createEmptyInstance: create)
-    ..aOS(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'method')
-    ..aOM<$0.Any>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'arguments',
-        subBuilder: $0.Any.create)
-    ..hasRequiredFields = false;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'MirrorMethodCall', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'protos'), createEmptyInstance: create)
+    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'method')
+    ..aOM<$0.Any>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'arguments', subBuilder: $0.Any.create)
+    ..hasRequiredFields = false
+  ;
 
   MirrorMethodCall._() : super();
   factory MirrorMethodCall({
@@ -654,40 +352,31 @@ class MirrorMethodCall extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory MirrorMethodCall.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory MirrorMethodCall.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-      'Will be removed in next major version')
+  factory MirrorMethodCall.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory MirrorMethodCall.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
   MirrorMethodCall clone() => MirrorMethodCall()..mergeFromMessage(this);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-      'Will be removed in next major version')
-  MirrorMethodCall copyWith(void Function(MirrorMethodCall) updates) =>
-      super.copyWith((message) => updates(message as MirrorMethodCall))
-          as MirrorMethodCall; // ignore: deprecated_member_use
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  MirrorMethodCall copyWith(void Function(MirrorMethodCall) updates) => super.copyWith((message) => updates(message as MirrorMethodCall)) as MirrorMethodCall; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static MirrorMethodCall create() => MirrorMethodCall._();
   MirrorMethodCall createEmptyInstance() => create();
-  static $pb.PbList<MirrorMethodCall> createRepeated() =>
-      $pb.PbList<MirrorMethodCall>();
+  static $pb.PbList<MirrorMethodCall> createRepeated() => $pb.PbList<MirrorMethodCall>();
   @$core.pragma('dart2js:noInline')
-  static MirrorMethodCall getDefault() => _defaultInstance ??=
-      $pb.GeneratedMessage.$_defaultFor<MirrorMethodCall>(create);
+  static MirrorMethodCall getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<MirrorMethodCall>(create);
   static MirrorMethodCall? _defaultInstance;
 
   @$pb.TagNumber(1)
   $core.String get method => $_getSZ(0);
   @$pb.TagNumber(1)
-  set method($core.String v) {
-    $_setString(0, v);
-  }
-
+  set method($core.String v) { $_setString(0, v); }
   @$pb.TagNumber(1)
   $core.bool hasMethod() => $_has(0);
   @$pb.TagNumber(1)
@@ -696,10 +385,7 @@ class MirrorMethodCall extends $pb.GeneratedMessage {
   @$pb.TagNumber(2)
   $0.Any get arguments => $_getN(1);
   @$pb.TagNumber(2)
-  set arguments($0.Any v) {
-    setField(2, v);
-  }
-
+  set arguments($0.Any v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasArguments() => $_has(1);
   @$pb.TagNumber(2)
@@ -709,87 +395,61 @@ class MirrorMethodCall extends $pb.GeneratedMessage {
 }
 
 class Message extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(
-      const $core.bool.fromEnvironment('protobuf.omit_message_names')
-          ? ''
-          : 'Message',
-      package: const $pb.PackageName(
-          const $core.bool.fromEnvironment('protobuf.omit_message_names')
-              ? ''
-              : 'protos'),
-      createEmptyInstance: create)
-    ..aOM<Header>(
-        1,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'header',
-        subBuilder: Header.create)
-    ..aOM<Payload>(
-        2,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'payload',
-        subBuilder: Payload.create)
-    ..aOM<MirrorMethodCall>(
-        3,
-        const $core.bool.fromEnvironment('protobuf.omit_field_names')
-            ? ''
-            : 'methodCall',
-        protoName: 'methodCall',
-        subBuilder: MirrorMethodCall.create)
-    ..hasRequiredFields = false;
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Message', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'protos'), createEmptyInstance: create)
+    ..aOM<Header>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'header', subBuilder: Header.create)
+    ..aOM<Result>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'result', subBuilder: Result.create)
+    ..aOM<Error>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'error', subBuilder: Error.create)
+    ..aOM<MirrorMethodCall>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'methodCall', protoName: 'methodCall', subBuilder: MirrorMethodCall.create)
+    ..hasRequiredFields = false
+  ;
 
   Message._() : super();
   factory Message({
     Header? header,
-    Payload? payload,
+    Result? result,
+    Error? error,
     MirrorMethodCall? methodCall,
   }) {
     final _result = create();
     if (header != null) {
       _result.header = header;
     }
-    if (payload != null) {
-      _result.payload = payload;
+    if (result != null) {
+      _result.result = result;
+    }
+    if (error != null) {
+      _result.error = error;
     }
     if (methodCall != null) {
       _result.methodCall = methodCall;
     }
     return _result;
   }
-  factory Message.fromBuffer($core.List<$core.int> i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromBuffer(i, r);
-  factory Message.fromJson($core.String i,
-          [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) =>
-      create()..mergeFromJson(i, r);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-      'Will be removed in next major version')
+  factory Message.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory Message.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
+  'Will be removed in next major version')
   Message clone() => Message()..mergeFromMessage(this);
-  @$core.Deprecated('Using this can add significant overhead to your binary. '
-      'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-      'Will be removed in next major version')
-  Message copyWith(void Function(Message) updates) =>
-      super.copyWith((message) => updates(message as Message))
-          as Message; // ignore: deprecated_member_use
+  @$core.Deprecated(
+  'Using this can add significant overhead to your binary. '
+  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
+  'Will be removed in next major version')
+  Message copyWith(void Function(Message) updates) => super.copyWith((message) => updates(message as Message)) as Message; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
   static Message create() => Message._();
   Message createEmptyInstance() => create();
   static $pb.PbList<Message> createRepeated() => $pb.PbList<Message>();
   @$core.pragma('dart2js:noInline')
-  static Message getDefault() =>
-      _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Message>(create);
+  static Message getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Message>(create);
   static Message? _defaultInstance;
 
   @$pb.TagNumber(1)
   Header get header => $_getN(0);
   @$pb.TagNumber(1)
-  set header(Header v) {
-    setField(1, v);
-  }
-
+  set header(Header v) { setField(1, v); }
   @$pb.TagNumber(1)
   $core.bool hasHeader() => $_has(0);
   @$pb.TagNumber(1)
@@ -798,30 +458,36 @@ class Message extends $pb.GeneratedMessage {
   Header ensureHeader() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  Payload get payload => $_getN(1);
+  Result get result => $_getN(1);
   @$pb.TagNumber(2)
-  set payload(Payload v) {
-    setField(2, v);
-  }
-
+  set result(Result v) { setField(2, v); }
   @$pb.TagNumber(2)
-  $core.bool hasPayload() => $_has(1);
+  $core.bool hasResult() => $_has(1);
   @$pb.TagNumber(2)
-  void clearPayload() => clearField(2);
+  void clearResult() => clearField(2);
   @$pb.TagNumber(2)
-  Payload ensurePayload() => $_ensure(1);
+  Result ensureResult() => $_ensure(1);
 
   @$pb.TagNumber(3)
-  MirrorMethodCall get methodCall => $_getN(2);
+  Error get error => $_getN(2);
   @$pb.TagNumber(3)
-  set methodCall(MirrorMethodCall v) {
-    setField(3, v);
-  }
+  set error(Error v) { setField(3, v); }
+  @$pb.TagNumber(3)
+  $core.bool hasError() => $_has(2);
+  @$pb.TagNumber(3)
+  void clearError() => clearField(3);
+  @$pb.TagNumber(3)
+  Error ensureError() => $_ensure(2);
 
-  @$pb.TagNumber(3)
-  $core.bool hasMethodCall() => $_has(2);
-  @$pb.TagNumber(3)
-  void clearMethodCall() => clearField(3);
-  @$pb.TagNumber(3)
-  MirrorMethodCall ensureMethodCall() => $_ensure(2);
+  @$pb.TagNumber(4)
+  MirrorMethodCall get methodCall => $_getN(3);
+  @$pb.TagNumber(4)
+  set methodCall(MirrorMethodCall v) { setField(4, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasMethodCall() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearMethodCall() => clearField(4);
+  @$pb.TagNumber(4)
+  MirrorMethodCall ensureMethodCall() => $_ensure(3);
 }
+

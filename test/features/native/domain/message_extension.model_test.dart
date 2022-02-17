@@ -16,15 +16,13 @@ void main() {
     final message = PlatformEntrypoint.defaultListenerSetup(
       namespace: NativeCommunicationMetadata.businessNamespace,
       targetMethod: 'playgroundStart',
-      cancelationMethod: 'playgroundStop',
+      targetMethodCancellation: 'playgroundStop',
     );
 
-    message.payload = Payload(
-      error: Error(
-        code: 'generic-error',
-        details: 'throwing a mocked exception',
-        message: 'just do it',
-      ),
+    message.error = Error(
+      code: 'generic-error',
+      details: 'throwing a mocked exception',
+      message: 'just do it',
     );
 
     // act && assert
@@ -46,7 +44,7 @@ void main() {
     final message = PlatformEntrypoint.defaultListenerSetup(
       namespace: NativeCommunicationMetadata.businessNamespace,
       targetMethod: 'playgroundStart',
-      cancelationMethod: 'playgroundStop',
+      targetMethodCancellation: 'playgroundStop',
     );
 
     // act && assert

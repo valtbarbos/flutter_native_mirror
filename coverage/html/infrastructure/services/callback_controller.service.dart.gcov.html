@@ -90,15 +90,15 @@
 <a name="17"><span class="lineNum">      17 </span>            : </a>
 <a name="18"><span class="lineNum">      18 </span><span class="lineCov">          2 :   CallBacksController._internal();</span></a>
 <a name="19"><span class="lineNum">      19 </span>            : </a>
-<a name="20"><span class="lineNum">      20 </span>            :   int _nextCallbackId = 0;</a>
+<a name="20"><span class="lineNum">      20 </span>            :   int _nextCallBackReferenceId = 0;</a>
 <a name="21"><span class="lineNum">      21 </span>            : </a>
-<a name="22"><span class="lineNum">      22 </span><span class="lineCov">          2 :   int get lastAddedCallbackId =&gt; _nextCallbackId;</span></a>
+<a name="22"><span class="lineNum">      22 </span><span class="lineCov">          2 :   int get lastAddedcallBackReferenceId =&gt; _nextCallBackReferenceId;</span></a>
 <a name="23"><span class="lineNum">      23 </span>            : </a>
 <a name="24"><span class="lineNum">      24 </span><span class="lineCov">          1 :   @override</span></a>
 <a name="25"><span class="lineNum">      25 </span><span class="lineCov">          2 :   int get registeredCallbacksCount =&gt; _callbacks.length;</span></a>
 <a name="26"><span class="lineNum">      26 </span>            : </a>
 <a name="27"><span class="lineNum">      27 </span>            :   @override</a>
-<a name="28"><span class="lineNum">      28 </span><span class="lineCov">          1 :   Future&lt;dynamic&gt; callBackMethodHandlerSetup(MethodCall call) async {</span></a>
+<a name="28"><span class="lineNum">      28 </span><span class="lineCov">          1 :   Future&lt;dynamic&gt; platformCallBackMethodHandlerSetup(MethodCall call) async {</span></a>
 <a name="29"><span class="lineNum">      29 </span>            :     try {</a>
 <a name="30"><span class="lineNum">      30 </span><span class="lineCov">          2 :       if (_callbacks.isEmpty) {</span></a>
 <a name="31"><span class="lineNum">      31 </span>            :         // throw Exception('No callback registered.');</a>
@@ -110,16 +110,16 @@
 <a name="37"><span class="lineNum">      37 </span>            : </a>
 <a name="38"><span class="lineNum">      38 </span><span class="lineCov">          1 :       switch (call.method) {</span></a>
 <a name="39"><span class="lineNum">      39 </span><span class="lineCov">          1 :         case PlatformEntrypoint.setupMethodHandler:</span></a>
-<a name="40"><span class="lineNum">      40 </span><span class="lineCov">          1 :         case PlatformEntrypoint.callBackMethodHandler:</span></a>
+<a name="40"><span class="lineNum">      40 </span><span class="lineCov">          1 :         case PlatformEntrypoint.platformCallBackMethodHandler:</span></a>
 <a name="41"><span class="lineNum">      41 </span><span class="lineCov">          2 :           Message message = Message.fromBuffer(call.arguments);</span></a>
 <a name="42"><span class="lineNum">      42 </span>            : </a>
-<a name="43"><span class="lineNum">      43 </span><span class="lineCov">          3 :           if (message.header.communicationType ==</span></a>
+<a name="43"><span class="lineNum">      43 </span><span class="lineCov">          3 :           if (message.header.intent ==</span></a>
 <a name="44"><span class="lineNum">      44 </span>            :               Header_CommunicationType.CANCELATION) {</a>
-<a name="45"><span class="lineNum">      45 </span><span class="lineCov">          3 :             disposeCallBack(message.header.callBackId);</span></a>
+<a name="45"><span class="lineNum">      45 </span><span class="lineCov">          3 :             disposeCallBack(message.header.callBackReferenceId);</span></a>
 <a name="46"><span class="lineNum">      46 </span>            :             break;</a>
 <a name="47"><span class="lineNum">      47 </span>            :           }</a>
 <a name="48"><span class="lineNum">      48 </span>            : </a>
-<a name="49"><span class="lineNum">      49 </span><span class="lineCov">          2 :           int id = message.header.callBackId;</span></a>
+<a name="49"><span class="lineNum">      49 </span><span class="lineCov">          2 :           int id = message.header.callBackReferenceId;</span></a>
 <a name="50"><span class="lineNum">      50 </span>            : </a>
 <a name="51"><span class="lineNum">      51 </span><span class="lineCov">          1 :           if (id == 0) {</span></a>
 <a name="52"><span class="lineNum">      52 </span><span class="lineNoCov">          0 :             throw Exception('Invalid [callback id] value.');</span></a>
@@ -149,11 +149,11 @@
 <a name="76"><span class="lineNum">      76 </span>            : </a>
 <a name="77"><span class="lineNum">      77 </span>            :           break;</a>
 <a name="78"><span class="lineNum">      78 </span>            :         default:</a>
-<a name="79"><span class="lineNum">      79 </span><span class="lineNoCov">          0 :           log('CallBacksController, callBackMethodHandlerSetup -&gt; IGNORING: ${call.method}');</span></a>
+<a name="79"><span class="lineNum">      79 </span><span class="lineNoCov">          0 :           log('CallBacksController, platformCallBackMethodHandlerSetup -&gt; IGNORING: ${call.method}');</span></a>
 <a name="80"><span class="lineNum">      80 </span>            :           break;</a>
 <a name="81"><span class="lineNum">      81 </span>            :       }</a>
 <a name="82"><span class="lineNum">      82 </span>            :     } catch (e, s) {</a>
-<a name="83"><span class="lineNum">      83 </span><span class="lineNoCov">          0 :       log('CallBacksController, callBackMethodHandlerSetup\n$call',</span></a>
+<a name="83"><span class="lineNum">      83 </span><span class="lineNoCov">          0 :       log('CallBacksController, platformCallBackMethodHandlerSetup\n$call',</span></a>
 <a name="84"><span class="lineNum">      84 </span>            :           name: _tag, stackTrace: s, error: e);</a>
 <a name="85"><span class="lineNum">      85 </span>            :       rethrow;</a>
 <a name="86"><span class="lineNum">      86 </span>            :     }</a>
@@ -206,19 +206,19 @@
 <a name="133"><span class="lineNum">     133 </span>            :           'targetMethod: [call.message.header.targetMethod] already registered.');</a>
 <a name="134"><span class="lineNum">     134 </span>            :     }</a>
 <a name="135"><span class="lineNum">     135 </span>            : </a>
-<a name="136"><span class="lineNum">     136 </span><span class="lineCov">          2 :     _nextCallbackId++;</span></a>
+<a name="136"><span class="lineNum">     136 </span><span class="lineCov">          2 :     _nextCallBackReferenceId++;</span></a>
 <a name="137"><span class="lineNum">     137 </span>            : </a>
-<a name="138"><span class="lineNum">     138 </span><span class="lineCov">          4 :     call.message.header.callBackId = _nextCallbackId;</span></a>
+<a name="138"><span class="lineNum">     138 </span><span class="lineCov">          4 :     call.message.header.callBackReferenceId = _nextCallBackReferenceId;</span></a>
 <a name="139"><span class="lineNum">     139 </span>            : </a>
 <a name="140"><span class="lineNum">     140 </span><span class="lineCov">          2 :     _callbacks.add(call);</span></a>
 <a name="141"><span class="lineNum">     141 </span>            : </a>
-<a name="142"><span class="lineNum">     142 </span><span class="lineCov">          6 :     log('CallBacksController, setCallBack -&gt; $_nextCallbackId : ${call.message.header.targetMethod}');</span></a>
+<a name="142"><span class="lineNum">     142 </span><span class="lineCov">          6 :     log('CallBacksController, setCallBack -&gt; $_nextCallBackReferenceId : ${call.message.header.targetMethod}');</span></a>
 <a name="143"><span class="lineNum">     143 </span>            :   }</a>
 <a name="144"><span class="lineNum">     144 </span>            : </a>
 <a name="145"><span class="lineNum">     145 </span><span class="lineCov">          1 :   @override</span></a>
-<a name="146"><span class="lineNum">     146 </span>            :   void disposeCallBack(int callBackId) {</a>
-<a name="147"><span class="lineNum">     147 </span><span class="lineCov">          2 :     log('CallBacksController, disposeCallBack -&gt; $callBackId');</span></a>
-<a name="148"><span class="lineNum">     148 </span><span class="lineCov">          7 :     _callbacks.removeWhere((e) =&gt; e.message.header.callBackId == callBackId);</span></a>
+<a name="146"><span class="lineNum">     146 </span>            :   void disposeCallBack(int callBackReferenceId) {</a>
+<a name="147"><span class="lineNum">     147 </span><span class="lineCov">          2 :     log('CallBacksController, disposeCallBack -&gt; $callBackReferenceId');</span></a>
+<a name="148"><span class="lineNum">     148 </span><span class="lineCov">          7 :     _callbacks.removeWhere((e) =&gt; e.message.header.callBackReferenceId == callBackReferenceId);</span></a>
 <a name="149"><span class="lineNum">     149 </span>            :   }</a>
 <a name="150"><span class="lineNum">     150 </span>            : }</a>
 </pre>

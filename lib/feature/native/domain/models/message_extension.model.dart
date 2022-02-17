@@ -4,45 +4,38 @@ part of './models.devicekit.dart';
 
 extension ResultX on Result {
   bool isEmpty() {
-    return this.shouldBeEmpty;
+    return shouldBeEmpty;
   }
-}
 
-extension PayloadX on Payload {
   bool isInvalid() {
-    return !result.shouldBeEmpty &&
-        !result.valuebytes.hasValue() &&
-        result.value.isEmpty &&
-        error.code.isEmpty;
-  }
-
-  bool hasReportedErrors() {
-    return error.code.isNotEmpty;
+    return !shouldBeEmpty && !valuebytes.hasValue();
   }
 }
 
 extension MessageX on Message {
   //
 
-  bool isEmptyResult() => payload.result.shouldBeEmpty;
+  bool hasReportedErrors() {
+    return error.code.isNotEmpty;
+  }
+
+  bool isEmptyResult() => result.shouldBeEmpty;
 
   Future<Result> validation() async {
-    final payload = this.payload;
-
-    if (payload.isInvalid()) {
+    if (result.isInvalid()) {
       throw PlatformException(
         code: 'connection-playload-invalid',
         message: 'Please, check our entrypoint container.',
         details: null,
       );
-    } else if (payload.hasReportedErrors()) {
+    } else if (hasReportedErrors()) {
       throw PlatformException(
-        code: payload.error.code,
-        message: payload.error.message,
-        details: payload.error.details,
+        code: error.code,
+        message: error.message,
+        details: error.details,
       );
     } else {
-      return payload.result;
+      return result;
     }
   }
 }

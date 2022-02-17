@@ -17,15 +17,15 @@ class CallBacksController implements ICallBacksController {
 
   CallBacksController._internal();
 
-  int _nextCallbackId = 0;
+  int _nextCallBackReferenceId = 0;
 
-  int get lastAddedCallbackId => _nextCallbackId;
+  int get lastAddedcallBackReferenceId => _nextCallBackReferenceId;
 
   @override
   int get registeredCallbacksCount => _callbacks.length;
 
   @override
-  Future<dynamic> callBackMethodHandlerSetup(MethodCall call) async {
+  Future<dynamic> platformCallBackMethodHandlerSetup(MethodCall call) async {
     try {
       if (_callbacks.isEmpty) {
         // throw Exception('No callback registered.');
@@ -37,16 +37,15 @@ class CallBacksController implements ICallBacksController {
 
       switch (call.method) {
         case PlatformEntrypoint.setupMethodHandler:
-        case PlatformEntrypoint.callBackMethodHandler:
+        case PlatformEntrypoint.platformCallBackMethodHandler:
           Message message = Message.fromBuffer(call.arguments);
 
-          if (message.header.communicationType ==
-              Header_CommunicationType.CANCELATION) {
-            disposeCallBack(message.header.callBackId);
+          if (message.header.intent == Header_CommunicationType.CANCELATION) {
+            disposeCallBack(message.header.callBackReferenceId);
             break;
           }
 
-          int id = message.header.callBackId;
+          int id = message.header.callBackReferenceId;
 
           if (id == 0) {
             throw Exception('Invalid [callback id] value.');
@@ -71,16 +70,16 @@ class CallBacksController implements ICallBacksController {
 
           dynamicMethod.call(
             message.methodCall,
-            message.payload.error,
+            message.error,
           );
 
           break;
         default:
-          log('CallBacksController, callBackMethodHandlerSetup -> IGNORING: ${call.method}');
+          log('CallBacksController, platformCallBackMethodHandlerSetup -> IGNORING: ${call.method}');
           break;
       }
     } catch (e, s) {
-      log('CallBacksController, callBackMethodHandlerSetup\n$call',
+      log('CallBacksController, platformCallBackMethodHandlerSetup\n$call',
           name: _tag, stackTrace: s, error: e);
       rethrow;
     }
@@ -136,18 +135,19 @@ class CallBacksController implements ICallBacksController {
       return;
     }
 
-    _nextCallbackId++;
+    _nextCallBackReferenceId++;
 
-    call.message.header.callBackId = _nextCallbackId;
+    call.message.header.callBackReferenceId = _nextCallBackReferenceId;
 
     _callbacks.add(call);
 
-    log('CallBacksController, setCallBack -> $_nextCallbackId : ${call.message.header.targetMethod}');
+    log('CallBacksController, setCallBack -> $_nextCallBackReferenceId : ${call.message.header.targetMethod}');
   }
 
   @override
-  void disposeCallBack(int callBackId) {
-    log('CallBacksController, disposeCallBack -> $callBackId');
-    _callbacks.removeWhere((e) => e.message.header.callBackId == callBackId);
+  void disposeCallBack(int callBackReferenceId) {
+    log('CallBacksController, disposeCallBack -> $callBackReferenceId');
+    _callbacks.removeWhere(
+        (e) => e.message.header.callBackReferenceId == callBackReferenceId);
   }
 }

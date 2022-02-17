@@ -27,7 +27,7 @@ class CallBackMethod<K, V> {
 
   MultiUseCallback<K, V> get call => _call;
 
-  int get id => _message.header.callBackId;
+  int get id => _message.header.callBackReferenceId;
 }
 
 abstract class INativeModel extends Equatable {

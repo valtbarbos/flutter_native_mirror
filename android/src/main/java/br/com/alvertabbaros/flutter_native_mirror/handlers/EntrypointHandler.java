@@ -160,18 +160,18 @@ public class EntrypointHandler implements MethodCallHandler {
 
                     receivedHeader = receivedMessage.getHeader();
 
-                    Protos.Header.CommunicationType communicationType = receivedHeader.getCommunicationType();
+                    Protos.Header.intent intent = receivedHeader.getCommunicationType();
 
                     String intendMethodCall =
-                            communicationType.equals(Protos.Header.CommunicationType.SETUP) ?
+                            intent.equals(Protos.Header.intent.SETUP) ?
                                     receivedHeader.gettargetMethod() :
-                                    receivedHeader.getCancelationMethod();
+                                    receivedHeader.gettargetMethodCancellation();
 
-                    String callBackMethodHandler = receivedHeader.getCallBackMethodHandler();
+                    String platformCallBackMethodHandler = receivedHeader.getplatformCallBackMethodHandler();
 
                     Objects.requireNonNull(
-                            callBackMethodHandler,
-                            "Please, set [callBackMethodHandler] from the Dart's side.");
+                            platformCallBackMethodHandler,
+                            "Please, set [platformCallBackMethodHandler] from the Dart's side.");
 
                     method = businessInstance.getClass().getDeclaredMethod(
                             intendMethodCall,

@@ -39,18 +39,18 @@ message Header {
   
   string targetMethod = 3;
 
-  string callBackMethodHandler = 6;
+  string targetMethodCancellation = 7;
 
-  string cancelationMethod = 7;
+  string platformCallBackMethodHandler = 6;
 
-  int32 callBackId = 8;
+  int32 callBackReferenceId = 8;
 
   enum CommunicationType {
     SETUP = 0;
     CANCELATION = 1;
   }
 
-  CommunicationType communicationType = 4;
+  CommunicationType intent = 4;
 }
 
 message Error {
@@ -66,18 +66,7 @@ message Result {
 
   bool shouldBeEmpty = 4;
 
-  bool type = 1;
-  
-  string value = 2;
-
   google.protobuf.Any valuebytes = 3;
-}
-
-message Payload {
-
-  Result result = 1;
-
-  Error error = 2;
 }
 
 message Generic {
@@ -96,9 +85,11 @@ message Message {
 
   Header header = 1;
   
-  Payload payload = 2;
+  Result result = 2;
 
-  MirrorMethodCall methodCall = 3;
+  Error error = 3;
+
+  MirrorMethodCall methodCall = 4;
 }
 
 // [END messages]
