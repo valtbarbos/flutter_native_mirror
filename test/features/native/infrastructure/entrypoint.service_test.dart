@@ -65,20 +65,16 @@ void main() {
         final message = Message(
           header: Header(
             id: id,
-            objectClass: 'PlatformEntrypoint',
-            actionMethod: 'requestWithProtobuf',
-            lastUpdated: Timestamp.fromDateTime(date),
+            namespace: 'PlatformEntrypoint',
+            targetMethod: 'requestWithProtobuf',
           ),
         );
 
         final responseFromUint8List = Message(
           header: Header(
             id: id,
-            objectClass: 'PlatformEntrypoint',
-            actionMethod: 'requestWithProtobuf',
-            lastUpdated: Timestamp.fromDateTime(date.add(
-              const Duration(seconds: 10),
-            )),
+            namespace: 'PlatformEntrypoint',
+            targetMethod: 'requestWithProtobuf',
           ),
         ).writeToBuffer();
 
@@ -90,15 +86,15 @@ void main() {
 
         final response = await entry.send(message);
 
-        final messageTime = message.header.lastUpdated.toDateTime();
+        // final messageTime = message.header.lastUpdated.toDateTime();
 
-        final responseTime = response.header.lastUpdated.toDateTime();
+        // final responseTime = response.header.lastUpdated.toDateTime();
 
-        // assert
+        // // assert
 
         expect(id, response.header.id);
 
-        expect(messageTime.second < responseTime.second, true);
+        // expect(messageTime.second < responseTime.second, true);
       });
 
       testWidgets(
@@ -111,14 +107,11 @@ void main() {
 
         final id = entry.id;
 
-        final date = DateTime.now();
-
         final message = Message(
           header: Header(
             id: id,
-            objectClass: 'PlatformEntrypoint',
-            actionMethod: 'requestWithProtobuf',
-            lastUpdated: Timestamp.fromDateTime(date),
+            namespace: 'PlatformEntrypoint',
+            targetMethod: 'requestWithProtobuf',
           ),
         );
 
@@ -216,26 +209,29 @@ void main() {
 
       Future<CancelListening> startListeningDefaultScenario({
         required WidgetTester tester,
-        Payload? expectedPayload,
+        Result? expectedResult,
+        Error? expectedError,
         MirrorMethodCall? expectedMethodCall,
       }) async {
         try {
           final entry = await groupEntry(tester);
 
           final expectedAnswer = PlatformEntrypoint.defaultListenerSetup(
-            objectClass: NativeCommunicationMetadata.businessNamespace,
-            actionMethod: 'playgroundStart',
-            cancelationMethod: 'playgroundStop',
+            namespace: NativeCommunicationMetadata.businessNamespace,
+            targetMethod: 'playgroundStart',
+            targetMethodCancellation: 'playgroundStop',
           );
 
           final result = Result(
-            value: 'From host\'s side: Hello listener!',
+            valuebytes:
+                Any.pack(Generic(data: 'From host\'s side: Hello listener!')),
           );
 
-          expectedAnswer.payload = expectedPayload ??
-              Payload(
-                result: result,
-              );
+          expectedAnswer.result = expectedResult ?? result;
+
+          if (expectedError != null) {
+            expectedAnswer.error = expectedError;
+          }
 
           expectedAnswer.methodCall = expectedMethodCall ??
               MirrorMethodCall(
@@ -244,29 +240,29 @@ void main() {
                     Generic(data: 'From host\'s side: Hello listener!')),
               );
 
-          // expectedAnswer.header.communicationType =
+          // expectedAnswer.header.intent =
           //     Header_CommunicationType.CANCELATION;
 
           // CallbackRequest expectedAnswer;
 
           helpers.mockPlatformChannels.setExpectedBehavior(
             response: () {
-              log('CallbackRequest: arranje setup invoke: ${PlatformEntrypoint.callBackMethodHandler}');
+              log('CallbackRequest: arranje setup invoke: ${PlatformEntrypoint.platformCallBackMethodHandler}');
 
               // arranje
 
               tester.binding.defaultBinaryMessenger.setMockMethodCallHandler(
                 helpers.entrypointMethodChannel,
-                helpers.callBacksController.callBackMethodHandlerSetup,
+                helpers.callBacksController.platformCallBackMethodHandlerSetup,
               );
 
-              expectedAnswer.header.callBackId =
-                  helpers.callBacksController.lastAddedCallbackId;
+              expectedAnswer.header.callBackReferenceId =
+                  helpers.callBacksController.lastAddedcallBackReferenceId;
 
               // act
 
               helpers.entrypointMethodChannel.invokeMethod(
-                PlatformEntrypoint.callBackMethodHandler,
+                PlatformEntrypoint.platformCallBackMethodHandler,
                 expectedAnswer.writeToBuffer(),
               );
             },
@@ -274,7 +270,7 @@ void main() {
 
           // act
 
-          var cancelationMethod = await entry.startListening(
+          var targetMethodCancellation = await entry.startListening(
               message: expectedAnswer,
               callback: (methodCall, error) async {
                 log('startListening -> callback -> args: $methodCall');
@@ -289,10 +285,14 @@ void main() {
 
                 methodCall.arguments.unpackInto(exp);
 
-                expect(exp.data, result.value);
+                var packet = Generic.create();
+
+                result.valuebytes.unpackInto(packet);
+
+                expect(exp.data, packet.data);
               });
 
-          return cancelationMethod;
+          return targetMethodCancellation;
         } catch (e, s) {
           log('$e', name: 'entrypoint.service_test', stackTrace: s, error: e);
           rethrow;
@@ -308,25 +308,26 @@ void main() {
       ) async {
         // arranje
 
-        late CancelListening cancelationMethod;
+        late CancelListening targetMethodCancellation;
 
         // act
 
-        cancelationMethod = await startListeningDefaultScenario(tester: tester);
+        targetMethodCancellation =
+            await startListeningDefaultScenario(tester: tester);
 
-        await cancelationMethod();
+        await targetMethodCancellation();
 
         // ignore: unused_local_variable
         for (var x in [0, 1, 2]) {
           //setupChannels(tester);
 
-          cancelationMethod =
+          targetMethodCancellation =
               await startListeningDefaultScenario(tester: tester);
         }
 
         expect(helpers.callBacksController.registeredCallbacksCount, 1);
 
-        await cancelationMethod();
+        await targetMethodCancellation();
 
         expect(helpers.callBacksController.registeredCallbacksCount, 0);
       });
@@ -346,12 +347,10 @@ void main() {
           try {
             return await startListeningDefaultScenario(
               tester: tester,
-              expectedPayload: Payload(
-                error: Error(
-                  code: 'generic-error',
-                  details: 'throwing a mocked exception',
-                  message: 'just do it',
-                ),
+              expectedError: Error(
+                code: 'generic-error',
+                details: 'throwing a mocked exception',
+                message: 'just do it',
               ),
             );
           } catch (e, s) {

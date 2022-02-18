@@ -1,6 +1,6 @@
 part of './services.nativechannels.dart';
 
-/// Manage our channels instances and listeners by [actionMethod]
+/// Manage our channels instances and listeners by [targetMethod]
 /// callback registered.
 class CallBacksController implements ICallBacksController {
   static const String _tag = 'CallBacksController';
@@ -17,15 +17,15 @@ class CallBacksController implements ICallBacksController {
 
   CallBacksController._internal();
 
-  int _nextCallbackId = 0;
+  int _nextCallBackReferenceId = 0;
 
-  int get lastAddedCallbackId => _nextCallbackId;
+  int get lastAddedcallBackReferenceId => _nextCallBackReferenceId;
 
   @override
   int get registeredCallbacksCount => _callbacks.length;
 
   @override
-  Future<dynamic> callBackMethodHandlerSetup(MethodCall call) async {
+  Future<dynamic> platformCallBackMethodHandlerSetup(MethodCall call) async {
     try {
       if (_callbacks.isEmpty) {
         // throw Exception('No callback registered.');
@@ -37,16 +37,15 @@ class CallBacksController implements ICallBacksController {
 
       switch (call.method) {
         case PlatformEntrypoint.setupMethodHandler:
-        case PlatformEntrypoint.callBackMethodHandler:
+        case PlatformEntrypoint.platformCallBackMethodHandler:
           Message message = Message.fromBuffer(call.arguments);
 
-          if (message.header.communicationType ==
-              Header_CommunicationType.CANCELATION) {
-            disposeCallBack(message.header.callBackId);
+          if (message.header.intent == Header_CommunicationType.CANCELATION) {
+            disposeCallBack(message.header.callBackReferenceId);
             break;
           }
 
-          int id = message.header.callBackId;
+          int id = message.header.callBackReferenceId;
 
           if (id == 0) {
             throw Exception('Invalid [callback id] value.');
@@ -71,38 +70,38 @@ class CallBacksController implements ICallBacksController {
 
           dynamicMethod.call(
             message.methodCall,
-            message.payload.error,
+            message.error,
           );
 
           break;
         default:
-          log('CallBacksController, callBackMethodHandlerSetup -> IGNORING: ${call.method}');
+          log('CallBacksController, platformCallBackMethodHandlerSetup -> IGNORING: ${call.method}');
           break;
       }
     } catch (e, s) {
-      log('CallBacksController, callBackMethodHandlerSetup\n$call',
+      log('CallBacksController, platformCallBackMethodHandlerSetup\n$call',
           name: _tag, stackTrace: s, error: e);
       rethrow;
     }
   }
 
   @override
-  bool isAlreadyRegistered({required String actionMethod}) =>
-      _callbacks.any((e) => e.message.header.actionMethod == actionMethod);
+  bool isAlreadyRegistered({required String targetMethod}) =>
+      _callbacks.any((e) => e.message.header.targetMethod == targetMethod);
 
   /// If [listenerCancelation] method is provided
-  /// It will dispose the current [actionMethod] listener.
+  /// It will dispose the current [targetMethod] listener.
   /// Can be used like a [restart] on our actual callback listener,
   /// and avoid duplicated listeners.
   Future<void> disposeActiveCallbackListener({
-    required String actionMethod,
+    required String targetMethod,
     required CancelListening Function(Message msg) listenerCancelation,
   }) async {
     CallBackMethod<dynamic, dynamic> callBack;
 
     try {
       callBack = _callbacks
-          .firstWhere((e) => e.message.header.actionMethod == actionMethod);
+          .firstWhere((e) => e.message.header.targetMethod == targetMethod);
     } on StateError catch (_) {
       return;
     } on Exception catch (e, s) {
@@ -122,32 +121,33 @@ class CallBacksController implements ICallBacksController {
     }
   }
 
-  /// If call [setCallBack] to a [actionMethod] already registered,
+  /// If call [setCallBack] to a [targetMethod] already registered,
   /// then will dispose the actual callback listener before continue.
   @override
   void setCallBack({
     required CallBackMethod<MirrorMethodCall, Error> call,
   }) {
-    if (isAlreadyRegistered(actionMethod: call.message.header.actionMethod)) {
+    if (isAlreadyRegistered(targetMethod: call.message.header.targetMethod)) {
       // throw Exception(
-      //     'actionMethod: [call.message.header.actionMethod] already registered.');
-      log('SUPOSE TO: \nthrow Exception(\'actionMethod: [call.message.header.actionMethod] already registered.\');',
+      //     'targetMethod: [call.message.header.targetMethod] already registered.');
+      log('SUPOSE TO: \nthrow Exception(\'targetMethod: [call.message.header.targetMethod] already registered.\');',
           level: 2000);
       return;
     }
 
-    _nextCallbackId++;
+    _nextCallBackReferenceId++;
 
-    call.message.header.callBackId = _nextCallbackId;
+    call.message.header.callBackReferenceId = _nextCallBackReferenceId;
 
     _callbacks.add(call);
 
-    log('CallBacksController, setCallBack -> $_nextCallbackId : ${call.message.header.actionMethod}');
+    log('CallBacksController, setCallBack -> $_nextCallBackReferenceId : ${call.message.header.targetMethod}');
   }
 
   @override
-  void disposeCallBack(int callBackId) {
-    log('CallBacksController, disposeCallBack -> $callBackId');
-    _callbacks.removeWhere((e) => e.message.header.callBackId == callBackId);
+  void disposeCallBack(int callBackReferenceId) {
+    log('CallBacksController, disposeCallBack -> $callBackReferenceId');
+    _callbacks.removeWhere(
+        (e) => e.message.header.callBackReferenceId == callBackReferenceId);
   }
 }

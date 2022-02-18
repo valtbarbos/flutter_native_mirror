@@ -123,8 +123,6 @@ public class EntrypointHandler implements MethodCallHandler {
 
         Protos.Message.Builder response = Protos.Message.newBuilder();
 
-        Protos.Payload.Builder payload = Protos.Payload.newBuilder();
-
         try {
             data = call.arguments();
 
@@ -137,7 +135,7 @@ public class EntrypointHandler implements MethodCallHandler {
 
             if (businessInstance == null){
                 businessInstance = newBusinessInstance(
-                        receivedMessage.getHeader().getObjectClass(),
+                        receivedMessage.getHeader().getNamespace(),
                         application,
                         channel);
             }
@@ -146,7 +144,7 @@ public class EntrypointHandler implements MethodCallHandler {
                 case "rpc":
 
                     method = businessInstance.getClass().getDeclaredMethod(
-                            receivedMessage.getHeader().getActionMethod(),
+                            receivedMessage.getHeader().getTargetMethod(),
                             Protos.Message.class,
                             Result.class
                     );
@@ -160,18 +158,18 @@ public class EntrypointHandler implements MethodCallHandler {
 
                     receivedHeader = receivedMessage.getHeader();
 
-                    Protos.Header.CommunicationType communicationType = receivedHeader.getCommunicationType();
+                    Protos.Header.CommunicationType intent = receivedHeader.getIntent();
 
                     String intendMethodCall =
-                            communicationType.equals(Protos.Header.CommunicationType.SETUP) ?
-                                    receivedHeader.getActionMethod() :
-                                    receivedHeader.getCancelationMethod();
+                            intent.equals(Protos.Header.CommunicationType.SETUP) ?
+                                    receivedHeader.getTargetMethod() :
+                                    receivedHeader.getTargetMethodCancellation();
 
-                    String callBackMethodHandler = receivedHeader.getCallBackMethodHandler();
+                    String platformCallBackMethodHandler = receivedHeader.getPlatformCallBackMethodHandler();
 
                     Objects.requireNonNull(
-                            callBackMethodHandler,
-                            "Please, set [callBackMethodHandler] from the Dart's side.");
+                            platformCallBackMethodHandler,
+                            "Please, set [platformCallBackMethodHandler] from the Dart's side.");
 
                     method = businessInstance.getClass().getDeclaredMethod(
                             intendMethodCall,
@@ -190,8 +188,7 @@ public class EntrypointHandler implements MethodCallHandler {
                     break;
             }
         } catch (Error | RuntimeException exception) {
-            payload.setError(mapToProtoError(exception));
-            response.setPayload(payload);
+            response.setError(mapToProtoError(exception));
             result.success(response.build().toByteArray());
         } catch (Exception e) {
             e.printStackTrace();

@@ -50,24 +50,22 @@ static GPBFileDescriptor *ProtosMessageRoot_FileDescriptor(void) {
 @implementation ProtosHeader
 
 @dynamic id_p;
-@dynamic objectClass;
-@dynamic actionMethod;
-@dynamic callBackMethodHandler;
-@dynamic cancelationMethod;
-@dynamic callBackId;
-@dynamic communicationType;
-@dynamic hasLastUpdated, lastUpdated;
+@dynamic namespace_p;
+@dynamic targetMethod;
+@dynamic targetMethodCancellation;
+@dynamic platformCallBackMethodHandler;
+@dynamic callBackReferenceId;
+@dynamic intent;
 
 typedef struct ProtosHeader__storage_ {
   uint32_t _has_storage_[1];
-  ProtosHeader_CommunicationType communicationType;
-  int32_t callBackId;
+  ProtosHeader_CommunicationType intent;
+  int32_t callBackReferenceId;
   NSString *id_p;
-  NSString *objectClass;
-  NSString *actionMethod;
-  GPBTimestamp *lastUpdated;
-  NSString *callBackMethodHandler;
-  NSString *cancelationMethod;
+  NSString *namespace_p;
+  NSString *targetMethod;
+  NSString *platformCallBackMethodHandler;
+  NSString *targetMethodCancellation;
 } ProtosHeader__storage_;
 
 // This method is threadsafe because it is initially called
@@ -86,65 +84,56 @@ typedef struct ProtosHeader__storage_ {
         .dataType = GPBDataTypeString,
       },
       {
-        .name = "objectClass",
+        .name = "namespace_p",
         .dataTypeSpecific.className = NULL,
-        .number = ProtosHeader_FieldNumber_ObjectClass,
+        .number = ProtosHeader_FieldNumber_Namespace_p,
         .hasIndex = 1,
-        .offset = (uint32_t)offsetof(ProtosHeader__storage_, objectClass),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .offset = (uint32_t)offsetof(ProtosHeader__storage_, namespace_p),
+        .flags = GPBFieldOptional,
         .dataType = GPBDataTypeString,
       },
       {
-        .name = "actionMethod",
+        .name = "targetMethod",
         .dataTypeSpecific.className = NULL,
-        .number = ProtosHeader_FieldNumber_ActionMethod,
+        .number = ProtosHeader_FieldNumber_TargetMethod,
         .hasIndex = 2,
-        .offset = (uint32_t)offsetof(ProtosHeader__storage_, actionMethod),
+        .offset = (uint32_t)offsetof(ProtosHeader__storage_, targetMethod),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeString,
       },
       {
-        .name = "communicationType",
+        .name = "intent",
         .dataTypeSpecific.enumDescFunc = ProtosHeader_CommunicationType_EnumDescriptor,
-        .number = ProtosHeader_FieldNumber_CommunicationType,
+        .number = ProtosHeader_FieldNumber_Intent,
         .hasIndex = 6,
-        .offset = (uint32_t)offsetof(ProtosHeader__storage_, communicationType),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom | GPBFieldHasEnumDescriptor),
+        .offset = (uint32_t)offsetof(ProtosHeader__storage_, intent),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldHasEnumDescriptor),
         .dataType = GPBDataTypeEnum,
       },
       {
-        .name = "lastUpdated",
-        .dataTypeSpecific.className = GPBStringifySymbol(GPBTimestamp),
-        .number = ProtosHeader_FieldNumber_LastUpdated,
-        .hasIndex = 7,
-        .offset = (uint32_t)offsetof(ProtosHeader__storage_, lastUpdated),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeMessage,
-      },
-      {
-        .name = "callBackMethodHandler",
+        .name = "platformCallBackMethodHandler",
         .dataTypeSpecific.className = NULL,
-        .number = ProtosHeader_FieldNumber_CallBackMethodHandler,
-        .hasIndex = 3,
-        .offset = (uint32_t)offsetof(ProtosHeader__storage_, callBackMethodHandler),
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
-        .dataType = GPBDataTypeString,
-      },
-      {
-        .name = "cancelationMethod",
-        .dataTypeSpecific.className = NULL,
-        .number = ProtosHeader_FieldNumber_CancelationMethod,
+        .number = ProtosHeader_FieldNumber_PlatformCallBackMethodHandler,
         .hasIndex = 4,
-        .offset = (uint32_t)offsetof(ProtosHeader__storage_, cancelationMethod),
+        .offset = (uint32_t)offsetof(ProtosHeader__storage_, platformCallBackMethodHandler),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeString,
       },
       {
-        .name = "callBackId",
+        .name = "targetMethodCancellation",
         .dataTypeSpecific.className = NULL,
-        .number = ProtosHeader_FieldNumber_CallBackId,
+        .number = ProtosHeader_FieldNumber_TargetMethodCancellation,
+        .hasIndex = 3,
+        .offset = (uint32_t)offsetof(ProtosHeader__storage_, targetMethodCancellation),
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeString,
+      },
+      {
+        .name = "callBackReferenceId",
+        .dataTypeSpecific.className = NULL,
+        .number = ProtosHeader_FieldNumber_CallBackReferenceId,
         .hasIndex = 5,
-        .offset = (uint32_t)offsetof(ProtosHeader__storage_, callBackId),
+        .offset = (uint32_t)offsetof(ProtosHeader__storage_, callBackReferenceId),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeInt32,
       },
@@ -159,7 +148,7 @@ typedef struct ProtosHeader__storage_ {
                                          flags:GPBDescriptorInitializationFlag_None];
 #if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     static const char *extraTextFormatInfo =
-        "\006\002\013\000\003\014\000\004\021\000\006\025\000\007\021\000\010\n\000";
+        "\004\003\014\000\006\035\000\007\030\000\010\023\000";
     [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
 #endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     NSAssert(descriptor == nil, @"Startup recursed!");
@@ -170,15 +159,15 @@ typedef struct ProtosHeader__storage_ {
 
 @end
 
-int32_t ProtosHeader_CommunicationType_RawValue(ProtosHeader *message) {
+int32_t ProtosHeader_Intent_RawValue(ProtosHeader *message) {
   GPBDescriptor *descriptor = [ProtosHeader descriptor];
-  GPBFieldDescriptor *field = [descriptor fieldWithNumber:ProtosHeader_FieldNumber_CommunicationType];
+  GPBFieldDescriptor *field = [descriptor fieldWithNumber:ProtosHeader_FieldNumber_Intent];
   return GPBGetMessageInt32Field(message, field);
 }
 
-void SetProtosHeader_CommunicationType_RawValue(ProtosHeader *message, int32_t value) {
+void SetProtosHeader_Intent_RawValue(ProtosHeader *message, int32_t value) {
   GPBDescriptor *descriptor = [ProtosHeader descriptor];
-  GPBFieldDescriptor *field = [descriptor fieldWithNumber:ProtosHeader_FieldNumber_CommunicationType];
+  GPBFieldDescriptor *field = [descriptor fieldWithNumber:ProtosHeader_FieldNumber_Intent];
   GPBSetInt32IvarWithFieldInternal(message, field, value, descriptor.file.syntax);
 }
 
@@ -286,14 +275,11 @@ typedef struct ProtosError__storage_ {
 
 @implementation ProtosResult
 
-@dynamic type;
-@dynamic value;
+@dynamic shouldBeEmpty;
 @dynamic hasValuebytes, valuebytes;
 
 typedef struct ProtosResult__storage_ {
   uint32_t _has_storage_[1];
-  NSString *type;
-  NSString *value;
   GPBAny *valuebytes;
 } ProtosResult__storage_;
 
@@ -304,24 +290,6 @@ typedef struct ProtosResult__storage_ {
   if (!descriptor) {
     static GPBMessageFieldDescription fields[] = {
       {
-        .name = "type",
-        .dataTypeSpecific.className = NULL,
-        .number = ProtosResult_FieldNumber_Type,
-        .hasIndex = 0,
-        .offset = (uint32_t)offsetof(ProtosResult__storage_, type),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeString,
-      },
-      {
-        .name = "value",
-        .dataTypeSpecific.className = NULL,
-        .number = ProtosResult_FieldNumber_Value,
-        .hasIndex = 1,
-        .offset = (uint32_t)offsetof(ProtosResult__storage_, value),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeString,
-      },
-      {
         .name = "valuebytes",
         .dataTypeSpecific.className = GPBStringifySymbol(GPBAny),
         .number = ProtosResult_FieldNumber_Valuebytes,
@@ -329,6 +297,15 @@ typedef struct ProtosResult__storage_ {
         .offset = (uint32_t)offsetof(ProtosResult__storage_, valuebytes),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeMessage,
+      },
+      {
+        .name = "shouldBeEmpty",
+        .dataTypeSpecific.className = NULL,
+        .number = ProtosResult_FieldNumber_ShouldBeEmpty,
+        .hasIndex = 0,
+        .offset = 1,  // Stored in _has_storage_ to save space.
+        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
+        .dataType = GPBDataTypeBool,
       },
     };
     GPBDescriptor *localDescriptor =
@@ -339,60 +316,11 @@ typedef struct ProtosResult__storage_ {
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(ProtosResult__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
-    NSAssert(descriptor == nil, @"Startup recursed!");
-    descriptor = localDescriptor;
-  }
-  return descriptor;
-}
-
-@end
-
-#pragma mark - ProtosPayload
-
-@implementation ProtosPayload
-
-@dynamic hasResult, result;
-@dynamic hasError, error;
-
-typedef struct ProtosPayload__storage_ {
-  uint32_t _has_storage_[1];
-  ProtosResult *result;
-  ProtosError *error;
-} ProtosPayload__storage_;
-
-// This method is threadsafe because it is initially called
-// in +initialize for each subclass.
-+ (GPBDescriptor *)descriptor {
-  static GPBDescriptor *descriptor = nil;
-  if (!descriptor) {
-    static GPBMessageFieldDescription fields[] = {
-      {
-        .name = "result",
-        .dataTypeSpecific.className = GPBStringifySymbol(ProtosResult),
-        .number = ProtosPayload_FieldNumber_Result,
-        .hasIndex = 0,
-        .offset = (uint32_t)offsetof(ProtosPayload__storage_, result),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeMessage,
-      },
-      {
-        .name = "error",
-        .dataTypeSpecific.className = GPBStringifySymbol(ProtosError),
-        .number = ProtosPayload_FieldNumber_Error,
-        .hasIndex = 1,
-        .offset = (uint32_t)offsetof(ProtosPayload__storage_, error),
-        .flags = GPBFieldOptional,
-        .dataType = GPBDataTypeMessage,
-      },
-    };
-    GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[ProtosPayload class]
-                                     rootClass:[ProtosMessageRoot class]
-                                          file:ProtosMessageRoot_FileDescriptor()
-                                        fields:fields
-                                    fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
-                                   storageSize:sizeof(ProtosPayload__storage_)
-                                         flags:GPBDescriptorInitializationFlag_None];
+#if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
+    static const char *extraTextFormatInfo =
+        "\001\004\r\000";
+    [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
+#endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     NSAssert(descriptor == nil, @"Startup recursed!");
     descriptor = localDescriptor;
   }
@@ -503,13 +431,15 @@ typedef struct ProtosMirrorMethodCall__storage_ {
 @implementation ProtosMessage
 
 @dynamic hasHeader, header;
-@dynamic hasPayload, payload;
+@dynamic hasResult, result;
+@dynamic hasError, error;
 @dynamic hasMethodCall, methodCall;
 
 typedef struct ProtosMessage__storage_ {
   uint32_t _has_storage_[1];
   ProtosHeader *header;
-  ProtosPayload *payload;
+  ProtosResult *result;
+  ProtosError *error;
   ProtosMirrorMethodCall *methodCall;
 } ProtosMessage__storage_;
 
@@ -529,11 +459,20 @@ typedef struct ProtosMessage__storage_ {
         .dataType = GPBDataTypeMessage,
       },
       {
-        .name = "payload",
-        .dataTypeSpecific.className = GPBStringifySymbol(ProtosPayload),
-        .number = ProtosMessage_FieldNumber_Payload,
+        .name = "result",
+        .dataTypeSpecific.className = GPBStringifySymbol(ProtosResult),
+        .number = ProtosMessage_FieldNumber_Result,
         .hasIndex = 1,
-        .offset = (uint32_t)offsetof(ProtosMessage__storage_, payload),
+        .offset = (uint32_t)offsetof(ProtosMessage__storage_, result),
+        .flags = GPBFieldOptional,
+        .dataType = GPBDataTypeMessage,
+      },
+      {
+        .name = "error",
+        .dataTypeSpecific.className = GPBStringifySymbol(ProtosError),
+        .number = ProtosMessage_FieldNumber_Error,
+        .hasIndex = 2,
+        .offset = (uint32_t)offsetof(ProtosMessage__storage_, error),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeMessage,
       },
@@ -541,7 +480,7 @@ typedef struct ProtosMessage__storage_ {
         .name = "methodCall",
         .dataTypeSpecific.className = GPBStringifySymbol(ProtosMirrorMethodCall),
         .number = ProtosMessage_FieldNumber_MethodCall,
-        .hasIndex = 2,
+        .hasIndex = 3,
         .offset = (uint32_t)offsetof(ProtosMessage__storage_, methodCall),
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
         .dataType = GPBDataTypeMessage,
@@ -557,7 +496,7 @@ typedef struct ProtosMessage__storage_ {
                                          flags:GPBDescriptorInitializationFlag_None];
 #if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     static const char *extraTextFormatInfo =
-        "\001\003\n\000";
+        "\001\004\n\000";
     [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
 #endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     NSAssert(descriptor == nil, @"Startup recursed!");

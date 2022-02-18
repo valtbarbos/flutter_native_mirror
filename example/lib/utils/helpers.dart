@@ -4,8 +4,8 @@ import 'dart:developer';
 import 'package:flutter/services.dart';
 import 'package:flutter_native_mirror/feature/native/domain/interfaces/interfaces.nativechannels.dart';
 import 'package:flutter_native_mirror/feature/native/domain/models/models.devicekit.dart';
+import 'package:flutter_native_mirror/feature/native/domain/views/generated/google/protobuf/any.pb.dart';
 import 'package:flutter_native_mirror/feature/native/domain/views/generated/proto/message.pb.dart';
-import 'package:flutter_native_mirror/feature/native/domain/views/viewmodels.proto.dart';
 import 'package:flutter_native_mirror/feature/native/environment/environment.devicekit.dart';
 import 'package:flutter_native_mirror/feature/native/infrastructure/services/services.nativechannels.dart';
 import 'package:uuid/uuid.dart';
@@ -72,19 +72,27 @@ class NativeChannelsCommunication {
 
   Future<void> requestWithProtobuf() async {
     final requestMessage = Message(
-      header: Header(
-        id: entrypoint.id,
-        objectClass: NativeCommunicationMetadata.businessNamespace,
-        actionMethod: 'simpleRpc',
-        lastUpdated: Timestamp.fromDateTime(DateTime.now()),
-      ),
-    );
+        header: Header(
+          id: entrypoint.id,
+          namespace: NativeCommunicationMetadata.businessNamespace,
+          targetMethod: 'simpleRpc',
+        ),
+        result: Result(
+            valuebytes: Any.pack(Generic(data: DateTime.now().toString()))));
 
     final responseMessage = await entrypoint.send(requestMessage);
 
-    final sentTime = requestMessage.header.lastUpdated.toDateTime();
+    final packet1 = Generic.create();
 
-    final receivedTime = responseMessage.header.lastUpdated.toDateTime();
+    requestMessage.result.valuebytes.unpackInto(packet1);
+
+    final sentTime = DateTime.parse(packet1.data);
+
+    final packet2 = Generic.create();
+
+    responseMessage.result.valuebytes.unpackInto(packet2);
+
+    final receivedTime = DateTime.parse(packet2.data);
 
     if (receivedTime.second > sentTime.second) {
       platformVersion = 'nativeInstanceId:\n'

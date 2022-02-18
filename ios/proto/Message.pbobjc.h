@@ -28,11 +28,9 @@
 CF_EXTERN_C_BEGIN
 
 @class GPBAny;
-@class GPBTimestamp;
 @class ProtosError;
 @class ProtosHeader;
 @class ProtosMirrorMethodCall;
-@class ProtosPayload;
 @class ProtosResult;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -77,48 +75,43 @@ BOOL ProtosHeader_CommunicationType_IsValidValue(int32_t value);
 
 typedef GPB_ENUM(ProtosHeader_FieldNumber) {
   ProtosHeader_FieldNumber_Id_p = 1,
-  ProtosHeader_FieldNumber_ObjectClass = 2,
-  ProtosHeader_FieldNumber_ActionMethod = 3,
-  ProtosHeader_FieldNumber_CommunicationType = 4,
-  ProtosHeader_FieldNumber_LastUpdated = 5,
-  ProtosHeader_FieldNumber_CallBackMethodHandler = 6,
-  ProtosHeader_FieldNumber_CancelationMethod = 7,
-  ProtosHeader_FieldNumber_CallBackId = 8,
+  ProtosHeader_FieldNumber_Namespace_p = 2,
+  ProtosHeader_FieldNumber_TargetMethod = 3,
+  ProtosHeader_FieldNumber_Intent = 4,
+  ProtosHeader_FieldNumber_PlatformCallBackMethodHandler = 6,
+  ProtosHeader_FieldNumber_TargetMethodCancellation = 7,
+  ProtosHeader_FieldNumber_CallBackReferenceId = 8,
 };
 
 @interface ProtosHeader : GPBMessage
 
 @property(nonatomic, readwrite, copy, null_resettable) NSString *id_p;
 
-@property(nonatomic, readwrite, copy, null_resettable) NSString *objectClass;
+@property(nonatomic, readwrite, copy, null_resettable) NSString *namespace_p;
 
-@property(nonatomic, readwrite, copy, null_resettable) NSString *actionMethod;
+@property(nonatomic, readwrite, copy, null_resettable) NSString *targetMethod;
 
-@property(nonatomic, readwrite, copy, null_resettable) NSString *callBackMethodHandler;
+@property(nonatomic, readwrite, copy, null_resettable) NSString *targetMethodCancellation;
 
-@property(nonatomic, readwrite, copy, null_resettable) NSString *cancelationMethod;
+@property(nonatomic, readwrite, copy, null_resettable) NSString *platformCallBackMethodHandler;
 
-@property(nonatomic, readwrite) int32_t callBackId;
+@property(nonatomic, readwrite) int32_t callBackReferenceId;
 
-@property(nonatomic, readwrite) ProtosHeader_CommunicationType communicationType;
-
-@property(nonatomic, readwrite, strong, null_resettable) GPBTimestamp *lastUpdated;
-/** Test to see if @c lastUpdated has been set. */
-@property(nonatomic, readwrite) BOOL hasLastUpdated;
+@property(nonatomic, readwrite) ProtosHeader_CommunicationType intent;
 
 @end
 
 /**
- * Fetches the raw value of a @c ProtosHeader's @c communicationType property, even
+ * Fetches the raw value of a @c ProtosHeader's @c intent property, even
  * if the value was not defined by the enum at the time the code was generated.
  **/
-int32_t ProtosHeader_CommunicationType_RawValue(ProtosHeader *message);
+int32_t ProtosHeader_Intent_RawValue(ProtosHeader *message);
 /**
- * Sets the raw value of an @c ProtosHeader's @c communicationType property, allowing
+ * Sets the raw value of an @c ProtosHeader's @c intent property, allowing
  * it to be set to a value that was not defined by the enum at the time the code
  * was generated.
  **/
-void SetProtosHeader_CommunicationType_RawValue(ProtosHeader *message, int32_t value);
+void SetProtosHeader_Intent_RawValue(ProtosHeader *message, int32_t value);
 
 #pragma mark - ProtosError
 
@@ -141,39 +134,17 @@ typedef GPB_ENUM(ProtosError_FieldNumber) {
 #pragma mark - ProtosResult
 
 typedef GPB_ENUM(ProtosResult_FieldNumber) {
-  ProtosResult_FieldNumber_Type = 1,
-  ProtosResult_FieldNumber_Value = 2,
   ProtosResult_FieldNumber_Valuebytes = 3,
+  ProtosResult_FieldNumber_ShouldBeEmpty = 4,
 };
 
 @interface ProtosResult : GPBMessage
 
-@property(nonatomic, readwrite, copy, null_resettable) NSString *type;
-
-@property(nonatomic, readwrite, copy, null_resettable) NSString *value;
+@property(nonatomic, readwrite) BOOL shouldBeEmpty;
 
 @property(nonatomic, readwrite, strong, null_resettable) GPBAny *valuebytes;
 /** Test to see if @c valuebytes has been set. */
 @property(nonatomic, readwrite) BOOL hasValuebytes;
-
-@end
-
-#pragma mark - ProtosPayload
-
-typedef GPB_ENUM(ProtosPayload_FieldNumber) {
-  ProtosPayload_FieldNumber_Result = 1,
-  ProtosPayload_FieldNumber_Error = 2,
-};
-
-@interface ProtosPayload : GPBMessage
-
-@property(nonatomic, readwrite, strong, null_resettable) ProtosResult *result;
-/** Test to see if @c result has been set. */
-@property(nonatomic, readwrite) BOOL hasResult;
-
-@property(nonatomic, readwrite, strong, null_resettable) ProtosError *error;
-/** Test to see if @c error has been set. */
-@property(nonatomic, readwrite) BOOL hasError;
 
 @end
 
@@ -210,8 +181,9 @@ typedef GPB_ENUM(ProtosMirrorMethodCall_FieldNumber) {
 
 typedef GPB_ENUM(ProtosMessage_FieldNumber) {
   ProtosMessage_FieldNumber_Header = 1,
-  ProtosMessage_FieldNumber_Payload = 2,
-  ProtosMessage_FieldNumber_MethodCall = 3,
+  ProtosMessage_FieldNumber_Result = 2,
+  ProtosMessage_FieldNumber_Error = 3,
+  ProtosMessage_FieldNumber_MethodCall = 4,
 };
 
 @interface ProtosMessage : GPBMessage
@@ -220,9 +192,13 @@ typedef GPB_ENUM(ProtosMessage_FieldNumber) {
 /** Test to see if @c header has been set. */
 @property(nonatomic, readwrite) BOOL hasHeader;
 
-@property(nonatomic, readwrite, strong, null_resettable) ProtosPayload *payload;
-/** Test to see if @c payload has been set. */
-@property(nonatomic, readwrite) BOOL hasPayload;
+@property(nonatomic, readwrite, strong, null_resettable) ProtosResult *result;
+/** Test to see if @c result has been set. */
+@property(nonatomic, readwrite) BOOL hasResult;
+
+@property(nonatomic, readwrite, strong, null_resettable) ProtosError *error;
+/** Test to see if @c error has been set. */
+@property(nonatomic, readwrite) BOOL hasError;
 
 @property(nonatomic, readwrite, strong, null_resettable) ProtosMirrorMethodCall *methodCall;
 /** Test to see if @c methodCall has been set. */

@@ -40,7 +40,7 @@ public class BusinessMethods {
 
     void playgroundStart(Protos.Message message, MethodChannel.Result platformResult) {
         // Get callback id
-        int currentListenerId = message.getHeader().getCallBackId();
+        int currentListenerId = message.getHeader().getCallBackReferenceId();
 
         // Prepare a timer like self calling task
         handler = new Handler();
@@ -53,22 +53,17 @@ public class BusinessMethods {
                     return;
                 }
 
-                Protos.MirrorMethodCall.Builder mirrorMethodCall = Protos.MirrorMethodCall.newBuilder();
                 Protos.Generic.Builder generic = Protos.Generic.newBuilder();
 
-                Protos.Payload.Builder payload = Protos.Payload.newBuilder();
-                Protos.Result.Builder result = Protos.Result.newBuilder();
+                generic.setData("From host's side: Hello listener!\n"+ (System.currentTimeMillis() / 1000));
 
-                result.setValue("From host's side: Hello listener!\n"+ (System.currentTimeMillis() / 1000));
+                Protos.MirrorMethodCall.Builder mirrorMethodCall = Protos.MirrorMethodCall.newBuilder();
 
                 mirrorMethodCall.setMethod("playgroundStart");
-                generic.setData(result.getValue());
+
                 mirrorMethodCall.setArguments(Any.pack(generic.build()));
 
-                payload.setResult(result);
-
                 invokePlatformMethod(
-                        payload.build(),
                         Protos.Header.CommunicationType.SETUP,
                         mirrorMethodCall.build(),
                         message);
@@ -89,27 +84,23 @@ public class BusinessMethods {
     void playgroundStop(Protos.Message message, MethodChannel.Result platformResult) {
 
         Protos.MirrorMethodCall.Builder mirrorMethodCall = Protos.MirrorMethodCall.newBuilder();
+
         Protos.Generic.Builder generic = Protos.Generic.newBuilder();
+
         mirrorMethodCall.setMethod("playgroundStop");
+
         mirrorMethodCall.setArguments(Any.pack(generic.build()));
 
         Protos.Message.Builder response = Protos.Message.newBuilder();
 
-        Protos.Payload.Builder payload = Protos.Payload.newBuilder();
-
         response.setHeader(message.getHeader());
 
-        Protos.Result.Builder result = Protos.Result.newBuilder();
-
-        payload.setResult(result);
-
         Protos.Message sent = invokePlatformMethod(
-                payload.build(),
                 Protos.Header.CommunicationType.CANCELATION,
                 mirrorMethodCall.build(),
                 message);
 
-        callbacksReferences.remove(message.getHeader().getCallBackId());
+        callbacksReferences.remove(message.getHeader().getCallBackReferenceId());
 
         platformResult.success(sent.toByteArray());
     }
@@ -124,45 +115,37 @@ public class BusinessMethods {
 
         Protos.Header.Builder header = Protos.Header.newBuilder();
 
-        Protos.Payload.Builder payload = Protos.Payload.newBuilder();
-
         // to each other
 
         header.setId(message.getHeader().getId());
-        header.setObjectClass(message.getHeader().getObjectClass());
-        header.setActionMethod(message.getHeader().getActionMethod());
+        header.setNamespace(message.getHeader().getNamespace());
+        header.setTargetMethod(message.getHeader().getTargetMethod());
 
         // just an improvement
+
+        Protos.Generic.Builder generic = Protos.Generic.newBuilder();
 
         Instant time;
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             time = Instant.now();
-
             time = time.plusSeconds(10);
-
-            Timestamp timestamp = Timestamp
-                    .newBuilder()
-                    .setSeconds(time.getEpochSecond())
-                    .setNanos(time.getNano()).build();
-
-            header.setLastUpdated(timestamp);
+            generic.setData(time.toString());
         }
-
-        // set all response properties
 
         response.setHeader(header);
 
         Protos.Result.Builder result = Protos.Result.newBuilder();
 
-        payload.setResult(result);
+        result.setValuebytes(Any.pack(generic.build()));
+
+        response.setResult(result);
 
         platformResult.success(response.build().toByteArray());
     }
 
     private Protos.Message invokePlatformMethod(
-            Protos.Payload payload,
-            Protos.Header.CommunicationType communicationType,
+            Protos.Header.CommunicationType intent,
             Protos.MirrorMethodCall mirrorMethodCall,
             @NonNull Protos.Message messageBase
             ) {
@@ -173,10 +156,19 @@ public class BusinessMethods {
         Protos.Header.Builder pHeader = Protos.Header.newBuilder();
 
         pHeader.setId(baseHeader.getId());
-        pHeader.setCallBackId(baseHeader.getCallBackId());
-        pHeader.setObjectClass(baseHeader.getObjectClass());
-        pHeader.setActionMethod(baseHeader.getActionMethod());
-        pHeader.setActionMethodBytes(baseHeader.getActionMethodBytes());
+        pHeader.setCallBackReferenceId(baseHeader.getCallBackReferenceId());
+        pHeader.setNamespace(baseHeader.getNamespace());
+        pHeader.setTargetMethod(baseHeader.getTargetMethod());
+        pHeader.setTargetMethodBytes(baseHeader.getTargetMethodBytes());
+
+
+        pHeader.setIntent(intent);
+
+        pMessage.setHeader(pHeader.build());
+
+        pMessage.setMethodCall(mirrorMethodCall);
+
+        Protos.Generic.Builder generic = Protos.Generic.newBuilder();
 
         Instant time;
 
@@ -190,20 +182,18 @@ public class BusinessMethods {
                     .setSeconds(time.getEpochSecond())
                     .setNanos(time.getNano()).build();
 
-            pHeader.setLastUpdated(timestamp);
+            generic.setData(timestamp.toString());
         }
 
-        String callBackMethodHandler = messageBase.getHeader().getCallBackMethodHandler();
+        Protos.Result.Builder result = Protos.Result.newBuilder();
 
-        pHeader.setCommunicationType(communicationType);
+        result.setValuebytes(Any.pack(generic.build()));
 
-        pMessage.setHeader(pHeader.build());
+        pMessage.setResult(result);
 
-        pMessage.setPayload(payload);
+        String platformCallBackMethodHandler = messageBase.getHeader().getPlatformCallBackMethodHandler();
 
-        pMessage.setMethodCall(mirrorMethodCall);
-
-        channel.invokeMethod(callBackMethodHandler, pMessage.build().toByteArray());
+        channel.invokeMethod(platformCallBackMethodHandler, pMessage.build().toByteArray());
 
         return pMessage.build();
     }

@@ -70,9 +70,9 @@ class MethodChannelCallbacksState extends State<MethodChannelCallbacks> {
       await native.initPlatformState();
       var _ = await native.entrypoint.startListening(
           message: PlatformEntrypoint.defaultListenerSetup(
-            objectClass: NativeCommunicationMetadata.businessNamespace,
-            actionMethod: 'playgroundStart',
-            cancelationMethod: 'playgroundStop',
+            namespace: NativeCommunicationMetadata.businessNamespace,
+            targetMethod: 'playgroundStart',
+            targetMethodCancellation: 'playgroundStop',
           ),
           callback: (mirrorMethodCall, error) {
             setState(() {

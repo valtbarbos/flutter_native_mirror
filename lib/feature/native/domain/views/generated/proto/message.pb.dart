@@ -9,8 +9,7 @@ import 'dart:core' as $core;
 
 import 'package:protobuf/protobuf.dart' as $pb;
 
-import '../google/protobuf/timestamp.pb.dart' as $0;
-import '../google/protobuf/any.pb.dart' as $1;
+import '../google/protobuf/any.pb.dart' as $0;
 
 import 'message.pbenum.dart';
 
@@ -19,51 +18,46 @@ export 'message.pbenum.dart';
 class Header extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Header', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'protos'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'id')
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'objectClass', protoName: 'objectClass')
-    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'actionMethod', protoName: 'actionMethod')
-    ..e<Header_CommunicationType>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'communicationType', $pb.PbFieldType.OE, protoName: 'communicationType', defaultOrMaker: Header_CommunicationType.SETUP, valueOf: Header_CommunicationType.valueOf, enumValues: Header_CommunicationType.values)
-    ..aOM<$0.Timestamp>(5, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'lastUpdated', subBuilder: $0.Timestamp.create)
-    ..aOS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'callBackMethodHandler', protoName: 'callBackMethodHandler')
-    ..aOS(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'cancelationMethod', protoName: 'cancelationMethod')
-    ..a<$core.int>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'callBackId', $pb.PbFieldType.O3, protoName: 'callBackId')
+    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'namespace')
+    ..aOS(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'targetMethod', protoName: 'targetMethod')
+    ..e<Header_CommunicationType>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'intent', $pb.PbFieldType.OE, defaultOrMaker: Header_CommunicationType.SETUP, valueOf: Header_CommunicationType.valueOf, enumValues: Header_CommunicationType.values)
+    ..aOS(6, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'platformCallBackMethodHandler', protoName: 'platformCallBackMethodHandler')
+    ..aOS(7, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'targetMethodCancellation', protoName: 'targetMethodCancellation')
+    ..a<$core.int>(8, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'callBackReferenceId', $pb.PbFieldType.O3, protoName: 'callBackReferenceId')
     ..hasRequiredFields = false
   ;
 
   Header._() : super();
   factory Header({
     $core.String? id,
-    $core.String? objectClass,
-    $core.String? actionMethod,
-    Header_CommunicationType? communicationType,
-    $0.Timestamp? lastUpdated,
-    $core.String? callBackMethodHandler,
-    $core.String? cancelationMethod,
-    $core.int? callBackId,
+    $core.String? namespace,
+    $core.String? targetMethod,
+    Header_CommunicationType? intent,
+    $core.String? platformCallBackMethodHandler,
+    $core.String? targetMethodCancellation,
+    $core.int? callBackReferenceId,
   }) {
     final _result = create();
     if (id != null) {
       _result.id = id;
     }
-    if (objectClass != null) {
-      _result.objectClass = objectClass;
+    if (namespace != null) {
+      _result.namespace = namespace;
     }
-    if (actionMethod != null) {
-      _result.actionMethod = actionMethod;
+    if (targetMethod != null) {
+      _result.targetMethod = targetMethod;
     }
-    if (communicationType != null) {
-      _result.communicationType = communicationType;
+    if (intent != null) {
+      _result.intent = intent;
     }
-    if (lastUpdated != null) {
-      _result.lastUpdated = lastUpdated;
+    if (platformCallBackMethodHandler != null) {
+      _result.platformCallBackMethodHandler = platformCallBackMethodHandler;
     }
-    if (callBackMethodHandler != null) {
-      _result.callBackMethodHandler = callBackMethodHandler;
+    if (targetMethodCancellation != null) {
+      _result.targetMethodCancellation = targetMethodCancellation;
     }
-    if (cancelationMethod != null) {
-      _result.cancelationMethod = cancelationMethod;
-    }
-    if (callBackId != null) {
-      _result.callBackId = callBackId;
+    if (callBackReferenceId != null) {
+      _result.callBackReferenceId = callBackReferenceId;
     }
     return _result;
   }
@@ -98,69 +92,58 @@ class Header extends $pb.GeneratedMessage {
   void clearId() => clearField(1);
 
   @$pb.TagNumber(2)
-  $core.String get objectClass => $_getSZ(1);
+  $core.String get namespace => $_getSZ(1);
   @$pb.TagNumber(2)
-  set objectClass($core.String v) { $_setString(1, v); }
+  set namespace($core.String v) { $_setString(1, v); }
   @$pb.TagNumber(2)
-  $core.bool hasObjectClass() => $_has(1);
+  $core.bool hasNamespace() => $_has(1);
   @$pb.TagNumber(2)
-  void clearObjectClass() => clearField(2);
+  void clearNamespace() => clearField(2);
 
   @$pb.TagNumber(3)
-  $core.String get actionMethod => $_getSZ(2);
+  $core.String get targetMethod => $_getSZ(2);
   @$pb.TagNumber(3)
-  set actionMethod($core.String v) { $_setString(2, v); }
+  set targetMethod($core.String v) { $_setString(2, v); }
   @$pb.TagNumber(3)
-  $core.bool hasActionMethod() => $_has(2);
+  $core.bool hasTargetMethod() => $_has(2);
   @$pb.TagNumber(3)
-  void clearActionMethod() => clearField(3);
+  void clearTargetMethod() => clearField(3);
 
   @$pb.TagNumber(4)
-  Header_CommunicationType get communicationType => $_getN(3);
+  Header_CommunicationType get intent => $_getN(3);
   @$pb.TagNumber(4)
-  set communicationType(Header_CommunicationType v) { setField(4, v); }
+  set intent(Header_CommunicationType v) { setField(4, v); }
   @$pb.TagNumber(4)
-  $core.bool hasCommunicationType() => $_has(3);
+  $core.bool hasIntent() => $_has(3);
   @$pb.TagNumber(4)
-  void clearCommunicationType() => clearField(4);
-
-  @$pb.TagNumber(5)
-  $0.Timestamp get lastUpdated => $_getN(4);
-  @$pb.TagNumber(5)
-  set lastUpdated($0.Timestamp v) { setField(5, v); }
-  @$pb.TagNumber(5)
-  $core.bool hasLastUpdated() => $_has(4);
-  @$pb.TagNumber(5)
-  void clearLastUpdated() => clearField(5);
-  @$pb.TagNumber(5)
-  $0.Timestamp ensureLastUpdated() => $_ensure(4);
+  void clearIntent() => clearField(4);
 
   @$pb.TagNumber(6)
-  $core.String get callBackMethodHandler => $_getSZ(5);
+  $core.String get platformCallBackMethodHandler => $_getSZ(4);
   @$pb.TagNumber(6)
-  set callBackMethodHandler($core.String v) { $_setString(5, v); }
+  set platformCallBackMethodHandler($core.String v) { $_setString(4, v); }
   @$pb.TagNumber(6)
-  $core.bool hasCallBackMethodHandler() => $_has(5);
+  $core.bool hasPlatformCallBackMethodHandler() => $_has(4);
   @$pb.TagNumber(6)
-  void clearCallBackMethodHandler() => clearField(6);
+  void clearPlatformCallBackMethodHandler() => clearField(6);
 
   @$pb.TagNumber(7)
-  $core.String get cancelationMethod => $_getSZ(6);
+  $core.String get targetMethodCancellation => $_getSZ(5);
   @$pb.TagNumber(7)
-  set cancelationMethod($core.String v) { $_setString(6, v); }
+  set targetMethodCancellation($core.String v) { $_setString(5, v); }
   @$pb.TagNumber(7)
-  $core.bool hasCancelationMethod() => $_has(6);
+  $core.bool hasTargetMethodCancellation() => $_has(5);
   @$pb.TagNumber(7)
-  void clearCancelationMethod() => clearField(7);
+  void clearTargetMethodCancellation() => clearField(7);
 
   @$pb.TagNumber(8)
-  $core.int get callBackId => $_getIZ(7);
+  $core.int get callBackReferenceId => $_getIZ(6);
   @$pb.TagNumber(8)
-  set callBackId($core.int v) { $_setSignedInt32(7, v); }
+  set callBackReferenceId($core.int v) { $_setSignedInt32(6, v); }
   @$pb.TagNumber(8)
-  $core.bool hasCallBackId() => $_has(7);
+  $core.bool hasCallBackReferenceId() => $_has(6);
   @$pb.TagNumber(8)
-  void clearCallBackId() => clearField(8);
+  void clearCallBackReferenceId() => clearField(8);
 }
 
 class Error extends $pb.GeneratedMessage {
@@ -240,27 +223,22 @@ class Error extends $pb.GeneratedMessage {
 
 class Result extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Result', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'protos'), createEmptyInstance: create)
-    ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'type')
-    ..aOS(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'value')
-    ..aOM<$1.Any>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'valuebytes', subBuilder: $1.Any.create)
+    ..aOM<$0.Any>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'valuebytes', subBuilder: $0.Any.create)
+    ..aOB(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'shouldBeEmpty', protoName: 'shouldBeEmpty')
     ..hasRequiredFields = false
   ;
 
   Result._() : super();
   factory Result({
-    $core.String? type,
-    $core.String? value,
-    $1.Any? valuebytes,
+    $0.Any? valuebytes,
+    $core.bool? shouldBeEmpty,
   }) {
     final _result = create();
-    if (type != null) {
-      _result.type = type;
-    }
-    if (value != null) {
-      _result.value = value;
-    }
     if (valuebytes != null) {
       _result.valuebytes = valuebytes;
+    }
+    if (shouldBeEmpty != null) {
+      _result.shouldBeEmpty = shouldBeEmpty;
     }
     return _result;
   }
@@ -285,99 +263,25 @@ class Result extends $pb.GeneratedMessage {
   static Result getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Result>(create);
   static Result? _defaultInstance;
 
-  @$pb.TagNumber(1)
-  $core.String get type => $_getSZ(0);
-  @$pb.TagNumber(1)
-  set type($core.String v) { $_setString(0, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasType() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearType() => clearField(1);
-
-  @$pb.TagNumber(2)
-  $core.String get value => $_getSZ(1);
-  @$pb.TagNumber(2)
-  set value($core.String v) { $_setString(1, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasValue() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearValue() => clearField(2);
-
   @$pb.TagNumber(3)
-  $1.Any get valuebytes => $_getN(2);
+  $0.Any get valuebytes => $_getN(0);
   @$pb.TagNumber(3)
-  set valuebytes($1.Any v) { setField(3, v); }
+  set valuebytes($0.Any v) { setField(3, v); }
   @$pb.TagNumber(3)
-  $core.bool hasValuebytes() => $_has(2);
+  $core.bool hasValuebytes() => $_has(0);
   @$pb.TagNumber(3)
   void clearValuebytes() => clearField(3);
   @$pb.TagNumber(3)
-  $1.Any ensureValuebytes() => $_ensure(2);
-}
+  $0.Any ensureValuebytes() => $_ensure(0);
 
-class Payload extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Payload', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'protos'), createEmptyInstance: create)
-    ..aOM<Result>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'result', subBuilder: Result.create)
-    ..aOM<Error>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'error', subBuilder: Error.create)
-    ..hasRequiredFields = false
-  ;
-
-  Payload._() : super();
-  factory Payload({
-    Result? result,
-    Error? error,
-  }) {
-    final _result = create();
-    if (result != null) {
-      _result.result = result;
-    }
-    if (error != null) {
-      _result.error = error;
-    }
-    return _result;
-  }
-  factory Payload.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory Payload.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
-  'Will be removed in next major version')
-  Payload clone() => Payload()..mergeFromMessage(this);
-  @$core.Deprecated(
-  'Using this can add significant overhead to your binary. '
-  'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
-  'Will be removed in next major version')
-  Payload copyWith(void Function(Payload) updates) => super.copyWith((message) => updates(message as Payload)) as Payload; // ignore: deprecated_member_use
-  $pb.BuilderInfo get info_ => _i;
-  @$core.pragma('dart2js:noInline')
-  static Payload create() => Payload._();
-  Payload createEmptyInstance() => create();
-  static $pb.PbList<Payload> createRepeated() => $pb.PbList<Payload>();
-  @$core.pragma('dart2js:noInline')
-  static Payload getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Payload>(create);
-  static Payload? _defaultInstance;
-
-  @$pb.TagNumber(1)
-  Result get result => $_getN(0);
-  @$pb.TagNumber(1)
-  set result(Result v) { setField(1, v); }
-  @$pb.TagNumber(1)
-  $core.bool hasResult() => $_has(0);
-  @$pb.TagNumber(1)
-  void clearResult() => clearField(1);
-  @$pb.TagNumber(1)
-  Result ensureResult() => $_ensure(0);
-
-  @$pb.TagNumber(2)
-  Error get error => $_getN(1);
-  @$pb.TagNumber(2)
-  set error(Error v) { setField(2, v); }
-  @$pb.TagNumber(2)
-  $core.bool hasError() => $_has(1);
-  @$pb.TagNumber(2)
-  void clearError() => clearField(2);
-  @$pb.TagNumber(2)
-  Error ensureError() => $_ensure(1);
+  @$pb.TagNumber(4)
+  $core.bool get shouldBeEmpty => $_getBF(1);
+  @$pb.TagNumber(4)
+  set shouldBeEmpty($core.bool v) { $_setBool(1, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasShouldBeEmpty() => $_has(1);
+  @$pb.TagNumber(4)
+  void clearShouldBeEmpty() => clearField(4);
 }
 
 class Generic extends $pb.GeneratedMessage {
@@ -430,14 +334,14 @@ class Generic extends $pb.GeneratedMessage {
 class MirrorMethodCall extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'MirrorMethodCall', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'protos'), createEmptyInstance: create)
     ..aOS(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'method')
-    ..aOM<$1.Any>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'arguments', subBuilder: $1.Any.create)
+    ..aOM<$0.Any>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'arguments', subBuilder: $0.Any.create)
     ..hasRequiredFields = false
   ;
 
   MirrorMethodCall._() : super();
   factory MirrorMethodCall({
     $core.String? method,
-    $1.Any? arguments,
+    $0.Any? arguments,
   }) {
     final _result = create();
     if (method != null) {
@@ -479,37 +383,42 @@ class MirrorMethodCall extends $pb.GeneratedMessage {
   void clearMethod() => clearField(1);
 
   @$pb.TagNumber(2)
-  $1.Any get arguments => $_getN(1);
+  $0.Any get arguments => $_getN(1);
   @$pb.TagNumber(2)
-  set arguments($1.Any v) { setField(2, v); }
+  set arguments($0.Any v) { setField(2, v); }
   @$pb.TagNumber(2)
   $core.bool hasArguments() => $_has(1);
   @$pb.TagNumber(2)
   void clearArguments() => clearField(2);
   @$pb.TagNumber(2)
-  $1.Any ensureArguments() => $_ensure(1);
+  $0.Any ensureArguments() => $_ensure(1);
 }
 
 class Message extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Message', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'protos'), createEmptyInstance: create)
     ..aOM<Header>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'header', subBuilder: Header.create)
-    ..aOM<Payload>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'payload', subBuilder: Payload.create)
-    ..aOM<MirrorMethodCall>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'methodCall', protoName: 'methodCall', subBuilder: MirrorMethodCall.create)
+    ..aOM<Result>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'result', subBuilder: Result.create)
+    ..aOM<Error>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'error', subBuilder: Error.create)
+    ..aOM<MirrorMethodCall>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'methodCall', protoName: 'methodCall', subBuilder: MirrorMethodCall.create)
     ..hasRequiredFields = false
   ;
 
   Message._() : super();
   factory Message({
     Header? header,
-    Payload? payload,
+    Result? result,
+    Error? error,
     MirrorMethodCall? methodCall,
   }) {
     final _result = create();
     if (header != null) {
       _result.header = header;
     }
-    if (payload != null) {
-      _result.payload = payload;
+    if (result != null) {
+      _result.result = result;
+    }
+    if (error != null) {
+      _result.error = error;
     }
     if (methodCall != null) {
       _result.methodCall = methodCall;
@@ -549,25 +458,36 @@ class Message extends $pb.GeneratedMessage {
   Header ensureHeader() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  Payload get payload => $_getN(1);
+  Result get result => $_getN(1);
   @$pb.TagNumber(2)
-  set payload(Payload v) { setField(2, v); }
+  set result(Result v) { setField(2, v); }
   @$pb.TagNumber(2)
-  $core.bool hasPayload() => $_has(1);
+  $core.bool hasResult() => $_has(1);
   @$pb.TagNumber(2)
-  void clearPayload() => clearField(2);
+  void clearResult() => clearField(2);
   @$pb.TagNumber(2)
-  Payload ensurePayload() => $_ensure(1);
+  Result ensureResult() => $_ensure(1);
 
   @$pb.TagNumber(3)
-  MirrorMethodCall get methodCall => $_getN(2);
+  Error get error => $_getN(2);
   @$pb.TagNumber(3)
-  set methodCall(MirrorMethodCall v) { setField(3, v); }
+  set error(Error v) { setField(3, v); }
   @$pb.TagNumber(3)
-  $core.bool hasMethodCall() => $_has(2);
+  $core.bool hasError() => $_has(2);
   @$pb.TagNumber(3)
-  void clearMethodCall() => clearField(3);
+  void clearError() => clearField(3);
   @$pb.TagNumber(3)
-  MirrorMethodCall ensureMethodCall() => $_ensure(2);
+  Error ensureError() => $_ensure(2);
+
+  @$pb.TagNumber(4)
+  MirrorMethodCall get methodCall => $_getN(3);
+  @$pb.TagNumber(4)
+  set methodCall(MirrorMethodCall v) { setField(4, v); }
+  @$pb.TagNumber(4)
+  $core.bool hasMethodCall() => $_has(3);
+  @$pb.TagNumber(4)
+  void clearMethodCall() => clearField(4);
+  @$pb.TagNumber(4)
+  MirrorMethodCall ensureMethodCall() => $_ensure(3);
 }
 

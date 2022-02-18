@@ -13,13 +13,12 @@ const Header$json = const {
   '1': 'Header',
   '2': const [
     const {'1': 'id', '3': 1, '4': 1, '5': 9, '10': 'id'},
-    const {'1': 'objectClass', '3': 2, '4': 1, '5': 9, '10': 'objectClass'},
-    const {'1': 'actionMethod', '3': 3, '4': 1, '5': 9, '10': 'actionMethod'},
-    const {'1': 'callBackMethodHandler', '3': 6, '4': 1, '5': 9, '10': 'callBackMethodHandler'},
-    const {'1': 'cancelationMethod', '3': 7, '4': 1, '5': 9, '10': 'cancelationMethod'},
-    const {'1': 'callBackId', '3': 8, '4': 1, '5': 5, '10': 'callBackId'},
-    const {'1': 'communicationType', '3': 4, '4': 1, '5': 14, '6': '.protos.Header.CommunicationType', '10': 'communicationType'},
-    const {'1': 'last_updated', '3': 5, '4': 1, '5': 11, '6': '.google.protobuf.Timestamp', '10': 'lastUpdated'},
+    const {'1': 'namespace', '3': 2, '4': 1, '5': 9, '10': 'namespace'},
+    const {'1': 'targetMethod', '3': 3, '4': 1, '5': 9, '10': 'targetMethod'},
+    const {'1': 'targetMethodCancellation', '3': 7, '4': 1, '5': 9, '10': 'targetMethodCancellation'},
+    const {'1': 'platformCallBackMethodHandler', '3': 6, '4': 1, '5': 9, '10': 'platformCallBackMethodHandler'},
+    const {'1': 'callBackReferenceId', '3': 8, '4': 1, '5': 5, '10': 'callBackReferenceId'},
+    const {'1': 'intent', '3': 4, '4': 1, '5': 14, '6': '.protos.Header.CommunicationType', '10': 'intent'},
   ],
   '4': const [Header_CommunicationType$json],
 };
@@ -34,7 +33,7 @@ const Header_CommunicationType$json = const {
 };
 
 /// Descriptor for `Header`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List headerDescriptor = $convert.base64Decode('CgZIZWFkZXISDgoCaWQYASABKAlSAmlkEiAKC29iamVjdENsYXNzGAIgASgJUgtvYmplY3RDbGFzcxIiCgxhY3Rpb25NZXRob2QYAyABKAlSDGFjdGlvbk1ldGhvZBI0ChVjYWxsQmFja01ldGhvZEhhbmRsZXIYBiABKAlSFWNhbGxCYWNrTWV0aG9kSGFuZGxlchIsChFjYW5jZWxhdGlvbk1ldGhvZBgHIAEoCVIRY2FuY2VsYXRpb25NZXRob2QSHgoKY2FsbEJhY2tJZBgIIAEoBVIKY2FsbEJhY2tJZBJOChFjb21tdW5pY2F0aW9uVHlwZRgEIAEoDjIgLnByb3Rvcy5IZWFkZXIuQ29tbXVuaWNhdGlvblR5cGVSEWNvbW11bmljYXRpb25UeXBlEj0KDGxhc3RfdXBkYXRlZBgFIAEoCzIaLmdvb2dsZS5wcm90b2J1Zi5UaW1lc3RhbXBSC2xhc3RVcGRhdGVkIi8KEUNvbW11bmljYXRpb25UeXBlEgkKBVNFVFVQEAASDwoLQ0FOQ0VMQVRJT04QAQ==');
+final $typed_data.Uint8List headerDescriptor = $convert.base64Decode('CgZIZWFkZXISDgoCaWQYASABKAlSAmlkEhwKCW5hbWVzcGFjZRgCIAEoCVIJbmFtZXNwYWNlEiIKDHRhcmdldE1ldGhvZBgDIAEoCVIMdGFyZ2V0TWV0aG9kEjoKGHRhcmdldE1ldGhvZENhbmNlbGxhdGlvbhgHIAEoCVIYdGFyZ2V0TWV0aG9kQ2FuY2VsbGF0aW9uEkQKHXBsYXRmb3JtQ2FsbEJhY2tNZXRob2RIYW5kbGVyGAYgASgJUh1wbGF0Zm9ybUNhbGxCYWNrTWV0aG9kSGFuZGxlchIwChNjYWxsQmFja1JlZmVyZW5jZUlkGAggASgFUhNjYWxsQmFja1JlZmVyZW5jZUlkEjgKBmludGVudBgEIAEoDjIgLnByb3Rvcy5IZWFkZXIuQ29tbXVuaWNhdGlvblR5cGVSBmludGVudCIvChFDb21tdW5pY2F0aW9uVHlwZRIJCgVTRVRVUBAAEg8KC0NBTkNFTEFUSU9OEAE=');
 @$core.Deprecated('Use errorDescriptor instead')
 const Error$json = const {
   '1': 'Error',
@@ -51,25 +50,13 @@ final $typed_data.Uint8List errorDescriptor = $convert.base64Decode('CgVFcnJvchI
 const Result$json = const {
   '1': 'Result',
   '2': const [
-    const {'1': 'type', '3': 1, '4': 1, '5': 9, '10': 'type'},
-    const {'1': 'value', '3': 2, '4': 1, '5': 9, '10': 'value'},
+    const {'1': 'shouldBeEmpty', '3': 4, '4': 1, '5': 8, '10': 'shouldBeEmpty'},
     const {'1': 'valuebytes', '3': 3, '4': 1, '5': 11, '6': '.google.protobuf.Any', '10': 'valuebytes'},
   ],
 };
 
 /// Descriptor for `Result`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List resultDescriptor = $convert.base64Decode('CgZSZXN1bHQSEgoEdHlwZRgBIAEoCVIEdHlwZRIUCgV2YWx1ZRgCIAEoCVIFdmFsdWUSNAoKdmFsdWVieXRlcxgDIAEoCzIULmdvb2dsZS5wcm90b2J1Zi5BbnlSCnZhbHVlYnl0ZXM=');
-@$core.Deprecated('Use payloadDescriptor instead')
-const Payload$json = const {
-  '1': 'Payload',
-  '2': const [
-    const {'1': 'result', '3': 1, '4': 1, '5': 11, '6': '.protos.Result', '10': 'result'},
-    const {'1': 'error', '3': 2, '4': 1, '5': 11, '6': '.protos.Error', '10': 'error'},
-  ],
-};
-
-/// Descriptor for `Payload`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List payloadDescriptor = $convert.base64Decode('CgdQYXlsb2FkEiYKBnJlc3VsdBgBIAEoCzIOLnByb3Rvcy5SZXN1bHRSBnJlc3VsdBIjCgVlcnJvchgCIAEoCzINLnByb3Rvcy5FcnJvclIFZXJyb3I=');
+final $typed_data.Uint8List resultDescriptor = $convert.base64Decode('CgZSZXN1bHQSJAoNc2hvdWxkQmVFbXB0eRgEIAEoCFINc2hvdWxkQmVFbXB0eRI0Cgp2YWx1ZWJ5dGVzGAMgASgLMhQuZ29vZ2xlLnByb3RvYnVmLkFueVIKdmFsdWVieXRlcw==');
 @$core.Deprecated('Use genericDescriptor instead')
 const Generic$json = const {
   '1': 'Generic',
@@ -96,10 +83,11 @@ const Message$json = const {
   '1': 'Message',
   '2': const [
     const {'1': 'header', '3': 1, '4': 1, '5': 11, '6': '.protos.Header', '10': 'header'},
-    const {'1': 'payload', '3': 2, '4': 1, '5': 11, '6': '.protos.Payload', '10': 'payload'},
-    const {'1': 'methodCall', '3': 3, '4': 1, '5': 11, '6': '.protos.MirrorMethodCall', '10': 'methodCall'},
+    const {'1': 'result', '3': 2, '4': 1, '5': 11, '6': '.protos.Result', '10': 'result'},
+    const {'1': 'error', '3': 3, '4': 1, '5': 11, '6': '.protos.Error', '10': 'error'},
+    const {'1': 'methodCall', '3': 4, '4': 1, '5': 11, '6': '.protos.MirrorMethodCall', '10': 'methodCall'},
   ],
 };
 
 /// Descriptor for `Message`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List messageDescriptor = $convert.base64Decode('CgdNZXNzYWdlEiYKBmhlYWRlchgBIAEoCzIOLnByb3Rvcy5IZWFkZXJSBmhlYWRlchIpCgdwYXlsb2FkGAIgASgLMg8ucHJvdG9zLlBheWxvYWRSB3BheWxvYWQSOAoKbWV0aG9kQ2FsbBgDIAEoCzIYLnByb3Rvcy5NaXJyb3JNZXRob2RDYWxsUgptZXRob2RDYWxs');
+final $typed_data.Uint8List messageDescriptor = $convert.base64Decode('CgdNZXNzYWdlEiYKBmhlYWRlchgBIAEoCzIOLnByb3Rvcy5IZWFkZXJSBmhlYWRlchImCgZyZXN1bHQYAiABKAsyDi5wcm90b3MuUmVzdWx0UgZyZXN1bHQSIwoFZXJyb3IYAyABKAsyDS5wcm90b3MuRXJyb3JSBWVycm9yEjgKCm1ldGhvZENhbGwYBCABKAsyGC5wcm90b3MuTWlycm9yTWV0aG9kQ2FsbFIKbWV0aG9kQ2FsbA==');

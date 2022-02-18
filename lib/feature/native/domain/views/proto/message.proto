@@ -12,8 +12,6 @@ package protos;
 
 import "google/protobuf/any.proto";
 
-import "google/protobuf/timestamp.proto";
-
 // [END declaration]
 
 // [START java_declaration]
@@ -37,24 +35,22 @@ message Header {
 
   string id = 1; 
     
-  string objectClass = 2;
+  string namespace = 2;
   
-  string actionMethod = 3;
+  string targetMethod = 3;
 
-  string callBackMethodHandler = 6;
+  string targetMethodCancellation = 7;
 
-  string cancelationMethod = 7;
+  string platformCallBackMethodHandler = 6;
 
-  int32 callBackId = 8;
+  int32 callBackReferenceId = 8;
 
   enum CommunicationType {
     SETUP = 0;
     CANCELATION = 1;
   }
 
-  CommunicationType communicationType = 4;
-
-  google.protobuf.Timestamp last_updated = 5;
+  CommunicationType intent = 4;
 }
 
 message Error {
@@ -68,18 +64,9 @@ message Error {
 
 message Result {
 
-  string type = 1;
-  
-  string value = 2;
+  bool shouldBeEmpty = 4;
 
   google.protobuf.Any valuebytes = 3;
-}
-
-message Payload {
-
-  Result result = 1;
-
-  Error error = 2;
 }
 
 message Generic {
@@ -98,9 +85,11 @@ message Message {
 
   Header header = 1;
   
-  Payload payload = 2;
+  Result result = 2;
 
-  MirrorMethodCall methodCall = 3;
+  Error error = 3;
+
+  MirrorMethodCall methodCall = 4;
 }
 
 // [END messages]
