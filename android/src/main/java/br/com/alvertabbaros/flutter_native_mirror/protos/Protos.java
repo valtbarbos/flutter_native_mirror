@@ -2191,8 +2191,8 @@ public final class Protos {
 
   }
 
-  public interface ResultOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:protos.Result)
+  public interface PayloadOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:protos.Payload)
       com.google.protobuf.MessageOrBuilder {
 
     /**
@@ -2214,18 +2214,18 @@ public final class Protos {
     com.google.protobuf.AnyOrBuilder getValuebytesOrBuilder();
   }
   /**
-   * Protobuf type {@code protos.Result}
+   * Protobuf type {@code protos.Payload}
    */
-  public  static final class Result extends
+  public  static final class Payload extends
       com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:protos.Result)
-      ResultOrBuilder {
+      // @@protoc_insertion_point(message_implements:protos.Payload)
+      PayloadOrBuilder {
   private static final long serialVersionUID = 0L;
-    // Use Result.newBuilder() to construct.
-    private Result(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+    // Use Payload.newBuilder() to construct.
+    private Payload(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
       super(builder);
     }
-    private Result() {
+    private Payload() {
       shouldBeEmpty_ = false;
     }
 
@@ -2234,7 +2234,7 @@ public final class Protos {
     getUnknownFields() {
       return this.unknownFields;
     }
-    private Result(
+    private Payload(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
@@ -2292,15 +2292,15 @@ public final class Protos {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return br.com.alvertabbaros.flutter_native_mirror.protos.Protos.internal_static_protos_Result_descriptor;
+      return br.com.alvertabbaros.flutter_native_mirror.protos.Protos.internal_static_protos_Payload_descriptor;
     }
 
     @java.lang.Override
     protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return br.com.alvertabbaros.flutter_native_mirror.protos.Protos.internal_static_protos_Result_fieldAccessorTable
+      return br.com.alvertabbaros.flutter_native_mirror.protos.Protos.internal_static_protos_Payload_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result.class, br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result.Builder.class);
+              br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload.class, br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload.Builder.class);
     }
 
     public static final int SHOULDBEEMPTY_FIELD_NUMBER = 4;
@@ -2380,10 +2380,10 @@ public final class Protos {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result)) {
+      if (!(obj instanceof br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload)) {
         return super.equals(obj);
       }
-      br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result other = (br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result) obj;
+      br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload other = (br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload) obj;
 
       boolean result = true;
       result = result && (getShouldBeEmpty()
@@ -2416,69 +2416,69 @@ public final class Protos {
       return hash;
     }
 
-    public static br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result parseFrom(
+    public static br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result parseFrom(
+    public static br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result parseFrom(
+    public static br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result parseFrom(
+    public static br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result parseFrom(byte[] data)
+    public static br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result parseFrom(
+    public static br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result parseFrom(java.io.InputStream input)
+    public static br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result parseFrom(
+    public static br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result parseDelimitedFrom(java.io.InputStream input)
+    public static br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result parseDelimitedFrom(
+    public static br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result parseFrom(
+    public static br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result parseFrom(
+    public static br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -2491,7 +2491,7 @@ public final class Protos {
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result prototype) {
+    public static Builder newBuilder(br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
     @java.lang.Override
@@ -2507,26 +2507,26 @@ public final class Protos {
       return builder;
     }
     /**
-     * Protobuf type {@code protos.Result}
+     * Protobuf type {@code protos.Payload}
      */
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:protos.Result)
-        br.com.alvertabbaros.flutter_native_mirror.protos.Protos.ResultOrBuilder {
+        // @@protoc_insertion_point(builder_implements:protos.Payload)
+        br.com.alvertabbaros.flutter_native_mirror.protos.Protos.PayloadOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return br.com.alvertabbaros.flutter_native_mirror.protos.Protos.internal_static_protos_Result_descriptor;
+        return br.com.alvertabbaros.flutter_native_mirror.protos.Protos.internal_static_protos_Payload_descriptor;
       }
 
       @java.lang.Override
       protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return br.com.alvertabbaros.flutter_native_mirror.protos.Protos.internal_static_protos_Result_fieldAccessorTable
+        return br.com.alvertabbaros.flutter_native_mirror.protos.Protos.internal_static_protos_Payload_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result.class, br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result.Builder.class);
+                br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload.class, br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload.Builder.class);
       }
 
-      // Construct using br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result.newBuilder()
+      // Construct using br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload.newBuilder()
       private Builder() {
         maybeForceBuilderInitialization();
       }
@@ -2558,17 +2558,17 @@ public final class Protos {
       @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return br.com.alvertabbaros.flutter_native_mirror.protos.Protos.internal_static_protos_Result_descriptor;
+        return br.com.alvertabbaros.flutter_native_mirror.protos.Protos.internal_static_protos_Payload_descriptor;
       }
 
       @java.lang.Override
-      public br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result getDefaultInstanceForType() {
-        return br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result.getDefaultInstance();
+      public br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload getDefaultInstanceForType() {
+        return br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload.getDefaultInstance();
       }
 
       @java.lang.Override
-      public br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result build() {
-        br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result result = buildPartial();
+      public br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload build() {
+        br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
@@ -2576,8 +2576,8 @@ public final class Protos {
       }
 
       @java.lang.Override
-      public br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result buildPartial() {
-        br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result result = new br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result(this);
+      public br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload buildPartial() {
+        br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload result = new br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload(this);
         result.shouldBeEmpty_ = shouldBeEmpty_;
         if (valuebytesBuilder_ == null) {
           result.valuebytes_ = valuebytes_;
@@ -2622,16 +2622,16 @@ public final class Protos {
       }
       @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result) {
-          return mergeFrom((br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result)other);
+        if (other instanceof br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload) {
+          return mergeFrom((br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result other) {
-        if (other == br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result.getDefaultInstance()) return this;
+      public Builder mergeFrom(br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload other) {
+        if (other == br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload.getDefaultInstance()) return this;
         if (other.getShouldBeEmpty() != false) {
           setShouldBeEmpty(other.getShouldBeEmpty());
         }
@@ -2653,11 +2653,11 @@ public final class Protos {
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result parsedMessage = null;
+        br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result) e.getUnfinishedMessage();
+          parsedMessage = (br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -2822,41 +2822,41 @@ public final class Protos {
       }
 
 
-      // @@protoc_insertion_point(builder_scope:protos.Result)
+      // @@protoc_insertion_point(builder_scope:protos.Payload)
     }
 
-    // @@protoc_insertion_point(class_scope:protos.Result)
-    private static final br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result DEFAULT_INSTANCE;
+    // @@protoc_insertion_point(class_scope:protos.Payload)
+    private static final br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result();
+      DEFAULT_INSTANCE = new br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload();
     }
 
-    public static br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result getDefaultInstance() {
+    public static br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
-    private static final com.google.protobuf.Parser<Result>
-        PARSER = new com.google.protobuf.AbstractParser<Result>() {
+    private static final com.google.protobuf.Parser<Payload>
+        PARSER = new com.google.protobuf.AbstractParser<Payload>() {
       @java.lang.Override
-      public Result parsePartialFrom(
+      public Payload parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws com.google.protobuf.InvalidProtocolBufferException {
-        return new Result(input, extensionRegistry);
+        return new Payload(input, extensionRegistry);
       }
     };
 
-    public static com.google.protobuf.Parser<Result> parser() {
+    public static com.google.protobuf.Parser<Payload> parser() {
       return PARSER;
     }
 
     @java.lang.Override
-    public com.google.protobuf.Parser<Result> getParserForType() {
+    public com.google.protobuf.Parser<Payload> getParserForType() {
       return PARSER;
     }
 
     @java.lang.Override
-    public br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result getDefaultInstanceForType() {
+    public br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -4174,17 +4174,17 @@ public final class Protos {
     br.com.alvertabbaros.flutter_native_mirror.protos.Protos.HeaderOrBuilder getHeaderOrBuilder();
 
     /**
-     * <code>.protos.Result result = 2;</code>
+     * <code>.protos.Payload payload = 2;</code>
      */
-    boolean hasResult();
+    boolean hasPayload();
     /**
-     * <code>.protos.Result result = 2;</code>
+     * <code>.protos.Payload payload = 2;</code>
      */
-    br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result getResult();
+    br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload getPayload();
     /**
-     * <code>.protos.Result result = 2;</code>
+     * <code>.protos.Payload payload = 2;</code>
      */
-    br.com.alvertabbaros.flutter_native_mirror.protos.Protos.ResultOrBuilder getResultOrBuilder();
+    br.com.alvertabbaros.flutter_native_mirror.protos.Protos.PayloadOrBuilder getPayloadOrBuilder();
 
     /**
      * <code>.protos.Error error = 3;</code>
@@ -4265,14 +4265,14 @@ public final class Protos {
               break;
             }
             case 18: {
-              br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result.Builder subBuilder = null;
-              if (result_ != null) {
-                subBuilder = result_.toBuilder();
+              br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload.Builder subBuilder = null;
+              if (payload_ != null) {
+                subBuilder = payload_.toBuilder();
               }
-              result_ = input.readMessage(br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result.parser(), extensionRegistry);
+              payload_ = input.readMessage(br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload.parser(), extensionRegistry);
               if (subBuilder != null) {
-                subBuilder.mergeFrom(result_);
-                result_ = subBuilder.buildPartial();
+                subBuilder.mergeFrom(payload_);
+                payload_ = subBuilder.buildPartial();
               }
 
               break;
@@ -4356,25 +4356,25 @@ public final class Protos {
       return getHeader();
     }
 
-    public static final int RESULT_FIELD_NUMBER = 2;
-    private br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result result_;
+    public static final int PAYLOAD_FIELD_NUMBER = 2;
+    private br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload payload_;
     /**
-     * <code>.protos.Result result = 2;</code>
+     * <code>.protos.Payload payload = 2;</code>
      */
-    public boolean hasResult() {
-      return result_ != null;
+    public boolean hasPayload() {
+      return payload_ != null;
     }
     /**
-     * <code>.protos.Result result = 2;</code>
+     * <code>.protos.Payload payload = 2;</code>
      */
-    public br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result getResult() {
-      return result_ == null ? br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result.getDefaultInstance() : result_;
+    public br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload getPayload() {
+      return payload_ == null ? br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload.getDefaultInstance() : payload_;
     }
     /**
-     * <code>.protos.Result result = 2;</code>
+     * <code>.protos.Payload payload = 2;</code>
      */
-    public br.com.alvertabbaros.flutter_native_mirror.protos.Protos.ResultOrBuilder getResultOrBuilder() {
-      return getResult();
+    public br.com.alvertabbaros.flutter_native_mirror.protos.Protos.PayloadOrBuilder getPayloadOrBuilder() {
+      return getPayload();
     }
 
     public static final int ERROR_FIELD_NUMBER = 3;
@@ -4436,8 +4436,8 @@ public final class Protos {
       if (header_ != null) {
         output.writeMessage(1, getHeader());
       }
-      if (result_ != null) {
-        output.writeMessage(2, getResult());
+      if (payload_ != null) {
+        output.writeMessage(2, getPayload());
       }
       if (error_ != null) {
         output.writeMessage(3, getError());
@@ -4458,9 +4458,9 @@ public final class Protos {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(1, getHeader());
       }
-      if (result_ != null) {
+      if (payload_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, getResult());
+          .computeMessageSize(2, getPayload());
       }
       if (error_ != null) {
         size += com.google.protobuf.CodedOutputStream
@@ -4491,10 +4491,10 @@ public final class Protos {
         result = result && getHeader()
             .equals(other.getHeader());
       }
-      result = result && (hasResult() == other.hasResult());
-      if (hasResult()) {
-        result = result && getResult()
-            .equals(other.getResult());
+      result = result && (hasPayload() == other.hasPayload());
+      if (hasPayload()) {
+        result = result && getPayload()
+            .equals(other.getPayload());
       }
       result = result && (hasError() == other.hasError());
       if (hasError()) {
@@ -4521,9 +4521,9 @@ public final class Protos {
         hash = (37 * hash) + HEADER_FIELD_NUMBER;
         hash = (53 * hash) + getHeader().hashCode();
       }
-      if (hasResult()) {
-        hash = (37 * hash) + RESULT_FIELD_NUMBER;
-        hash = (53 * hash) + getResult().hashCode();
+      if (hasPayload()) {
+        hash = (37 * hash) + PAYLOAD_FIELD_NUMBER;
+        hash = (53 * hash) + getPayload().hashCode();
       }
       if (hasError()) {
         hash = (37 * hash) + ERROR_FIELD_NUMBER;
@@ -4672,11 +4672,11 @@ public final class Protos {
           header_ = null;
           headerBuilder_ = null;
         }
-        if (resultBuilder_ == null) {
-          result_ = null;
+        if (payloadBuilder_ == null) {
+          payload_ = null;
         } else {
-          result_ = null;
-          resultBuilder_ = null;
+          payload_ = null;
+          payloadBuilder_ = null;
         }
         if (errorBuilder_ == null) {
           error_ = null;
@@ -4721,10 +4721,10 @@ public final class Protos {
         } else {
           result.header_ = headerBuilder_.build();
         }
-        if (resultBuilder_ == null) {
-          result.result_ = result_;
+        if (payloadBuilder_ == null) {
+          result.payload_ = payload_;
         } else {
-          result.result_ = resultBuilder_.build();
+          result.payload_ = payloadBuilder_.build();
         }
         if (errorBuilder_ == null) {
           result.error_ = error_;
@@ -4787,8 +4787,8 @@ public final class Protos {
         if (other.hasHeader()) {
           mergeHeader(other.getHeader());
         }
-        if (other.hasResult()) {
-          mergeResult(other.getResult());
+        if (other.hasPayload()) {
+          mergePayload(other.getPayload());
         }
         if (other.hasError()) {
           mergeError(other.getError());
@@ -4942,121 +4942,121 @@ public final class Protos {
         return headerBuilder_;
       }
 
-      private br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result result_ = null;
+      private br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload payload_ = null;
       private com.google.protobuf.SingleFieldBuilderV3<
-          br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result, br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result.Builder, br.com.alvertabbaros.flutter_native_mirror.protos.Protos.ResultOrBuilder> resultBuilder_;
+          br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload, br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload.Builder, br.com.alvertabbaros.flutter_native_mirror.protos.Protos.PayloadOrBuilder> payloadBuilder_;
       /**
-       * <code>.protos.Result result = 2;</code>
+       * <code>.protos.Payload payload = 2;</code>
        */
-      public boolean hasResult() {
-        return resultBuilder_ != null || result_ != null;
+      public boolean hasPayload() {
+        return payloadBuilder_ != null || payload_ != null;
       }
       /**
-       * <code>.protos.Result result = 2;</code>
+       * <code>.protos.Payload payload = 2;</code>
        */
-      public br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result getResult() {
-        if (resultBuilder_ == null) {
-          return result_ == null ? br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result.getDefaultInstance() : result_;
+      public br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload getPayload() {
+        if (payloadBuilder_ == null) {
+          return payload_ == null ? br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload.getDefaultInstance() : payload_;
         } else {
-          return resultBuilder_.getMessage();
+          return payloadBuilder_.getMessage();
         }
       }
       /**
-       * <code>.protos.Result result = 2;</code>
+       * <code>.protos.Payload payload = 2;</code>
        */
-      public Builder setResult(br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result value) {
-        if (resultBuilder_ == null) {
+      public Builder setPayload(br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload value) {
+        if (payloadBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
           }
-          result_ = value;
+          payload_ = value;
           onChanged();
         } else {
-          resultBuilder_.setMessage(value);
+          payloadBuilder_.setMessage(value);
         }
 
         return this;
       }
       /**
-       * <code>.protos.Result result = 2;</code>
+       * <code>.protos.Payload payload = 2;</code>
        */
-      public Builder setResult(
-          br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result.Builder builderForValue) {
-        if (resultBuilder_ == null) {
-          result_ = builderForValue.build();
+      public Builder setPayload(
+          br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload.Builder builderForValue) {
+        if (payloadBuilder_ == null) {
+          payload_ = builderForValue.build();
           onChanged();
         } else {
-          resultBuilder_.setMessage(builderForValue.build());
+          payloadBuilder_.setMessage(builderForValue.build());
         }
 
         return this;
       }
       /**
-       * <code>.protos.Result result = 2;</code>
+       * <code>.protos.Payload payload = 2;</code>
        */
-      public Builder mergeResult(br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result value) {
-        if (resultBuilder_ == null) {
-          if (result_ != null) {
-            result_ =
-              br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result.newBuilder(result_).mergeFrom(value).buildPartial();
+      public Builder mergePayload(br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload value) {
+        if (payloadBuilder_ == null) {
+          if (payload_ != null) {
+            payload_ =
+              br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload.newBuilder(payload_).mergeFrom(value).buildPartial();
           } else {
-            result_ = value;
+            payload_ = value;
           }
           onChanged();
         } else {
-          resultBuilder_.mergeFrom(value);
+          payloadBuilder_.mergeFrom(value);
         }
 
         return this;
       }
       /**
-       * <code>.protos.Result result = 2;</code>
+       * <code>.protos.Payload payload = 2;</code>
        */
-      public Builder clearResult() {
-        if (resultBuilder_ == null) {
-          result_ = null;
+      public Builder clearPayload() {
+        if (payloadBuilder_ == null) {
+          payload_ = null;
           onChanged();
         } else {
-          result_ = null;
-          resultBuilder_ = null;
+          payload_ = null;
+          payloadBuilder_ = null;
         }
 
         return this;
       }
       /**
-       * <code>.protos.Result result = 2;</code>
+       * <code>.protos.Payload payload = 2;</code>
        */
-      public br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result.Builder getResultBuilder() {
+      public br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload.Builder getPayloadBuilder() {
         
         onChanged();
-        return getResultFieldBuilder().getBuilder();
+        return getPayloadFieldBuilder().getBuilder();
       }
       /**
-       * <code>.protos.Result result = 2;</code>
+       * <code>.protos.Payload payload = 2;</code>
        */
-      public br.com.alvertabbaros.flutter_native_mirror.protos.Protos.ResultOrBuilder getResultOrBuilder() {
-        if (resultBuilder_ != null) {
-          return resultBuilder_.getMessageOrBuilder();
+      public br.com.alvertabbaros.flutter_native_mirror.protos.Protos.PayloadOrBuilder getPayloadOrBuilder() {
+        if (payloadBuilder_ != null) {
+          return payloadBuilder_.getMessageOrBuilder();
         } else {
-          return result_ == null ?
-              br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result.getDefaultInstance() : result_;
+          return payload_ == null ?
+              br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload.getDefaultInstance() : payload_;
         }
       }
       /**
-       * <code>.protos.Result result = 2;</code>
+       * <code>.protos.Payload payload = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result, br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result.Builder, br.com.alvertabbaros.flutter_native_mirror.protos.Protos.ResultOrBuilder> 
-          getResultFieldBuilder() {
-        if (resultBuilder_ == null) {
-          resultBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result, br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Result.Builder, br.com.alvertabbaros.flutter_native_mirror.protos.Protos.ResultOrBuilder>(
-                  getResult(),
+          br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload, br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload.Builder, br.com.alvertabbaros.flutter_native_mirror.protos.Protos.PayloadOrBuilder> 
+          getPayloadFieldBuilder() {
+        if (payloadBuilder_ == null) {
+          payloadBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload, br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Payload.Builder, br.com.alvertabbaros.flutter_native_mirror.protos.Protos.PayloadOrBuilder>(
+                  getPayload(),
                   getParentForChildren(),
                   isClean());
-          result_ = null;
+          payload_ = null;
         }
-        return resultBuilder_;
+        return payloadBuilder_;
       }
 
       private br.com.alvertabbaros.flutter_native_mirror.protos.Protos.Error error_ = null;
@@ -5356,10 +5356,10 @@ public final class Protos {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_protos_Error_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_protos_Result_descriptor;
+    internal_static_protos_Payload_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_protos_Result_fieldAccessorTable;
+      internal_static_protos_Payload_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_protos_Generic_descriptor;
   private static final 
@@ -5394,17 +5394,17 @@ public final class Protos {
       "Header.CommunicationType\"/\n\021Communicatio" +
       "nType\022\t\n\005SETUP\020\000\022\017\n\013CANCELATION\020\001\"7\n\005Err" +
       "or\022\017\n\007message\030\001 \001(\t\022\014\n\004code\030\002 \001(\t\022\017\n\007det" +
-      "ails\030\003 \001(\t\"I\n\006Result\022\025\n\rshouldBeEmpty\030\004 " +
-      "\001(\010\022(\n\nvaluebytes\030\003 \001(\0132\024.google.protobu" +
-      "f.Any\"\027\n\007Generic\022\014\n\004data\030\001 \001(\t\"K\n\020Mirror" +
-      "MethodCall\022\016\n\006method\030\001 \001(\t\022\'\n\targuments\030" +
-      "\002 \001(\0132\024.google.protobuf.Any\"\225\001\n\007Message\022" +
-      "\036\n\006header\030\001 \001(\0132\016.protos.Header\022\036\n\006resul" +
-      "t\030\002 \001(\0132\016.protos.Result\022\034\n\005error\030\003 \001(\0132\r" +
-      ".protos.Error\022,\n\nmethodCall\030\004 \001(\0132\030.prot" +
-      "os.MirrorMethodCallBF\n1br.com.alvertabba" +
-      "ros.flutter_native_mirror.protosB\006Protos" +
-      "P\000\242\002\006Protosb\006proto3"
+      "ails\030\003 \001(\t\"J\n\007Payload\022\025\n\rshouldBeEmpty\030\004" +
+      " \001(\010\022(\n\nvaluebytes\030\003 \001(\0132\024.google.protob" +
+      "uf.Any\"\027\n\007Generic\022\014\n\004data\030\001 \001(\t\"K\n\020Mirro" +
+      "rMethodCall\022\016\n\006method\030\001 \001(\t\022\'\n\targuments" +
+      "\030\002 \001(\0132\024.google.protobuf.Any\"\227\001\n\007Message" +
+      "\022\036\n\006header\030\001 \001(\0132\016.protos.Header\022 \n\007payl" +
+      "oad\030\002 \001(\0132\017.protos.Payload\022\034\n\005error\030\003 \001(" +
+      "\0132\r.protos.Error\022,\n\nmethodCall\030\004 \001(\0132\030.p" +
+      "rotos.MirrorMethodCallBF\n1br.com.alverta" +
+      "bbaros.flutter_native_mirror.protosB\006Pro" +
+      "tosP\000\242\002\006Protosb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -5431,11 +5431,11 @@ public final class Protos {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protos_Error_descriptor,
         new java.lang.String[] { "Message", "Code", "Details", });
-    internal_static_protos_Result_descriptor =
+    internal_static_protos_Payload_descriptor =
       getDescriptor().getMessageTypes().get(2);
-    internal_static_protos_Result_fieldAccessorTable = new
+    internal_static_protos_Payload_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_protos_Result_descriptor,
+        internal_static_protos_Payload_descriptor,
         new java.lang.String[] { "ShouldBeEmpty", "Valuebytes", });
     internal_static_protos_Generic_descriptor =
       getDescriptor().getMessageTypes().get(3);
@@ -5454,7 +5454,7 @@ public final class Protos {
     internal_static_protos_Message_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_protos_Message_descriptor,
-        new java.lang.String[] { "Header", "Result", "Error", "MethodCall", });
+        new java.lang.String[] { "Header", "Payload", "Error", "MethodCall", });
     com.google.protobuf.AnyProto.getDescriptor();
   }
 

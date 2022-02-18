@@ -271,17 +271,17 @@ typedef struct ProtosError__storage_ {
 
 @end
 
-#pragma mark - ProtosResult
+#pragma mark - ProtosPayload
 
-@implementation ProtosResult
+@implementation ProtosPayload
 
 @dynamic shouldBeEmpty;
 @dynamic hasValuebytes, valuebytes;
 
-typedef struct ProtosResult__storage_ {
+typedef struct ProtosPayload__storage_ {
   uint32_t _has_storage_[1];
   GPBAny *valuebytes;
-} ProtosResult__storage_;
+} ProtosPayload__storage_;
 
 // This method is threadsafe because it is initially called
 // in +initialize for each subclass.
@@ -292,16 +292,16 @@ typedef struct ProtosResult__storage_ {
       {
         .name = "valuebytes",
         .dataTypeSpecific.className = GPBStringifySymbol(GPBAny),
-        .number = ProtosResult_FieldNumber_Valuebytes,
+        .number = ProtosPayload_FieldNumber_Valuebytes,
         .hasIndex = 2,
-        .offset = (uint32_t)offsetof(ProtosResult__storage_, valuebytes),
+        .offset = (uint32_t)offsetof(ProtosPayload__storage_, valuebytes),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeMessage,
       },
       {
         .name = "shouldBeEmpty",
         .dataTypeSpecific.className = NULL,
-        .number = ProtosResult_FieldNumber_ShouldBeEmpty,
+        .number = ProtosPayload_FieldNumber_ShouldBeEmpty,
         .hasIndex = 0,
         .offset = 1,  // Stored in _has_storage_ to save space.
         .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
@@ -309,12 +309,12 @@ typedef struct ProtosResult__storage_ {
       },
     };
     GPBDescriptor *localDescriptor =
-        [GPBDescriptor allocDescriptorForClass:[ProtosResult class]
+        [GPBDescriptor allocDescriptorForClass:[ProtosPayload class]
                                      rootClass:[ProtosMessageRoot class]
                                           file:ProtosMessageRoot_FileDescriptor()
                                         fields:fields
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
-                                   storageSize:sizeof(ProtosResult__storage_)
+                                   storageSize:sizeof(ProtosPayload__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
 #if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     static const char *extraTextFormatInfo =
@@ -431,14 +431,14 @@ typedef struct ProtosMirrorMethodCall__storage_ {
 @implementation ProtosMessage
 
 @dynamic hasHeader, header;
-@dynamic hasResult, result;
+@dynamic hasPayload, payload;
 @dynamic hasError, error;
 @dynamic hasMethodCall, methodCall;
 
 typedef struct ProtosMessage__storage_ {
   uint32_t _has_storage_[1];
   ProtosHeader *header;
-  ProtosResult *result;
+  ProtosPayload *payload;
   ProtosError *error;
   ProtosMirrorMethodCall *methodCall;
 } ProtosMessage__storage_;
@@ -459,11 +459,11 @@ typedef struct ProtosMessage__storage_ {
         .dataType = GPBDataTypeMessage,
       },
       {
-        .name = "result",
-        .dataTypeSpecific.className = GPBStringifySymbol(ProtosResult),
-        .number = ProtosMessage_FieldNumber_Result,
+        .name = "payload",
+        .dataTypeSpecific.className = GPBStringifySymbol(ProtosPayload),
+        .number = ProtosMessage_FieldNumber_Payload,
         .hasIndex = 1,
-        .offset = (uint32_t)offsetof(ProtosMessage__storage_, result),
+        .offset = (uint32_t)offsetof(ProtosMessage__storage_, payload),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeMessage,
       },

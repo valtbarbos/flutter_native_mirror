@@ -46,17 +46,17 @@ const Error$json = const {
 
 /// Descriptor for `Error`. Decode as a `google.protobuf.DescriptorProto`.
 final $typed_data.Uint8List errorDescriptor = $convert.base64Decode('CgVFcnJvchIYCgdtZXNzYWdlGAEgASgJUgdtZXNzYWdlEhIKBGNvZGUYAiABKAlSBGNvZGUSGAoHZGV0YWlscxgDIAEoCVIHZGV0YWlscw==');
-@$core.Deprecated('Use resultDescriptor instead')
-const Result$json = const {
-  '1': 'Result',
+@$core.Deprecated('Use payloadDescriptor instead')
+const Payload$json = const {
+  '1': 'Payload',
   '2': const [
     const {'1': 'shouldBeEmpty', '3': 4, '4': 1, '5': 8, '10': 'shouldBeEmpty'},
     const {'1': 'valuebytes', '3': 3, '4': 1, '5': 11, '6': '.google.protobuf.Any', '10': 'valuebytes'},
   ],
 };
 
-/// Descriptor for `Result`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List resultDescriptor = $convert.base64Decode('CgZSZXN1bHQSJAoNc2hvdWxkQmVFbXB0eRgEIAEoCFINc2hvdWxkQmVFbXB0eRI0Cgp2YWx1ZWJ5dGVzGAMgASgLMhQuZ29vZ2xlLnByb3RvYnVmLkFueVIKdmFsdWVieXRlcw==');
+/// Descriptor for `Payload`. Decode as a `google.protobuf.DescriptorProto`.
+final $typed_data.Uint8List payloadDescriptor = $convert.base64Decode('CgdQYXlsb2FkEiQKDXNob3VsZEJlRW1wdHkYBCABKAhSDXNob3VsZEJlRW1wdHkSNAoKdmFsdWVieXRlcxgDIAEoCzIULmdvb2dsZS5wcm90b2J1Zi5BbnlSCnZhbHVlYnl0ZXM=');
 @$core.Deprecated('Use genericDescriptor instead')
 const Generic$json = const {
   '1': 'Generic',
@@ -83,11 +83,11 @@ const Message$json = const {
   '1': 'Message',
   '2': const [
     const {'1': 'header', '3': 1, '4': 1, '5': 11, '6': '.protos.Header', '10': 'header'},
-    const {'1': 'result', '3': 2, '4': 1, '5': 11, '6': '.protos.Result', '10': 'result'},
+    const {'1': 'payload', '3': 2, '4': 1, '5': 11, '6': '.protos.Payload', '10': 'payload'},
     const {'1': 'error', '3': 3, '4': 1, '5': 11, '6': '.protos.Error', '10': 'error'},
     const {'1': 'methodCall', '3': 4, '4': 1, '5': 11, '6': '.protos.MirrorMethodCall', '10': 'methodCall'},
   ],
 };
 
 /// Descriptor for `Message`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List messageDescriptor = $convert.base64Decode('CgdNZXNzYWdlEiYKBmhlYWRlchgBIAEoCzIOLnByb3Rvcy5IZWFkZXJSBmhlYWRlchImCgZyZXN1bHQYAiABKAsyDi5wcm90b3MuUmVzdWx0UgZyZXN1bHQSIwoFZXJyb3IYAyABKAsyDS5wcm90b3MuRXJyb3JSBWVycm9yEjgKCm1ldGhvZENhbGwYBCABKAsyGC5wcm90b3MuTWlycm9yTWV0aG9kQ2FsbFIKbWV0aG9kQ2FsbA==');
+final $typed_data.Uint8List messageDescriptor = $convert.base64Decode('CgdNZXNzYWdlEiYKBmhlYWRlchgBIAEoCzIOLnByb3Rvcy5IZWFkZXJSBmhlYWRlchIpCgdwYXlsb2FkGAIgASgLMg8ucHJvdG9zLlBheWxvYWRSB3BheWxvYWQSIwoFZXJyb3IYAyABKAsyDS5wcm90b3MuRXJyb3JSBWVycm9yEjgKCm1ldGhvZENhbGwYBCABKAsyGC5wcm90b3MuTWlycm9yTWV0aG9kQ2FsbFIKbWV0aG9kQ2FsbA==');

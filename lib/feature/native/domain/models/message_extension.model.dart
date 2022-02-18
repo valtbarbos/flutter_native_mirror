@@ -2,7 +2,7 @@
 
 part of './models.devicekit.dart';
 
-extension ResultX on Result {
+extension PayloadX on Payload {
   bool isEmpty() {
     return !valuebytes.hasValue();
   }
@@ -19,10 +19,10 @@ extension MessageX on Message {
     return error.code.isNotEmpty;
   }
 
-  bool isEmptyResult() => result.shouldBeEmpty;
+  bool isEmptyResult() => payload.shouldBeEmpty;
 
-  Future<Result> validation() async {
-    if (result.isInvalid()) {
+  Future<Payload> validation() async {
+    if (payload.isInvalid()) {
       throw PlatformException(
         code: 'connection-playload-invalid',
         message: 'Please, check our entrypoint container.',
@@ -35,7 +35,7 @@ extension MessageX on Message {
         details: error.details,
       );
     } else {
-      return result;
+      return payload;
     }
   }
 }

@@ -221,15 +221,15 @@ class Error extends $pb.GeneratedMessage {
   void clearDetails() => clearField(3);
 }
 
-class Result extends $pb.GeneratedMessage {
-  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Result', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'protos'), createEmptyInstance: create)
+class Payload extends $pb.GeneratedMessage {
+  static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Payload', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'protos'), createEmptyInstance: create)
     ..aOM<$0.Any>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'valuebytes', subBuilder: $0.Any.create)
     ..aOB(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'shouldBeEmpty', protoName: 'shouldBeEmpty')
     ..hasRequiredFields = false
   ;
 
-  Result._() : super();
-  factory Result({
+  Payload._() : super();
+  factory Payload({
     $0.Any? valuebytes,
     $core.bool? shouldBeEmpty,
   }) {
@@ -242,26 +242,26 @@ class Result extends $pb.GeneratedMessage {
     }
     return _result;
   }
-  factory Result.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
-  factory Result.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
+  factory Payload.fromBuffer($core.List<$core.int> i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromBuffer(i, r);
+  factory Payload.fromJson($core.String i, [$pb.ExtensionRegistry r = $pb.ExtensionRegistry.EMPTY]) => create()..mergeFromJson(i, r);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.deepCopy] instead. '
   'Will be removed in next major version')
-  Result clone() => Result()..mergeFromMessage(this);
+  Payload clone() => Payload()..mergeFromMessage(this);
   @$core.Deprecated(
   'Using this can add significant overhead to your binary. '
   'Use [GeneratedMessageGenericExtensions.rebuild] instead. '
   'Will be removed in next major version')
-  Result copyWith(void Function(Result) updates) => super.copyWith((message) => updates(message as Result)) as Result; // ignore: deprecated_member_use
+  Payload copyWith(void Function(Payload) updates) => super.copyWith((message) => updates(message as Payload)) as Payload; // ignore: deprecated_member_use
   $pb.BuilderInfo get info_ => _i;
   @$core.pragma('dart2js:noInline')
-  static Result create() => Result._();
-  Result createEmptyInstance() => create();
-  static $pb.PbList<Result> createRepeated() => $pb.PbList<Result>();
+  static Payload create() => Payload._();
+  Payload createEmptyInstance() => create();
+  static $pb.PbList<Payload> createRepeated() => $pb.PbList<Payload>();
   @$core.pragma('dart2js:noInline')
-  static Result getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Result>(create);
-  static Result? _defaultInstance;
+  static Payload getDefault() => _defaultInstance ??= $pb.GeneratedMessage.$_defaultFor<Payload>(create);
+  static Payload? _defaultInstance;
 
   @$pb.TagNumber(3)
   $0.Any get valuebytes => $_getN(0);
@@ -397,7 +397,7 @@ class MirrorMethodCall extends $pb.GeneratedMessage {
 class Message extends $pb.GeneratedMessage {
   static final $pb.BuilderInfo _i = $pb.BuilderInfo(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'Message', package: const $pb.PackageName(const $core.bool.fromEnvironment('protobuf.omit_message_names') ? '' : 'protos'), createEmptyInstance: create)
     ..aOM<Header>(1, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'header', subBuilder: Header.create)
-    ..aOM<Result>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'result', subBuilder: Result.create)
+    ..aOM<Payload>(2, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'payload', subBuilder: Payload.create)
     ..aOM<Error>(3, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'error', subBuilder: Error.create)
     ..aOM<MirrorMethodCall>(4, const $core.bool.fromEnvironment('protobuf.omit_field_names') ? '' : 'methodCall', protoName: 'methodCall', subBuilder: MirrorMethodCall.create)
     ..hasRequiredFields = false
@@ -406,7 +406,7 @@ class Message extends $pb.GeneratedMessage {
   Message._() : super();
   factory Message({
     Header? header,
-    Result? result,
+    Payload? payload,
     Error? error,
     MirrorMethodCall? methodCall,
   }) {
@@ -414,8 +414,8 @@ class Message extends $pb.GeneratedMessage {
     if (header != null) {
       _result.header = header;
     }
-    if (result != null) {
-      _result.result = result;
+    if (payload != null) {
+      _result.payload = payload;
     }
     if (error != null) {
       _result.error = error;
@@ -458,15 +458,15 @@ class Message extends $pb.GeneratedMessage {
   Header ensureHeader() => $_ensure(0);
 
   @$pb.TagNumber(2)
-  Result get result => $_getN(1);
+  Payload get payload => $_getN(1);
   @$pb.TagNumber(2)
-  set result(Result v) { setField(2, v); }
+  set payload(Payload v) { setField(2, v); }
   @$pb.TagNumber(2)
-  $core.bool hasResult() => $_has(1);
+  $core.bool hasPayload() => $_has(1);
   @$pb.TagNumber(2)
-  void clearResult() => clearField(2);
+  void clearPayload() => clearField(2);
   @$pb.TagNumber(2)
-  Result ensureResult() => $_ensure(1);
+  Payload ensurePayload() => $_ensure(1);
 
   @$pb.TagNumber(3)
   Error get error => $_getN(2);
