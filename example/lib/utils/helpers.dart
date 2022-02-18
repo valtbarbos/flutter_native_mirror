@@ -78,9 +78,7 @@ class NativeChannelsCommunication {
           targetMethod: 'simpleRpc',
         ),
         result: Result(
-            valuebytes: Any(
-                value:
-                    Generic(data: DateTime.now().toString()).writeToBuffer())));
+            valuebytes: Any.pack(Generic(data: DateTime.now().toString()))));
 
     final responseMessage = await entrypoint.send(requestMessage);
 
