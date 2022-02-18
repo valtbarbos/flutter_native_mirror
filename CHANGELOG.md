@@ -5,3 +5,10 @@
 ## 0.0.2
 
 * Ignore registered callback, without throwing an exception.
+
+## 0.0.3
+
+* Many breaking changes!
+* Payload: should be empty indicator
+* Gradle: new version
+* Simplyfing abstractions usage
