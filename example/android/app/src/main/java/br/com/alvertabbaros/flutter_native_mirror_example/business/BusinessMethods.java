@@ -129,15 +129,8 @@ public class BusinessMethods {
 
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             time = Instant.now();
-
             time = time.plusSeconds(10);
-
-            Timestamp timestamp = Timestamp
-                    .newBuilder()
-                    .setSeconds(time.getEpochSecond())
-                    .setNanos(time.getNano()).build();
-
-            generic.setData(timestamp.toString());
+            generic.setData(time.toString());
         }
 
         response.setHeader(header);
@@ -145,6 +138,8 @@ public class BusinessMethods {
         Protos.Result.Builder result = Protos.Result.newBuilder();
 
         result.setValuebytes(Any.pack(generic.build()));
+
+        response.setResult(result);
 
         platformResult.success(response.build().toByteArray());
     }
