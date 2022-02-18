@@ -209,7 +209,7 @@ void main() {
 
       Future<CancelListening> startListeningDefaultScenario({
         required WidgetTester tester,
-        Result? expectedResult,
+        Payload? expectedResult,
         Error? expectedError,
         MirrorMethodCall? expectedMethodCall,
       }) async {
@@ -222,12 +222,12 @@ void main() {
             targetMethodCancellation: 'playgroundStop',
           );
 
-          final result = Result(
+          final result = Payload(
             valuebytes:
                 Any.pack(Generic(data: 'From host\'s side: Hello listener!')),
           );
 
-          expectedAnswer.result = expectedResult ?? result;
+          expectedAnswer.payload = expectedResult ?? result;
 
           if (expectedError != null) {
             expectedAnswer.error = expectedError;

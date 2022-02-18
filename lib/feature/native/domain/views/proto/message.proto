@@ -62,7 +62,7 @@ message Error {
   string details = 3;
 }
 
-message Result {
+message Payload {
 
   bool shouldBeEmpty = 4;
 
@@ -85,7 +85,7 @@ message Message {
 
   Header header = 1;
   
-  Result result = 2;
+  Payload payload = 2;
 
   Error error = 3;
 

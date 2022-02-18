@@ -29,7 +29,7 @@ class PlatformEntrypoint extends IPlatformEntrypoint {
     required namespace,
     required targetMethod,
     required targetMethodCancellation,
-    Result? args,
+    Payload? args,
   }) {
     return Message(
       header: Header(
@@ -41,7 +41,7 @@ class PlatformEntrypoint extends IPlatformEntrypoint {
             PlatformEntrypoint.platformCallBackMethodHandler,
         intent: Header_CommunicationType.SETUP,
       ),
-      result: args,
+      payload: args,
     );
   }
 

@@ -135,11 +135,11 @@ public class BusinessMethods {
 
         response.setHeader(header);
 
-        Protos.Result.Builder result = Protos.Result.newBuilder();
+        Protos.Payload.Builder result = Protos.Payload.newBuilder();
 
         result.setValuebytes(Any.pack(generic.build()));
 
-        response.setResult(result);
+        response.setPayload(result);
 
         platformResult.success(response.build().toByteArray());
     }
@@ -185,11 +185,11 @@ public class BusinessMethods {
             generic.setData(timestamp.toString());
         }
 
-        Protos.Result.Builder result = Protos.Result.newBuilder();
+        Protos.Payload.Builder result = Protos.Payload.newBuilder();
 
         result.setValuebytes(Any.pack(generic.build()));
 
-        pMessage.setResult(result);
+        pMessage.setPayload(result);
 
         String platformCallBackMethodHandler = messageBase.getHeader().getPlatformCallBackMethodHandler();
 

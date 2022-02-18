@@ -31,7 +31,7 @@ CF_EXTERN_C_BEGIN
 @class ProtosError;
 @class ProtosHeader;
 @class ProtosMirrorMethodCall;
-@class ProtosResult;
+@class ProtosPayload;
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -131,14 +131,14 @@ typedef GPB_ENUM(ProtosError_FieldNumber) {
 
 @end
 
-#pragma mark - ProtosResult
+#pragma mark - ProtosPayload
 
-typedef GPB_ENUM(ProtosResult_FieldNumber) {
-  ProtosResult_FieldNumber_Valuebytes = 3,
-  ProtosResult_FieldNumber_ShouldBeEmpty = 4,
+typedef GPB_ENUM(ProtosPayload_FieldNumber) {
+  ProtosPayload_FieldNumber_Valuebytes = 3,
+  ProtosPayload_FieldNumber_ShouldBeEmpty = 4,
 };
 
-@interface ProtosResult : GPBMessage
+@interface ProtosPayload : GPBMessage
 
 @property(nonatomic, readwrite) BOOL shouldBeEmpty;
 
@@ -181,7 +181,7 @@ typedef GPB_ENUM(ProtosMirrorMethodCall_FieldNumber) {
 
 typedef GPB_ENUM(ProtosMessage_FieldNumber) {
   ProtosMessage_FieldNumber_Header = 1,
-  ProtosMessage_FieldNumber_Result = 2,
+  ProtosMessage_FieldNumber_Payload = 2,
   ProtosMessage_FieldNumber_Error = 3,
   ProtosMessage_FieldNumber_MethodCall = 4,
 };
@@ -192,9 +192,9 @@ typedef GPB_ENUM(ProtosMessage_FieldNumber) {
 /** Test to see if @c header has been set. */
 @property(nonatomic, readwrite) BOOL hasHeader;
 
-@property(nonatomic, readwrite, strong, null_resettable) ProtosResult *result;
-/** Test to see if @c result has been set. */
-@property(nonatomic, readwrite) BOOL hasResult;
+@property(nonatomic, readwrite, strong, null_resettable) ProtosPayload *payload;
+/** Test to see if @c payload has been set. */
+@property(nonatomic, readwrite) BOOL hasPayload;
 
 @property(nonatomic, readwrite, strong, null_resettable) ProtosError *error;
 /** Test to see if @c error has been set. */

@@ -77,20 +77,20 @@ class NativeChannelsCommunication {
           namespace: NativeCommunicationMetadata.businessNamespace,
           targetMethod: 'simpleRpc',
         ),
-        result: Result(
+        payload: Payload(
             valuebytes: Any.pack(Generic(data: DateTime.now().toString()))));
 
     final responseMessage = await entrypoint.send(requestMessage);
 
     final packet1 = Generic.create();
 
-    requestMessage.result.valuebytes.unpackInto(packet1);
+    requestMessage.payload.valuebytes.unpackInto(packet1);
 
     final sentTime = DateTime.parse(packet1.data);
 
     final packet2 = Generic.create();
 
-    responseMessage.result.valuebytes.unpackInto(packet2);
+    responseMessage.payload.valuebytes.unpackInto(packet2);
 
     final receivedTime = DateTime.parse(packet2.data);
 
