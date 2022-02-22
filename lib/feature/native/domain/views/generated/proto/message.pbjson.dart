@@ -50,13 +50,12 @@ final $typed_data.Uint8List errorDescriptor = $convert.base64Decode('CgVFcnJvchI
 const Payload$json = const {
   '1': 'Payload',
   '2': const [
-    const {'1': 'shouldBeEmpty', '3': 4, '4': 1, '5': 8, '10': 'shouldBeEmpty'},
     const {'1': 'valuebytes', '3': 3, '4': 1, '5': 11, '6': '.google.protobuf.Any', '10': 'valuebytes'},
   ],
 };
 
 /// Descriptor for `Payload`. Decode as a `google.protobuf.DescriptorProto`.
-final $typed_data.Uint8List payloadDescriptor = $convert.base64Decode('CgdQYXlsb2FkEiQKDXNob3VsZEJlRW1wdHkYBCABKAhSDXNob3VsZEJlRW1wdHkSNAoKdmFsdWVieXRlcxgDIAEoCzIULmdvb2dsZS5wcm90b2J1Zi5BbnlSCnZhbHVlYnl0ZXM=');
+final $typed_data.Uint8List payloadDescriptor = $convert.base64Decode('CgdQYXlsb2FkEjQKCnZhbHVlYnl0ZXMYAyABKAsyFC5nb29nbGUucHJvdG9idWYuQW55Ugp2YWx1ZWJ5dGVz');
 @$core.Deprecated('Use genericDescriptor instead')
 const Generic$json = const {
   '1': 'Generic',
