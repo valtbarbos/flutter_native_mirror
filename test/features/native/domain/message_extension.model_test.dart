@@ -33,26 +33,4 @@ void main() {
           const TypeMatcher<PlatformException>(),
         ));
   });
-
-  testWidgets(
-      'WHEN call [PayloadX] apply() on an invalid playload message'
-      'THEN should throw [PlatformException] ', (
-    WidgetTester tester,
-  ) async {
-    // arranje
-
-    final message = PlatformEntrypoint.defaultListenerSetup(
-      namespace: NativeCommunicationMetadata.businessNamespace,
-      targetMethod: 'playgroundStart',
-      targetMethodCancellation: 'playgroundStop',
-    );
-
-    // act && assert
-
-    expect(
-        () => message.validation(),
-        throwsA(
-          const TypeMatcher<PlatformException>(),
-        ));
-  });
 }
