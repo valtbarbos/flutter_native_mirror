@@ -12,3 +12,7 @@
 * Payload: should be empty indicator
 * Gradle: new version
 * Simplyfing abstractions usage
+
+## 0.0.4
+
+* Remove unused property: shouldBeEmpty
