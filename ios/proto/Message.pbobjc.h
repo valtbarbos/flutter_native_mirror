@@ -135,12 +135,9 @@ typedef GPB_ENUM(ProtosError_FieldNumber) {
 
 typedef GPB_ENUM(ProtosPayload_FieldNumber) {
   ProtosPayload_FieldNumber_Valuebytes = 3,
-  ProtosPayload_FieldNumber_ShouldBeEmpty = 4,
 };
 
 @interface ProtosPayload : GPBMessage
-
-@property(nonatomic, readwrite) BOOL shouldBeEmpty;
 
 @property(nonatomic, readwrite, strong, null_resettable) GPBAny *valuebytes;
 /** Test to see if @c valuebytes has been set. */

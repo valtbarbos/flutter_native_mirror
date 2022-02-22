@@ -275,7 +275,6 @@ typedef struct ProtosError__storage_ {
 
 @implementation ProtosPayload
 
-@dynamic shouldBeEmpty;
 @dynamic hasValuebytes, valuebytes;
 
 typedef struct ProtosPayload__storage_ {
@@ -293,19 +292,10 @@ typedef struct ProtosPayload__storage_ {
         .name = "valuebytes",
         .dataTypeSpecific.className = GPBStringifySymbol(GPBAny),
         .number = ProtosPayload_FieldNumber_Valuebytes,
-        .hasIndex = 2,
+        .hasIndex = 0,
         .offset = (uint32_t)offsetof(ProtosPayload__storage_, valuebytes),
         .flags = GPBFieldOptional,
         .dataType = GPBDataTypeMessage,
-      },
-      {
-        .name = "shouldBeEmpty",
-        .dataTypeSpecific.className = NULL,
-        .number = ProtosPayload_FieldNumber_ShouldBeEmpty,
-        .hasIndex = 0,
-        .offset = 1,  // Stored in _has_storage_ to save space.
-        .flags = (GPBFieldFlags)(GPBFieldOptional | GPBFieldTextFormatNameCustom),
-        .dataType = GPBDataTypeBool,
       },
     };
     GPBDescriptor *localDescriptor =
@@ -316,11 +306,6 @@ typedef struct ProtosPayload__storage_ {
                                     fieldCount:(uint32_t)(sizeof(fields) / sizeof(GPBMessageFieldDescription))
                                    storageSize:sizeof(ProtosPayload__storage_)
                                          flags:GPBDescriptorInitializationFlag_None];
-#if !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
-    static const char *extraTextFormatInfo =
-        "\001\004\r\000";
-    [localDescriptor setupExtraTextInfo:extraTextFormatInfo];
-#endif  // !GPBOBJC_SKIP_MESSAGE_TEXTFORMAT_EXTRAS
     NSAssert(descriptor == nil, @"Startup recursed!");
     descriptor = localDescriptor;
   }

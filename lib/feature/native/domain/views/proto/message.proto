@@ -64,8 +64,6 @@ message Error {
 
 message Payload {
 
-  bool shouldBeEmpty = 4;
-
   google.protobuf.Any valuebytes = 3;
 }
 
